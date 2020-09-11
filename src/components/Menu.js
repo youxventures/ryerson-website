@@ -1,53 +1,39 @@
-import React from "react"
-import { StaticQuery, graphql } from "gatsby"
-import MenuItem from "./MenuItem"
+/** @jsx jsx */
+import { jsx } from 'theme-ui'
+import { useStaticQuery, graphql } from 'gatsby'
+import MenuItem from './MenuItem'
 
-const MENU_QUERY = graphql`
-    fragment MenuItem on WPGraphQL_MenuItem {
-        id
-        label
-        url
-        title
-        target
-    }
-
-    query GETMAINMENU {
+export default () => {
+  const { wpgraphql } = useStaticQuery(
+    graphql`
+      query {
         wpgraphql {
-            menuItems(where: {location: PRIMARY}) {
-                nodes {
-                    ...MenuItem
-                }
+          generalSettings {
+            url
+          }
+          menuItems(where: {location: PRIMARY}) {
+            nodes {
+              id
+              url
+              label
             }
-            generalSettings {
-                url
-            }
+          }
         }
-    }
-`
+      }
+    `
+  )
 
-const Menu = () => {
+  const menuItems = wpgraphql.menuItems.nodes
+  const wordPressUrl = wpgraphql.generalSettings.url
+
   return (
-    <StaticQuery
-      query={MENU_QUERY}
-      render={(data) => {
-        if (data.wpgraphql.menuItems) {
-          const menuItems = data.wpgraphql.menuItems.nodes
-          const wordPressUrl = data.wpgraphql.generalSettings.url
-
-          return (
-            <div>
-              {menuItems &&
-                menuItems.map((menuItem) => (
-                  <MenuItem key={menuItem.id} menuItem={menuItem} wordPressUrl={wordPressUrl}/>
-                ))
-              }
-            </div>
-          )
-        }
-        return null
-      }}
-    />
+    <nav role="navigation" sx={{
+      display: 'flex',
+      flexDirection: 'column'
+    }}>
+      {menuItems.map((menuItem) => (
+        <MenuItem key={menuItem.id} menuItem={menuItem} wordPressUrl={wordPressUrl}/>
+      ))}
+    </nav>
   )
 }
-
-export default Menu

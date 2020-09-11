@@ -1,4 +1,4 @@
-const pageTemplate = require.resolve("../src/templates/page/index.js")
+const pageTemplate = require.resolve("../src/templates/page.js")
 
 const GET_PAGES = `
     query GET_PAGES($first:Int $after:String) {
@@ -22,6 +22,16 @@ const GET_PAGES = `
                     content
                     uri
                     isFrontPage
+                    articleFields {
+                        articles {
+                            ... on WPGraphQL_Post {
+                                id
+                                excerpt
+                                slug
+                                title
+                            }
+                        }
+                    }
                 }
             }
         }

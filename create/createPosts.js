@@ -1,4 +1,4 @@
-const postTemplate = require.resolve("../src/templates/post/index.js")
+const postTemplate = require.resolve("../src/templates/post.js")
 
 const GET_PAGES = `
     query GET_POSTS($first:Int $after:String) {

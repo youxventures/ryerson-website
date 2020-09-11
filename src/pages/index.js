@@ -1,7 +1,10 @@
 import React from 'react'
+import Layout from '../components/Layout'
 
 const Wadup = () => (
-  <h1>heyyy</h1>
+  <Layout>
+    <h1>heyyy</h1>
+  </Layout>
 )
 
 export default Wadup

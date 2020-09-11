@@ -2,7 +2,7 @@
 import { jsx, Container } from 'theme-ui'
 import Header from './Header'
 
-export default () => (
+export default ({ children }) => (
   <Container>
     <Header />
 

@@ -5,6 +5,7 @@
  * @param wordPressUrl
  * @param blogURI
  */
+
 export const CreateLocalLink = (menuItem, wordPressUrl, blogURI='blog/') => {
   const { url, connectedObject } = menuItem;
 
