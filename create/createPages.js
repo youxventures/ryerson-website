@@ -22,7 +22,7 @@ const GET_PAGES = `
                     content
                     uri
                     isFrontPage
-                    articleFields {
+                    pageSettings {
                         articles {
                             ... on WPGraphQL_Post {
                                 id

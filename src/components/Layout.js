@@ -1,21 +1,17 @@
 /** @jsx jsx */
 import { jsx, Container } from 'theme-ui'
+import React from 'react'
 import Header from './Header'
+import Footer from './Footer'
 
 export default ({ children }) => (
-  <Container>
+  <React.Fragment>
     <Header />
 
-    <main id="site-content" role="main">
+    <Container as="main" id="site-content" role="main">
       {children}
-    </main>
+    </Container>
 
-    <footer sx={{
-      width: '100%',
-      height: '200px',
-      background: 'footer'
-    }}>
-      this is footer
-    </footer>
-  </Container>
+    <Footer />
+  </React.Fragment>
 )

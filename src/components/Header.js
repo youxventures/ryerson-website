@@ -1,8 +1,23 @@
-import React from 'react'
+/** @jsx jsx */
+import { jsx, Container } from 'theme-ui'
+import { Link } from 'gatsby'
 import Menu from './Menu'
+import Logo from '../images/logo.svg'
 
 export default () => (
-  <header style={{ position: 'relative' }}>
-    <Menu />
-  </header>
+  <Container>
+    <header sx={{
+      position: 'relative',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      mt: 5
+    }}>
+      <Link to="/">
+        <img src={Logo} alt="logo" sx={{ width: '120px' }}/>
+      </Link>
+
+      <Menu />
+    </header>
+  </Container>
 )

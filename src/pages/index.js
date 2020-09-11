@@ -3,7 +3,7 @@ import Layout from '../components/Layout'
 
 const Wadup = () => (
   <Layout>
-    <h1>heyyy</h1>
+    <h1>heyyy this is the home page</h1>
   </Layout>
 )
 

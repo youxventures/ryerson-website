@@ -1,13 +1,11 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
-import React  from 'react'
+import { Link } from 'gatsby'
 import Layout from '../components/Layout'
 import Seo from '../components/Seo'
 
 export default ({ pageContext }) => {
-  const { page: { title, content, articleFields: { articles } } } = pageContext
-
-  console.log(articles)
+  const { page: { title, content, pageSettings: { articles } } } = pageContext
 
   return (
     <Layout>
@@ -20,7 +18,9 @@ export default ({ pageContext }) => {
         display: 'flex',
         flexDirection: 'column'
       }}>
-        {articles.map(article => <a key={article.id} href={article.slug}>{article.title}</a>)}
+        {articles.map(article => (
+          <Link key={article.id} to={`/blog/${article.slug}`}>{article.title}</Link>
+        ))}
       </div>
     </Layout>
   )

@@ -1,21 +1,22 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
-import { useStaticQuery, graphql } from 'gatsby'
-import MenuItem from './MenuItem'
+import { useState } from 'react'
+import { useStaticQuery, graphql, Link } from 'gatsby'
+import Burger from './Burger'
 
 export default () => {
   const { wpgraphql } = useStaticQuery(
     graphql`
       query {
         wpgraphql {
-          generalSettings {
-            url
-          }
-          menuItems(where: {location: PRIMARY}) {
+          pages {
             nodes {
               id
-              url
-              label
+              slug
+              title
+              pageSettings {
+                color
+              }
             }
           }
         }
@@ -23,17 +24,40 @@ export default () => {
     `
   )
 
-  const menuItems = wpgraphql.menuItems.nodes
-  const wordPressUrl = wpgraphql.generalSettings.url
+  const menuItems = wpgraphql.pages.nodes
+  const [showMenu, setShowMenu] = useState(false)
 
   return (
-    <nav role="navigation" sx={{
-      display: 'flex',
-      flexDirection: 'column'
-    }}>
-      {menuItems.map((menuItem) => (
-        <MenuItem key={menuItem.id} menuItem={menuItem} wordPressUrl={wordPressUrl}/>
-      ))}
-    </nav>
+    <div>
+      <Burger showMenu={showMenu} setShowMenu={setShowMenu} />
+
+      {showMenu &&
+        <nav role="navigation" sx={{
+          position: 'absolute',
+          top: 5,
+          left: 0,
+          right: 0,
+          display: 'grid',
+          gridTemplateColumns: '1fr 1fr',
+          width: '100%'
+        }}>
+          {menuItems.map(({ id, slug, title, pageSettings: { color } }) => (
+            <Link
+              key={id}
+              to={`/${slug}`}
+              dangerouslySetInnerHTML={{__html: title}}
+              sx={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                height: '200px',
+                backgroundColor: color,
+                color: 'black'
+              }}
+            />
+          ))}
+        </nav>
+      }
+    </div>
   )
 }
