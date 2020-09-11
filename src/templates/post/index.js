@@ -1,23 +1,18 @@
-import React from "react"
-
+import React  from "react"
 import Layout from "../../components/Layout"
-import SEO from "../../components/SEO"
-import FluidImage from "../../components/FluidImage"
-
+import Seo from "../../components/Seo"
 
 const Post = ({ pageContext }) => {
-  const {
-    post: { title, content, featuredImage },
-  } = pageContext
+
+  const post = pageContext.post
 
   return (
     <Layout>
-      <SEO title={title}/>
+      <Seo title={post.title} />
 
-      <FluidImage image={featuredImage} style={{ marginBottom: "15px" }}/>
+      <h1> {post.title} </h1>
+      <div dangerouslySetInnerHTML={{__html: post.content}} />
 
-      <h1> {title} </h1>
-      <div dangerouslySetInnerHTML={{ __html: content }}/>
     </Layout>
   )
 }

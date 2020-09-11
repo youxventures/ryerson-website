@@ -1,56 +1,21 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
+/** @jsx jsx */
+import { jsx, Container } from 'theme-ui'
+import Header from './Header'
 
-import React from "react"
-import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
+export default () => (
+  <Container>
+    <Header />
 
-import Header from "./Header"
-import "./layout.css"
-import Menu from "./Menu"
+    <main id="site-content" role="main">
+      {children}
+    </main>
 
-const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
-
-  return (
-    <>
-      <Header siteTitle={data.site.siteMetadata.title} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0px 1.0875rem 1.45rem`,
-          paddingTop: 0,
-        }}
-      >
-        <Menu />
-        <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-          {` by `}
-          <a href="https://www.henrikwirth.com">Henrik Wirth</a>
-        </footer>
-      </div>
-    </>
-  )
-}
-
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
-}
-
-export default Layout
+    <footer sx={{
+      width: '100%',
+      height: '200px',
+      background: 'footer'
+    }}>
+      this is footer
+    </footer>
+  </Container>
+)

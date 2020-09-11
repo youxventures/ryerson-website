@@ -1,36 +1,23 @@
-import React from "react"
+import React  from "react"
 
-// import Layout from "../../components/Layout"
-// import SEO from "../../components/SEO"
-// import AllLayouts from "../../components/AllLayouts"
+import Layout from "../../components/Layout"
+import Seo from "../../components/Seo"
 
 
-// const Page = ({ pageContext }) => {
-//   const {
-//     page: { title, pageBuilder },
-//   } = pageContext
+const Page = ({ pageContext }) => {
+  const {
+    page: { id, postId, title, content, excerpt },
+  } = pageContext;
 
-//   const layouts = pageBuilder.layouts || []
-
-//   return (
-//     <Layout>
-//       <SEO title={title}/>
-//       <h1> {title} </h1>
-
-//       {
-//         layouts.map((layout, index) => {
-//           return <AllLayouts key={index} layoutData={layout} />
-//         })
-//       }
-
-//     </Layout>
-//   )
-// }
-
-// export default Page
-
-export default () => {
   return (
-    <h1>leget bois</h1>
+    <Layout>
+      <Seo title={title} />
+
+      <h1> {title} </h1>
+      <div dangerouslySetInnerHTML={{__html: content}} />
+
+    </Layout>
   )
 }
+
+export default Page

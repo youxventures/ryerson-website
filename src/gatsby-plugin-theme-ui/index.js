@@ -29,7 +29,8 @@ export default {
     secondary: '#b48d59',
     background: 'white',
     muted: '#f6f6f6',
-    grey: '#a29baf'
+    grey: '#a29baf',
+    footer: '#012c72'
   },
   links: {
     nav: {

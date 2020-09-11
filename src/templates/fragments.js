@@ -7,5 +7,4 @@ const FluidImageFragment = `
         sizes
     }
 `
-
 module.exports.FluidImageFragment = FluidImageFragment

@@ -1,5 +1,7 @@
 import React from 'react'
 
-export default () => (
-  <h1>home page</h1>
+const Wadup = () => (
+  <h1>heyyy</h1>
 )
+
+export default Wadup
