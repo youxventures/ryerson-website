@@ -3,7 +3,7 @@ export default {
   breakpoints: ['600px', '900px', '1200px', '1800px'],
   layout: {
     container: {
-      padding: [4, 0],
+      p: 4,
       maxWidth: '1440px'
     }
   },

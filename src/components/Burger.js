@@ -8,10 +8,8 @@ export default ({ showMenu, setShowMenu }) => (
     onClick={() => setShowMenu(!showMenu)}
     sx={{
       display: 'flex',
-      position: 'absolute',
       flexDirection: 'column',
       justifyContent: 'space-around',
-      right: ['25px', 5, 5, 5],
       width: '2rem',
       minHeight: '2rem',
       padding: 0,
@@ -28,7 +26,6 @@ export default ({ showMenu, setShowMenu }) => (
         width: '2rem',
         height: '.25rem',
         borderRadius: '10px',
-        transition: 'all .3s linear',
         backgroundColor: 'black',
         transformOrigin: '1px',
         '&:first-of-type': {

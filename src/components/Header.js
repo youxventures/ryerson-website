@@ -7,7 +7,6 @@ import Logo from '../images/logo.svg'
 export default () => (
   <Container>
     <header sx={{
-      position: 'relative',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'space-between',

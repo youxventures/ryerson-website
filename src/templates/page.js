@@ -18,6 +18,7 @@ export default ({ pageContext }) => {
         display: 'flex',
         flexDirection: 'column'
       }}>
+        <h3>Articles:</h3>
         {articles.map(article => (
           <Link key={article.id} to={`/blog/${article.slug}`}>{article.title}</Link>
         ))}
