@@ -10,7 +10,7 @@ export default {
   },
   fonts: {
     body: 'FuturaPT, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif',
-    heading: 'inherit',
+    serif: 'Georgia, serif'
   },
   fontSizes: [12, 14, 16, 18, 22, 32],
   fontWeights: {
@@ -19,11 +19,11 @@ export default {
   },
   lineHeights: {
     body: 1.5,
-    heading: 1.125,
+    heading: 1.5,
   },
   letterSpacings: {
     body: '.025em',
-    heading: '.135em'
+    heading: '.025em'
   },
   colors: {
     primary: 'black',
@@ -49,11 +49,10 @@ export default {
   },
   text: {
     heading: {
-      fontFamily: 'heading',
+      fontFamily: 'body',
       fontWeight: 'heading',
       lineHeight: 'heading',
       letterSpacing: 'heading',
-      textTransform: 'uppercase',
       fontSize: 4
     },
     name: {

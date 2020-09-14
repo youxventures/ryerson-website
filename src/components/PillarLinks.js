@@ -1,88 +1,73 @@
 /** @jsx jsx */
-import { jsx, Grid, Box, Heading, Text, Link } from 'theme-ui'
+import { jsx, Grid, Box, Heading, Text } from 'theme-ui'
+import { useStaticQuery, graphql, Link } from 'gatsby'
 import Arrow from '../images/arrow.svg'
 
-const data = [
-  {
-    id: 1,
-    color: 'blue',
-    heading: 'Urban Design & Infrastructure',
-    text: 'Lorem ipsum dolor sit amet, conse ctetur adipiscing, sed do eiusmod tempor incididunt ut labore et dolore magna etes set aliqua.',
-    link: '/'
-  },
-  {
-    id: 2,
-    color: 'green',
-    heading: 'Urban Health & Wellbeing',
-    text: 'Lorem ipsum dolor sit amet, conse ctetur adipiscing, sed do eiusmod tempor incididunt ut labore et dolore magna etes set aliqua.',
-    link: '/'
-  },
-  {
-    id: 3,
-    color: 'pink',
-    heading: 'Governance & Social Justice',
-    text: 'Lorem ipsum dolor sit amet, conse ctetur adipiscing, sed do eiusmod tempor incididunt ut labore et dolore magna etes set aliqua.',
-    link: '/'
-  },
-  {
-    id: 4,
-    color: 'yellow',
-    heading: 'Econimic Development',
-    text: 'Lorem ipsum dolor sit amet, conse ctetur adipiscing, sed do eiusmod tempor incididunt ut labore et dolore magna etes set aliqua.',
-    link: '/'
-  },
-  {
-    id: 5,
-    color: 'purple',
-    heading: 'Creativity & Culture',
-    text: 'Lorem ipsum dolor sit amet, conse ctetur adipiscing, sed do eiusmod tempor incididunt ut labore et dolore magna etes set aliqua.',
-    link: '/'
-  },
-  {
-    id: 6,
-    color: 'cadetblue',
-    heading: 'Migration & Settlement',
-    text: 'Lorem ipsum dolor sit amet, conse ctetur adipiscing, sed do eiusmod tempor incididunt ut labore et dolore magna etes set aliqua.',
-    link: '/'
-  }
-]
+export default ({ pageId }) => {
+  const { wpgraphql } = useStaticQuery(
+    graphql`
+      query {
+        wpgraphql {
+          pages {
+            nodes {
+              id
+              slug
+              title
+              pageSettings {
+                color
+                linkText
+              }
+            }
+          }
+        }
+      }
+    `
+  )
 
-export default () => (
-  <Grid columns={3} gap={6} sx={{ gridRowGap: 5 }}>
-    {data.map(pillar => {
-      return (
-        <Box sx={{ width: '100%' }}>
-          <div sx={{
-            width: '120px',
-            height: '120px',
-            background: pillar.color,
-            borderRadius: '50%'
-          }} />
+  let pillars = pageId
+    ? wpgraphql.pages.nodes.filter(pillar => pillar.id !== pageId)
+    : wpgraphql.pages.nodes
 
-          <Heading key={pillar.id} sx={{
-            marginTop: '20px',
-            marginBottom: '25px',
-            fontSize: '24px',
-            fontWeight: 'bold',
-            fontFamily: 'Georgia',
-            textDecoration: 'underline'
+  return (
+    <Grid columns={pageId ? 5 : 3} gap={pageId ? 4 : 6} sx={{ gridRowGap: 5 }}>
+      {pillars.map(pillar => {
+        return (
+          <Link key={pillar.id} to={`/${pillar.slug}`} sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            textDecoration: 'none',
+            color: 'primary'
           }}>
-            {pillar.heading}
-          </Heading>
+            <div sx={{
+              width: pageId ? '80px' : '120px',
+              height: pageId ? '80px' : '120px',
+              background: pillar.pageSettings.color,
+              borderRadius: '50%'
+            }} />
 
-          <Text>
-            {pillar.text}
-          </Text>
+            <Heading dangerouslySetInnerHTML={{__html: pillar.title}} sx={{
+              maxWidth: pageId ? '170px' : '240px',
+              marginTop: '20px',
+              marginBottom: pageId ? '10px' : '25px',
+              fontSize: pageId ? '20px' : '26px',
+              fontFamily: 'serif',
+              fontWeight: 'bold',
+              textDecoration: 'underline'
+            }} />
 
-          <Link href={pillar.link} sx={{
-            display: 'block',
-            width: '50px',
-            marginTop: '25px'
-          }}>
-            <img src={Arrow} alt="arrow" />
+            <Text sx={{ mb: pageId ? 2 : 3, fontSize: pageId ? '15px' : '20px' }}>
+              {pillar.pageSettings.linkText}
+            </Text>
+
+            <Box sx={{
+              width: pageId ? '35px' : '50px',
+              mt: 'auto'
+            }}>
+              <img src={Arrow} alt="arrow" />
+            </Box>
           </Link>
-        </Box>
-      )
-    })}
-  </Grid>
-)
+        )
+      })}
+    </Grid>
+  )
+}

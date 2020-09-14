@@ -1,20 +1,25 @@
 /** @jsx jsx */
-import { jsx, Flex, Box } from 'theme-ui'
+import { jsx, Flex, Box, Heading, Text } from 'theme-ui'
 import { Link } from 'gatsby'
 import Layout from '../components/Layout'
 import Seo from '../components/Seo'
+import PillarLinks from '../components/PillarLinks'
 
 export default ({ pageContext }) => {
-  const { page: { title, content, pageSettings: { articles, color } } } = pageContext
+  const { page: { id, title, content, pageSettings: { articles, color } } } = pageContext
 
   return (
-    <Layout>
+    <Layout bgColor={color}>
       <Seo title={title} />
 
-      <Flex sx={{ width: '100%', justifyContent: 'space-between' }}>
+      <Flex sx={{
+        position: 'relative',
+        width: '100%',
+        justifyContent: 'space-between',
+      }}>
         <Box sx={{ maxWidth: '50%' }}>
           <h1 dangerouslySetInnerHTML={{__html: title }} sx={{ m: 0 }} />
-          <div dangerouslySetInnerHTML={{__html: content}} />
+          <Text dangerouslySetInnerHTML={{__html: content}} sx={{ maxWidth: '520px' }} />
 
           <Flex sx={{ flexDirection: 'column' }}>
             {articles.map(article => (
@@ -60,6 +65,17 @@ export default ({ pageContext }) => {
           }}/>
         </Box>
       </Flex>
+
+      <Heading sx={{
+        mt: 5,
+        mb: 4,
+        fontSize: '26px',
+        fontWeight: 'bold',
+      }}>
+        Other areas of research and innovation
+      </Heading>
+
+      <PillarLinks pageId={id} />
     </Layout>
   )
 }

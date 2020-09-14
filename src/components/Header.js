@@ -10,7 +10,7 @@ export default () => (
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'space-between',
-      my: 4
+      py: 4
     }}>
       <Link to="/">
         <img src={Logo} alt="logo" sx={{ width: '120px' }}/>
