@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx, Container, Box, Heading, Text, Link } from 'theme-ui'
+import { jsx, Grid, Box, Heading, Text, Link } from 'theme-ui'
 import Arrow from '../images/arrow.svg'
 
 const data = [
@@ -48,19 +48,13 @@ const data = [
 ]
 
 export default () => (
-  <Container sx={{
-    display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'center',
-    marginTop: 4,
-    border: '2px solid black'
-  }}>
+  <Grid columns={3} gap={6} sx={{ gridRowGap: 5 }}>
     {data.map(pillar => {
       return (
-        <Box sx={{ width: '460px', border: '2px solid tomato' }}>
+        <Box sx={{ width: '100%' }}>
           <div sx={{
-            width: '200px',
-            height: '200px',
+            width: '120px',
+            height: '120px',
             background: pillar.color,
             borderRadius: '50%'
           }} />
@@ -68,7 +62,7 @@ export default () => (
           <Heading key={pillar.id} sx={{
             marginTop: '20px',
             marginBottom: '25px',
-            fontSize: '32px',
+            fontSize: '24px',
             fontWeight: 'bold',
             fontFamily: 'Georgia',
             textDecoration: 'underline'
@@ -90,5 +84,5 @@ export default () => (
         </Box>
       )
     })}
-  </Container>
+  </Grid>
 )

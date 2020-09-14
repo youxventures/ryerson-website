@@ -3,8 +3,9 @@ export default {
   breakpoints: ['600px', '900px', '1200px', '1800px'],
   layout: {
     container: {
-      p: 4,
-      maxWidth: '1440px'
+      py: 2,
+      px: 4,
+      maxWidth: ['1000px', '1000px', '1000px', '1200px']
     }
   },
   fonts: {

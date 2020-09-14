@@ -23,6 +23,7 @@ const GET_PAGES = `
                     uri
                     isFrontPage
                     pageSettings {
+                        color
                         articles {
                             ... on WPGraphQL_Post {
                                 id

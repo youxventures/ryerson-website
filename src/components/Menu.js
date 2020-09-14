@@ -34,7 +34,7 @@ export default () => {
       {showMenu &&
         <nav role="navigation" sx={{
           position: 'absolute',
-          top: '200px',
+          top: '140px',
           left: 0,
           right: 0,
           display: 'grid',
