@@ -29,33 +29,39 @@ export default ({ pageId }) => {
     : wpgraphql.pages.nodes
 
   return (
-    <Grid columns={pageId ? 5 : 3} gap={pageId ? 4 : 6} sx={{ gridRowGap: 5 }}>
+    <Grid columns={pageId ? [1, 5] : [1, 2, 3]} gap={pageId ? 4 : 6} sx={{ gridRowGap: 5 }}>
       {pillars.map(pillar => {
         return (
           <Link key={pillar.id} to={`/${pillar.slug}`} sx={{
             display: 'flex',
             flexDirection: 'column',
             textDecoration: 'none',
-            color: 'primary'
+            color: 'primary',
+            textAlign: ['center', 'left'],
+            alignItems: ['center', 'flex-start']
           }}>
-            <div sx={{
-              width: pageId ? '80px' : '120px',
-              height: pageId ? '80px' : '120px',
+            <Box sx={{
+              width: pageId ? '80px' : '140px',
+              height: pageId ? '80px' : '140px',
               background: pillar.pageSettings.color,
               borderRadius: '50%'
             }} />
 
             <Heading dangerouslySetInnerHTML={{__html: pillar.title}} sx={{
-              maxWidth: pageId ? '170px' : '240px',
-              marginTop: '20px',
-              marginBottom: pageId ? '10px' : '25px',
-              fontSize: pageId ? '20px' : '26px',
+              maxWidth: pageId ? ['none', 'none', '200px'] : '240px',
+              mt: 3,
+              marginBottom: pageId ? 0 : 3,
+              fontSize: pageId ? '22px' : '26px',
               fontFamily: 'serif',
               fontWeight: 'bold',
               textDecoration: 'underline'
             }} />
 
-            <Text sx={{ mb: pageId ? 2 : 3, fontSize: pageId ? '15px' : '20px' }}>
+            <Text sx={{
+              mt: pageId ? [3, 2] : 0,
+              mb: 3,
+              fontSize: pageId ? '16px' : '20px'
+            }}>
               {pillar.pageSettings.linkText}
             </Text>
 

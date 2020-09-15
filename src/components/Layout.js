@@ -4,13 +4,13 @@ import React from 'react'
 import Header from './Header'
 import Footer from './Footer'
 
-export default ({ children }) => (
+export default ({ children, bgColor }) => (
   <React.Fragment>
-    <Header />
+    <Header bgColor={bgColor} />
 
-    <Container as="main" id="site-content" role="main">
+    <main role="main">
       {children}
-    </Container>
+    </main>
 
     <Footer />
   </React.Fragment>

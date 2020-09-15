@@ -1,10 +1,10 @@
 /** @jsx jsx */
-import { jsx } from 'theme-ui'
-import { useState } from 'react'
+import { jsx, Grid, Heading, Box } from 'theme-ui'
 import { useStaticQuery, graphql, Link } from 'gatsby'
+import Arrow from '../images/arrow.svg'
 import Burger from './Burger'
 
-export default () => {
+export default ({ showMenu, setShowMenu }) => {
   const { wpgraphql } = useStaticQuery(
     graphql`
       query {
@@ -25,38 +25,55 @@ export default () => {
   )
 
   const menuItems = wpgraphql.pages.nodes
-  const [showMenu, setShowMenu] = useState(false)
 
   return (
     <div>
       <Burger showMenu={showMenu} setShowMenu={setShowMenu} />
 
       {showMenu &&
-        <nav role="navigation" sx={{
+        <Grid as="nav" role="navigation" columns={[1, 1, 2]} gap={0} sx={{
           position: 'absolute',
-          top: '140px',
+          top: ['96px', '96px', '140px'],
           left: 0,
           right: 0,
-          display: 'grid',
-          gridTemplateColumns: '1fr 1fr',
-          width: '100%'
+          width: '100%',
+          height: ['calc(100% - 96px)', 'calc(100% - 96px)', 'calc(100% - 140px)'],
+          zIndex: 10
         }}>
           {menuItems.map(({ id, slug, title, pageSettings: { color } }) => (
             <Link
               key={id}
               to={`/${slug}`}
-              dangerouslySetInnerHTML={{__html: title}}
               sx={{
                 display: 'flex',
                 alignItems: 'center',
-                justifyContent: 'center',
-                height: '200px',
+                justifyContent: 'space-between',
+                height: '100%',
+                px: 4,
                 backgroundColor: color,
-                color: 'black'
+                color: 'black',
+                textDecoration: 'none'
               }}
-            />
+            >
+              <Box sx={{
+                width: ['15vw', '15vw', '10vw'],
+                height: ['15vw', '15vw', '10vw'],
+                mr: 3,
+                backgroundColor: 'white',
+                opacity: .5,
+                borderRadius: '50%'
+              }} />
+
+              <Heading dangerouslySetInnerHTML={{__html: title}} sx={{
+                width: ['55%', '50%', '60%'],
+                fontSize: ['5vw', '5vw', '2.75vw'],
+                fontFamily: 'serif',
+                fontWeight: 'bold'
+              }} />
+              <img sx={{ width: ['6vw', '6vw', '4vw'] }} src={Arrow} alt="arrow"/>
+            </Link>
           ))}
-        </nav>
+        </Grid>
       }
     </div>
   )

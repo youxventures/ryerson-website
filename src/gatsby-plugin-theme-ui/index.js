@@ -1,5 +1,5 @@
 export default {
-  space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
+  space: [0, 4, 8, 16, 32, 48, 64, 128, 256, 512],
   breakpoints: ['600px', '900px', '1200px', '1800px'],
   layout: {
     container: {
@@ -12,18 +12,18 @@ export default {
     body: 'FuturaPT, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif',
     serif: 'Georgia, serif'
   },
-  fontSizes: [12, 14, 16, 18, 22, 32],
+  fontSizes: [12, 14, 16, 18, 22, 32, 48],
   fontWeights: {
     body: 300,
     heading: 400
   },
   lineHeights: {
-    body: 1.5,
-    heading: 1.5,
+    body: 1.35,
+    heading: 1.25,
   },
   letterSpacings: {
     body: '.025em',
-    heading: '.025em'
+    heading: '.01em'
   },
   colors: {
     primary: 'black',
