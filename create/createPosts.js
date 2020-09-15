@@ -21,7 +21,11 @@ const GET_PAGES = `
                     postId
                     content
                     uri
-                    categories
+                    categories {
+                      nodes {
+                        name
+                      }
+                    }
                 }
             }
         }

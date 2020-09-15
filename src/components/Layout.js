@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx, Container } from 'theme-ui'
+import { jsx } from 'theme-ui'
 import React from 'react'
 import Header from './Header'
 import Footer from './Footer'

@@ -1,6 +1,5 @@
 /** @jsx jsx */
 import { jsx, Container, Heading } from 'theme-ui'
-import React from 'react'
 import Layout from '../components/Layout'
 import PillarLinks from '../components/PillarLinks'
 
