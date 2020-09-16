@@ -41,24 +41,24 @@ export default ({ pageId }) => {
             alignItems: ['center', 'flex-start']
           }}>
             <Box sx={{
-              width: pageId ? '80px' : '140px',
-              height: pageId ? '80px' : '140px',
+              width: pageId ? '100px' : '200px',
+              height: pageId ? '100px' : '200px',
               background: pillar.pageSettings.color,
               borderRadius: '50%'
             }} />
 
             <Heading dangerouslySetInnerHTML={{__html: pillar.title}} sx={{
               maxWidth: pageId ? ['none', 'none', '200px'] : '240px',
-              mt: 3,
+              mt: '25px',
               marginBottom: pageId ? 0 : 3,
-              fontSize: pageId ? '22px' : '26px',
+              fontSize: pageId ? '22px' : '30px',
               fontFamily: 'serif',
               fontWeight: 'bold',
               textDecoration: 'underline'
             }} />
 
             <Text sx={{
-              mt: pageId ? [3, 2] : 0,
+              mt: pageId ? 3 : 0,
               mb: 3,
               fontSize: pageId ? '16px' : '20px'
             }}>

@@ -1,13 +1,58 @@
 /** @jsx jsx */
 import { jsx, Container, Flex, Box, Heading, Text } from 'theme-ui'
+import { useEffect, createRef } from 'react'
 import { Link } from 'gatsby'
 import Layout from '../components/Layout'
 import Seo from '../components/Seo'
 import PillarLinks from '../components/PillarLinks'
 import Arrow from '../images/arrow.svg'
+import udiAnimation from '../animations/udi.json'
+import uhwAnimation from '../animations/uhw.json'
+import lottie from 'lottie-web'
 
 export default ({ pageContext }) => {
-  const { page: { id, title, content, pageSettings: { articles, color } } } = pageContext
+  const {
+    page: {
+      id,
+      title,
+      pageId,
+      content,
+      pageSettings: { articles, color }
+    }
+  } = pageContext
+
+  const desktopContainer = createRef()
+  const mobileContainer = createRef()
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return
+
+    const ANIMATIONS = {
+      2: udiAnimation,
+      68: uhwAnimation
+    }
+
+    // health 68
+    // migration 80
+    // creative 76
+    // economy 72
+    // gov 60
+    // infra 2
+
+    const container = window.innerWidth < 900
+      ? mobileContainer
+      : desktopContainer
+
+    const anim = lottie.loadAnimation({
+      container: container.current,
+      renderer: 'svg',
+      loop: false,
+      autoplay: true,
+      animationData: ANIMATIONS[pageId]
+    })
+
+    return () => anim.destroy()
+  }, [desktopContainer, mobileContainer, pageId])
 
   return (
     <Layout bgColor={color}>
@@ -32,17 +77,12 @@ export default ({ pageContext }) => {
                 maxWidth: '500px'
               }}/>
 
-              <Box>
-                <div sx={{
-                  display: ['block', 'block', 'none'],
-                  flex: 1,
-                  width: '100%',
-                  height: '200px',
-                  mt: 2,
-                  backgroundColor: 'white',
-                  opacity: .5
-                }}/>
-              </Box>
+              <Box ref={mobileContainer} sx={{
+                display: ['block', 'block', 'none'],
+                position: 'relative',
+                width: '100%',
+                mt: 4
+              }} />
 
               <Flex sx={{ flexDirection: 'column' }}>
                 {articles.map(article => (
@@ -76,7 +116,7 @@ export default ({ pageContext }) => {
                       </Heading>
 
                       <Box dangerouslySetInnerHTML={{__html: article.excerpt}} sx={{
-                        fontSize: ['16px', '15px'],
+                        fontSize: '16px',
                         'p': {
                           mt: [3, 2],
                           mb: 3
@@ -95,17 +135,14 @@ export default ({ pageContext }) => {
               </Flex>
             </Box>
 
-            <Box>
-              <div sx={{
-                display: ['none', 'none', 'block'],
-                flex: 1,
-                width: '600px',
-                height: '460px',
-                mt: 2,
-                backgroundColor: 'white',
-                opacity: .5
-              }}/>
-            </Box>
+            <Box ref={desktopContainer} sx={{
+              display: ['none', 'none', 'block'],
+              position: 'relative',
+              width: '600px',
+              height: '600px',
+              mt: -4,
+              mr: -4
+            }} />
           </Flex>
         </Container>
       </Box>
@@ -114,7 +151,7 @@ export default ({ pageContext }) => {
         <Heading sx={{
           mt: 5,
           mb: 4,
-          fontSize: '26px',
+          fontSize: ['24px', '28px'],
           fontWeight: 'bold',
         }}>
           Other areas of research and innovation
