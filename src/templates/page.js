@@ -8,6 +8,7 @@ import PillarLinks from '../components/PillarLinks'
 import Arrow from '../images/arrow.svg'
 import udiAnimation from '../animations/udi.json'
 import uhwAnimation from '../animations/uhw.json'
+import govAnimation from '../animations/gov.json'
 import lottie from 'lottie-web'
 
 export default ({ pageContext }) => {
@@ -23,14 +24,13 @@ export default ({ pageContext }) => {
   const desktopContainer = createRef()
   const mobileContainer = createRef()
 
-  console.log(pageContext)
-
   useEffect(() => {
     if (typeof window === 'undefined') return
 
     const ANIMATIONS = {
       1: udiAnimation,
-      2: uhwAnimation
+      2: uhwAnimation,
+      3: govAnimation
     }
 
     // infra 1
@@ -51,6 +51,12 @@ export default ({ pageContext }) => {
       autoplay: true,
       animationData: ANIMATIONS[pageId]
     })
+
+    anim.stop()
+
+    desktopContainer.current.style.opacity = 1
+
+    anim.play()
 
     return () => anim.destroy()
   }, [desktopContainer, mobileContainer, pageId])
@@ -138,12 +144,15 @@ export default ({ pageContext }) => {
             </Box>
 
             <Box ref={desktopContainer} sx={{
+              opacity: 0,
               display: ['none', 'none', 'block'],
               position: 'relative',
               width: '600px',
               height: '600px',
               mt: -4,
-              mr: -4
+              mr: -4,
+              transition: 'opacity .25s ease-in-out',
+              transitionDelay: '.5s'
             }} />
           </Flex>
         </Container>
