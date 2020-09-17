@@ -15,29 +15,30 @@ export default ({ pageContext }) => {
     page: {
       id,
       title,
-      pageId,
       content,
-      pageSettings: { articles, color }
+      pageSettings: { articles, color, pageId }
     }
   } = pageContext
 
   const desktopContainer = createRef()
   const mobileContainer = createRef()
 
+  console.log(pageContext)
+
   useEffect(() => {
     if (typeof window === 'undefined') return
 
     const ANIMATIONS = {
-      2: udiAnimation,
-      68: uhwAnimation
+      1: udiAnimation,
+      2: uhwAnimation
     }
 
-    // health 68
-    // migration 80
-    // creative 76
-    // economy 72
-    // gov 60
-    // infra 2
+    // infra 1
+    // health 2
+    // gov 3
+    // economy 4
+    // creative 5
+    // migration 6
 
     const container = window.innerWidth < 900
       ? mobileContainer

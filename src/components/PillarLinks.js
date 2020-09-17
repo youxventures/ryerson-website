@@ -16,6 +16,8 @@ export default ({ pageId }) => {
               pageSettings {
                 color
                 linkText
+                order
+                pageId
               }
             }
           }
@@ -27,6 +29,10 @@ export default ({ pageId }) => {
   let pillars = pageId
     ? wpgraphql.pages.nodes.filter(pillar => pillar.id !== pageId)
     : wpgraphql.pages.nodes
+
+  pillars = pillars.sort((a, b) => (
+    a.pageSettings.order - b.pageSettings.order
+  ))
 
   return (
     <Grid columns={pageId ? [1, 5] : [1, 2, 3]} gap={pageId ? 4 : 6} sx={{ gridRowGap: 5 }}>

@@ -24,6 +24,9 @@ const GET_PAGES = `
                     isFrontPage
                     pageSettings {
                         color
+                        order
+                        pageId
+                        linkText
                         articles {
                             ... on WPGraphQL_Post {
                                 id
