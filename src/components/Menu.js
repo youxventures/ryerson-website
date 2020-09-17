@@ -16,6 +16,7 @@ export default ({ showMenu, setShowMenu }) => {
               title
               pageSettings {
                 color
+                order
               }
             }
           }
@@ -24,7 +25,9 @@ export default ({ showMenu, setShowMenu }) => {
     `
   )
 
-  const menuItems = wpgraphql.pages.nodes
+  let menuItems = wpgraphql.pages.nodes.sort((a, b) => (
+    a.pageSettings.order - b.pageSettings.order
+  ))
 
   return (
     <div>
