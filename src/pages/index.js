@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx, Container, Heading } from 'theme-ui'
 import Layout from '../components/Layout'
-import PillarLinks from '../components/PillarLinks'
+// import PillarLinks from '../components/PillarLinks'
 
 export default () => (
   <Layout>
@@ -15,7 +15,7 @@ export default () => (
       }}>
         Our research and innovation is focused on key areas with the potential to improve life for people here and around the globe.
       </Heading>
-      <PillarLinks />
+      {/* <PillarLinks /> */}
     </Container>
   </Layout>
 )
