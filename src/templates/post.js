@@ -78,7 +78,8 @@ const Post = ({ pageContext }) => {
       {/* <Seo title={post.title} /> */}
 
       <Container>
-        <div style={{ color: postColor }} dangerouslySetInnerHTML={{__html: post.content}} />
+        <h1>{post.title}</h1>
+        <div dangerouslySetInnerHTML={{__html: post.content}} />
       </Container>
 
       {relatedArticles().length > 0 &&

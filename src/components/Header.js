@@ -4,13 +4,12 @@ import { useState } from 'react'
 import { Link } from 'gatsby'
 import Menu from './Menu'
 import Logo from '../images/logo.svg'
-// import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
 export default ({ bgColor }) => {
   const [showMenu, setShowMenu] = useState(false)
 
   return (
-    <Box sx={{ backgroundColor: showMenu ? 'white' : bgColor }}>
+    <Box sx={{backgroundColor: showMenu ? 'white' : bgColor}}>
       <Container>
         <header sx={{
           display: 'flex',

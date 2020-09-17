@@ -1,8 +1,9 @@
 /** @jsx jsx */
 import { jsx, Grid, Heading, Box } from 'theme-ui'
-import { useStaticQuery, graphql, Link } from 'gatsby'
+import { useStaticQuery, graphql } from 'gatsby'
 import Arrow from '../images/arrow.svg'
 import Burger from './Burger'
+import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
 export default ({ showMenu, setShowMenu }) => {
   const { wpgraphql } = useStaticQuery(
@@ -40,41 +41,50 @@ export default ({ showMenu, setShowMenu }) => {
           left: 0,
           right: 0,
           width: '100%',
-          height: ['calc(100% - 96px)', 'calc(100% - 96px)', 'calc(100% - 140px)'],
+          height: ['calc(100vh - 96px)', 'calc(100vh - 96px)', 'calc(100vh - 140px)'],
           zIndex: 10
         }}>
           {menuItems.map(({ id, slug, title, pageSettings: { color } }) => (
-            <Link
+            <AniLink
               key={id}
+              paintDrip
               to={`/${slug}`}
+              hex={color}
               sx={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                height: '100%',
-                px: 4,
-                backgroundColor: color,
                 color: 'black',
                 textDecoration: 'none'
               }}
             >
-              <Box sx={{
-                width: ['15vw', '15vw', '10vw'],
-                height: ['15vw', '15vw', '10vw'],
-                mr: 0,
-                backgroundColor: 'white',
-                opacity: .5,
-                borderRadius: '50%'
-              }} />
+              <Box
+                sx={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  height: '100%',
+                  px: 4,
+                  backgroundColor: color,
+                  color: 'black',
+                  textDecoration: 'none'
+                }}
+              >
+                <Box sx={{
+                  width: ['15vw', '15vw', '10vw'],
+                  height: ['15vw', '15vw', '10vw'],
+                  mr: 0,
+                  backgroundColor: 'white',
+                  opacity: .5,
+                  borderRadius: '50%'
+                }} />
 
-              <Heading dangerouslySetInnerHTML={{__html: title}} sx={{
-                width: ['55%', '50%', '55%'],
-                fontSize: ['5vw', '5vw', '3.25vw'],
-                fontFamily: 'serif',
-                fontWeight: 'bold'
-              }} />
-              <img sx={{ width: ['6vw', '6vw', '4vw'] }} src={Arrow} alt="arrow"/>
-            </Link>
+                <Heading dangerouslySetInnerHTML={{__html: title}} sx={{
+                  width: ['55%', '50%', '55%'],
+                  fontSize: ['5vw', '5vw', '3.25vw'],
+                  fontFamily: 'serif',
+                  fontWeight: 'bold'
+                }} />
+                <img sx={{ width: ['6vw', '6vw', '4vw'] }} src={Arrow} alt="arrow"/>
+              </Box>
+            </AniLink>
           ))}
         </Grid>
       }

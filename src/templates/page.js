@@ -10,6 +10,7 @@ import udiAnimation from '../animations/udi.json'
 import uhwAnimation from '../animations/uhw.json'
 import govAnimation from '../animations/gov.json'
 import lottie from 'lottie-web'
+import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
 export default ({ pageContext }) => {
   const {
@@ -71,7 +72,10 @@ export default ({ pageContext }) => {
     <Layout bgColor={color}>
       {/* <Seo title={title} /> */}
 
-      <Box sx={{ pb: 5, backgroundColor: color}}>
+      <Box sx={{
+        pb: 5,
+        backgroundColor: color
+      }}>
         <Container ref={contentRef} sx={{
           opacity: 0
         }}>
@@ -102,51 +106,62 @@ export default ({ pageContext }) => {
 
               <Flex sx={{ flexDirection: 'column' }}>
                 {articles.map(article => (
-                  <Link key={article.id} to={`/blog/${article.slug}`} sx={{
-                    display: 'flex',
-                    flexDirection: ['column', 'column', 'row'],
-                    alignItems: ['center', 'center', 'flex-start'],
-                    textAlign: ['center', 'center', 'left'],
-                    mt: 4,
-                    color: 'black',
-                    textDecoration: 'none'
-                  }}>
+                  <AniLink
+                    key={article.id}
+                    paintDrip
+                    to={`/blog/${article.slug}`}
+                    hex={color}
+                    sx={{
+                      color: 'black',
+                      textDecoration: 'none'
+                    }}
+                  >
                     <Box sx={{
-                      width: '80px',
-                      height: '80px',
-                      mr: [0, 0, 3],
-                      backgroundColor: 'white',
-                      borderRadius: '50%',
-                      opacity: .5
-                    }} />
-
-                    <Box sx={{ maxWidth: '425px', mt: [3, 3, 0] }}>
-                      <Heading sx={{
-                        m: 0,
-                        fontSize: ['22px', '20px'],
-                        fontFamily: 'serif',
-                        fontWeight: 'bold',
-                        textDecoration: 'underline',
-                      }}>
-                        {article.title}
-                      </Heading>
-
-                      <Box dangerouslySetInnerHTML={{__html: article.excerpt}} sx={{
-                        fontSize: '16px',
-                        'p': {
-                          mt: [3, 2],
-                          mb: 3
-                        }
-                      }} />
-                    </Box>
-
-                    <Box sx={{
-                      display: ['block', 'block', 'none'],
-                      width: '35px'
+                      display: 'flex',
+                      flexDirection: ['column', 'column', 'row'],
+                      alignItems: ['center', 'center', 'flex-start'],
+                      textAlign: ['center', 'center', 'left'],
+                      mt: 4,
+                      color: 'black',
+                      textDecoration: 'none'
                     }}>
-                      <img src={Arrow} alt="arrow" />
+                      <Box sx={{
+                        width: '80px',
+                        height: '80px',
+                        mr: [0, 0, 3],
+                        backgroundColor: 'white',
+                        borderRadius: '50%',
+                        opacity: .5
+                      }} />
+
+                      <Box sx={{ maxWidth: '425px', mt: [3, 3, 0] }}>
+                        <Heading sx={{
+                          m: 0,
+                          fontSize: ['22px', '20px'],
+                          fontFamily: 'serif',
+                          fontWeight: 'bold',
+                          textDecoration: 'underline',
+                        }}>
+                          {article.title}
+                        </Heading>
+
+                        <Box dangerouslySetInnerHTML={{__html: article.excerpt}} sx={{
+                          fontSize: '16px',
+                          'p': {
+                            mt: [3, 2],
+                            mb: 3
+                          }
+                        }} />
+                      </Box>
+
+                      <Box sx={{
+                        display: ['block', 'block', 'none'],
+                        width: '35px'
+                      }}>
+                        <img src={Arrow} alt="arrow" />
+                      </Box>
                     </Box>
-                  </Link>
+                  </AniLink>
                 ))}
               </Flex>
             </Box>
