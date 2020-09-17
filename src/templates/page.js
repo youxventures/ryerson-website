@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx, Container, Flex, Box, Heading, Text } from 'theme-ui'
-import { useEffect, createRef } from 'react'
+import { useEffect, createRef, useRef } from 'react'
 import { Link } from 'gatsby'
 import Layout from '../components/Layout'
 // import Seo from '../components/Seo'
@@ -23,6 +23,7 @@ export default ({ pageContext }) => {
 
   const desktopContainer = createRef()
   const mobileContainer = createRef()
+  const contentRef = useRef(null)
 
   useEffect(() => {
     if (typeof window === 'undefined') return
@@ -52,8 +53,15 @@ export default ({ pageContext }) => {
       animationData: ANIMATIONS[pageId]
     })
 
+    anim.stop()
+
+    desktopContainer.current.style.opacity = 1
+    contentRef.current.style.transition = 'opacity .25s ease-in-out'
+    contentRef.current.style.transitionDelay = '1s'
+    contentRef.current.style.opacity = 1
+
     anim.addEventListener('loaded_images', () => {
-      desktopContainer.current.style.opacity = 1
+      anim.play()
     })
 
     return () => anim.destroy()
@@ -63,8 +71,10 @@ export default ({ pageContext }) => {
     <Layout bgColor={color}>
       {/* <Seo title={title} /> */}
 
-      <Box sx={{ pb: 5, backgroundColor: color }}>
-        <Container>
+      <Box sx={{ pb: 5, backgroundColor: color}}>
+        <Container ref={contentRef} sx={{
+          opacity: 0
+        }}>
           <Flex sx={{
             position: 'relative',
             width: '100%',
