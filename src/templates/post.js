@@ -4,6 +4,7 @@ import { useStaticQuery, graphql, Link } from 'gatsby'
 import Layout from '../components/Layout'
 // import Seo from '../components/Seo'
 import PillarLinks from '../components/PillarLinks'
+import './styles/article.css'
 
 const Post = ({ pageContext }) => {
   const { wpgraphql } = useStaticQuery(
@@ -77,9 +78,7 @@ const Post = ({ pageContext }) => {
       {/* <Seo title={post.title} /> */}
 
       <Container>
-        <h1>{post.title}</h1>
-
-        <div dangerouslySetInnerHTML={{__html: post.content}} />
+        <div style={{ color: postColor }} dangerouslySetInnerHTML={{__html: post.content}} />
       </Container>
 
       {relatedArticles().length > 0 &&

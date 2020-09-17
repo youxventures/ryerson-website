@@ -10,7 +10,7 @@ export default () => (
         mt: 4,
         mb: 6,
         fontFamily: 'serif',
-        fontSize: ['26px', '32px', '40px'],
+        fontSize: ['30px', '32px', '44px'],
         fontWeight: 'bold'
       }}>
         Our research and innovation is focused on key areas with the potential to improve life for people here and around the globe.

@@ -9,8 +9,8 @@ export default {
     }
   },
   fonts: {
-    body: 'FuturaPT, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif',
-    serif: 'Georgia, serif'
+    body: '"Open Sans", system-ui, -apple-system, BlinkMacSystemFont, sans-serif',
+    serif: 'Lyon, Georgia, system-ui, -apple-system, BlinkMacSystemFont, serif'
   },
   fontSizes: [12, 14, 16, 18, 22, 32, 48],
   fontWeights: {
@@ -18,7 +18,7 @@ export default {
     heading: 400
   },
   lineHeights: {
-    body: 1.35,
+    body: 1.25,
     heading: 1.25,
   },
   letterSpacings: {

@@ -1,0 +1,303 @@
+/* .article-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.article-content h1,
+.article-content h2,
+.article-content h3,
+.article-content p {
+  color: black;
+}
+
+.article-content h2 {
+  font-family: "replica", arial, sans-serif;
+  font-size: 1.8rem;
+  width: 50%;
+}
+
+.article-content h3 {
+  font-family: "lyon", times new roman, serif;
+  font-weight: bold;
+  font-size: 1.4rem;
+}
+
+.article-content p {
+  font-family: "lyon", times new roman, serif;
+  font-size: 1rem;
+  line-height: 1.5em;
+  width: 50%;
+  color: black;
+}
+
+.article-content p:first-of-type {
+  margin-top: 0;
+}
+
+.article-content a {
+  font-family: "replica", arial, sans-serif;
+  font-weight: bold;
+  color: #000;
+}
+
+.article-content a:hover {
+  text-decoration: none;
+}
+
+.article-content blockquote {
+  width: 40%;
+  margin: 0 10% 0 0;
+  position: relative;
+  align-self: flex-start;
+  font-family: "lyon", times new roman, serif;
+  font-weight: bold;
+}
+
+.article-content blockquote > div {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.article-content blockquote .pullquote-number {
+  line-height: 1.2em;
+  font-size: 8rem;
+  font-feature-settings: lnum;
+  font-variant-numeric: lining-nums;
+}
+
+.article-content blockquote .pullquote-text {
+  color: #0077c8;
+  line-height: 1.2em;
+  font-size: 1.8rem;
+}
+
+.article-content blockquote .pullquote-text::before {
+  content: open-quote;
+  position: absolute;
+  left: -1rem;
+}
+
+.article-content blockquote .pullquote-text::after {
+  content: close-quote;
+}
+
+.article-content blockquote .pullquote-src,
+.article-content figcaption {
+  color: #000;
+  font-family: "replica", arial, sans-serif;
+  font-weight: normal;
+  font-size: 1rem;
+  margin-top: 1rem;
+}
+.article-content figure {
+  margin: 2rem 0;
+}
+
+.left {
+  width: 40%;
+  align-self: flex-start;
+  position: relative;
+  margin: 0 10% 0 0;
+}
+
+.article-title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-bottom: 1rem;
+}
+
+.article-content h1 {
+  font-family: "lyon", times new roman, serif;
+  font-weight: bold;
+  font-size: 3rem;
+  line-height: 1.2em;
+  margin: 1rem 0;
+}
+
+.article-icon,
+.article-icon-mobile {
+  border-radius: 50%;
+  background-color: #888;
+  width: 100px;
+  height: 100px;
+}
+
+.article-icon img,
+.article-icon-mobile img {
+  width: 100%;
+}
+
+.article-icon-mobile {
+  display: none;
+}
+
+.article-img {
+  width: 100%;
+}
+
+.full-width {
+  background: #888;
+  margin: 3rem 0;
+  margin-left: calc(-100vw / 2 + 50%);
+  margin-right: calc(-100vw / 2 + 50%);
+}
+
+.related-articles-container {
+  max-width: 1136px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.related-articles-container h2 {
+  flex: 1 100%;
+  margin: 2rem 0;
+}
+
+.related-articles {
+  display: flex;
+  flex: 1 0 0;
+  margin-bottom: 2rem;
+  align-items: center;
+}
+
+.related-icon {
+  border-radius: 50%;
+  background-color: #fff;
+  width: 150px;
+  height: 150px;
+  margin-right: 1rem;
+  flex: 1 0 auto;
+}
+
+.related-icon img {
+  width: 100%;
+}
+
+.related-title {
+  font-family: "replica", arial, sans-serif;
+  margin-right: 2rem;
+}
+
+.related-title h3 {
+  margin-top: 0;
+}
+
+.other-areas {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.other-areas h2 {
+  flex: 1 100%;
+}
+
+.pillar {
+  display: flex;
+  flex: 1 0 0;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 1rem 2rem 1rem 0;
+  font-family: "replica", arial, sans-serif;
+}
+
+.pillar-icon {
+  border-radius: 50%;
+  background-color: #888;
+  width: 100px;
+  height: 100px;
+}
+
+.pillar h3 {
+  margin: 1rem 0;
+}
+
+.pillar-description img {
+  width: 50px;
+  margin-top: 1rem;
+  display: block;
+}
+
+@media (max-width: 800px) {
+  main#site-content {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .article-content {
+    display: block;
+  }
+
+  .left, .article-content h2, p, blockquote {
+    width: 100%;
+  }
+
+  .article-content h1, blockquote {
+    margin: 2rem 0;
+  }
+
+  .article-title, blockquote > div {
+    position: static;
+  }
+
+  h1 {
+    font-size: 2.4rem;
+    margin-top: 0.5rem;
+  }
+
+  .article-icon {
+    display: none;
+  }
+
+  .article-icon-mobile {
+    display: inline-block;
+    float: left;
+    margin: 0 1rem 1rem 0;
+    width: 80px;
+    height: 80px;
+  }
+
+  blockquote .pullquote-number {
+    font-size: 6rem;
+  }
+
+  .article-banner {
+    background: url("https://via.placeholder.com/800x250.jpg") no-repeat center;
+    height: 250px;
+  }
+
+  .related-articles-container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .related-articles, .other-areas .pillar {
+    flex: 1 100%;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .related-icon {
+    margin: 1rem 0;
+  }
+
+  .related-title {
+    margin: 0;
+  }
+
+  .other-areas .pillar {
+    margin-right: 0;
+  }
+
+  .pillar-description a {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+*/

@@ -1,0 +1,15 @@
+@font-face {
+  font-family: 'Replica';
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+  src: url("Replica-Regular.woff") format("woff");
+}
+
+@font-face {
+  font-family: 'Replica';
+  font-style: normal;
+  font-weight: bold;
+  font-display: swap;
+  src: url("Replica-Bold.woff") format("woff");
+}

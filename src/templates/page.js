@@ -75,7 +75,8 @@ export default ({ pageContext }) => {
               }}/>
 
               <Text dangerouslySetInnerHTML={{__html: content}} sx={{
-                maxWidth: '500px'
+                maxWidth: '500px',
+                fontFamily: 'serif'
               }}/>
 
               <Box ref={mobileContainer} sx={{

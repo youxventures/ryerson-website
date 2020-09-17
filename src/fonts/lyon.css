@@ -1,0 +1,35 @@
+@font-face {
+  font-family: 'Lyon';
+  font-style: normal;
+  font-weight: bold;
+  font-display: swap;
+  src: url("LyonDisplay-Bold-Web.woff2") format("woff2"),
+    url("LyonDisplay-Bold-Web.woff") format("woff");
+}
+
+@font-face {
+  font-family: 'Lyon';
+  font-style: italic;
+  font-weight: bold;
+  font-display: swap;
+  src: url("LyonDisplay-BoldItalic-Web.woff2") format("woff2"),
+    url("LyonDisplay-BoldItalic-Web.woff") format("woff");
+}
+
+@font-face {
+  font-family: 'Lyon';
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+  src: url("LyonText-Regular-Web.woff2") format("woff2"),
+    url("LyonText-Regular-Web.woff") format("woff");
+}
+
+@font-face {
+  font-family: 'Lyon';
+  font-style: italic;
+  font-weight: normal;
+  font-display: swap;
+  src: url("LyonText-RegularItalic-Web.woff2") format("woff2"),
+    url("LyonText-RegularItalic-Web.woff") format("woff");
+}

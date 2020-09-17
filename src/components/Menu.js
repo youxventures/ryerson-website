@@ -61,15 +61,15 @@ export default ({ showMenu, setShowMenu }) => {
               <Box sx={{
                 width: ['15vw', '15vw', '10vw'],
                 height: ['15vw', '15vw', '10vw'],
-                mr: 3,
+                mr: 0,
                 backgroundColor: 'white',
                 opacity: .5,
                 borderRadius: '50%'
               }} />
 
               <Heading dangerouslySetInnerHTML={{__html: title}} sx={{
-                width: ['55%', '50%', '60%'],
-                fontSize: ['5vw', '5vw', '2.75vw'],
+                width: ['55%', '50%', '55%'],
+                fontSize: ['5vw', '5vw', '3.25vw'],
                 fontFamily: 'serif',
                 fontWeight: 'bold'
               }} />
