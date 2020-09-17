@@ -2,7 +2,7 @@
 import { jsx, Container, Flex, Box, Heading } from 'theme-ui'
 import { useStaticQuery, graphql, Link } from 'gatsby'
 import Layout from '../components/Layout'
-import Seo from '../components/Seo'
+// import Seo from '../components/Seo'
 import PillarLinks from '../components/PillarLinks'
 
 const Post = ({ pageContext }) => {
@@ -74,7 +74,7 @@ const Post = ({ pageContext }) => {
 
   return (
     <Layout>
-      <Seo title={post.title} />
+      {/* <Seo title={post.title} /> */}
 
       <Container>
         <h1>{post.title}</h1>

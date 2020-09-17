@@ -3,7 +3,7 @@ import { jsx, Container, Flex, Box, Heading, Text } from 'theme-ui'
 import { useEffect, createRef } from 'react'
 import { Link } from 'gatsby'
 import Layout from '../components/Layout'
-import Seo from '../components/Seo'
+// import Seo from '../components/Seo'
 import PillarLinks from '../components/PillarLinks'
 import Arrow from '../images/arrow.svg'
 import udiAnimation from '../animations/udi.json'
@@ -56,7 +56,7 @@ export default ({ pageContext }) => {
 
   return (
     <Layout bgColor={color}>
-      <Seo title={title} />
+      {/* <Seo title={title} /> */}
 
       <Box sx={{ pb: 5, backgroundColor: color }}>
         <Container>
