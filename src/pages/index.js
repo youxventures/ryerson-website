@@ -8,14 +8,17 @@ export default () => {
   const containerRef = useRef(null)
 
   useEffect(() => {
-    containerRef.current.style.transition = 'opacity .25s ease-in-out'
-    containerRef.current.style.transitionDelay = '1s'
-    containerRef.current.style.opacity = 1
+
+    setTimeout(() => {
+      containerRef.current.style.transition = 'opacity .25s ease-in-out'
+      containerRef.current.style.transitionDelay = '.5s'
+      containerRef.current.style.opacity = 1
+    }, 500)
   }, [])
 
   return (
     <Layout>
-      <Container ref={containerRef} sx={{ opacity: 0 }}>
+      <Container ref={containerRef} style={{ opacity: 0 }}>
         <Heading sx={{
           mt: 4,
           mb: 6,

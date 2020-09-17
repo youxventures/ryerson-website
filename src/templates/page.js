@@ -1,7 +1,6 @@
 /** @jsx jsx */
 import { jsx, Container, Flex, Box, Heading, Text } from 'theme-ui'
 import { useEffect, createRef, useRef } from 'react'
-import { Link } from 'gatsby'
 import Layout from '../components/Layout'
 // import Seo from '../components/Seo'
 import PillarLinks from '../components/PillarLinks'
@@ -9,6 +8,9 @@ import Arrow from '../images/arrow.svg'
 import udiAnimation from '../animations/udi.json'
 import uhwAnimation from '../animations/uhw.json'
 import govAnimation from '../animations/gov.json'
+import economicAnimation from '../animations/economic.json'
+import creativityAnimation from '../animations/creativity.json'
+import migrationAnimation from '../animations/migration.json'
 import lottie from 'lottie-web'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
@@ -29,18 +31,16 @@ export default ({ pageContext }) => {
   useEffect(() => {
     if (typeof window === 'undefined') return
 
+    console.log(pageId)
+
     const ANIMATIONS = {
       1: udiAnimation,
       2: uhwAnimation,
-      3: govAnimation
+      3: govAnimation,
+      4: economicAnimation,
+      5: creativityAnimation,
+      6: migrationAnimation
     }
-
-    // infra 1
-    // health 2
-    // gov 3
-    // economy 4
-    // creative 5
-    // migration 6
 
     const container = window.innerWidth < 900
       ? mobileContainer
