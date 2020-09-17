@@ -52,11 +52,9 @@ export default ({ pageContext }) => {
       animationData: ANIMATIONS[pageId]
     })
 
-    anim.stop()
-
-    desktopContainer.current.style.opacity = 1
-
-    anim.play()
+    anim.addEventListener('loaded_images', () => {
+      desktopContainer.current.style.opacity = 1
+    })
 
     return () => anim.destroy()
   }, [desktopContainer, mobileContainer, pageId])
@@ -152,7 +150,7 @@ export default ({ pageContext }) => {
               mt: -4,
               mr: -4,
               transition: 'opacity .25s ease-in-out',
-              transitionDelay: '.5s'
+              transitionDelay: '.1s'
             }} />
           </Flex>
         </Container>
