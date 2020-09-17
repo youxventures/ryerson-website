@@ -48,7 +48,7 @@ export default ({ pageId }) => {
             }} />
 
             <Heading dangerouslySetInnerHTML={{__html: pillar.title}} sx={{
-              maxWidth: pageId ? ['none', 'none', '200px'] : '240px',
+              maxWidth: pageId ? ['none', 'none', '200px'] : '260px',
               mt: '25px',
               marginBottom: pageId ? 0 : 3,
               fontSize: pageId ? '22px' : '30px',

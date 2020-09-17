@@ -72,8 +72,6 @@ const Post = ({ pageContext }) => {
     return categoryPosts.filter(categoryPost => categoryPost.id !== post.id)
   }
 
-  console.log(relatedArticles())
-
   return (
     <Layout>
       <Seo title={post.title} />
