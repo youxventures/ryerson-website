@@ -5,12 +5,21 @@ import Layout from '../components/Layout'
 // import Seo from '../components/Seo'
 import PillarLinks from '../components/PillarLinks'
 import Arrow from '../images/arrow.svg'
+
 import udiAnimation from '../animations/udi.json'
 import uhwAnimation from '../animations/uhw.json'
 import govAnimation from '../animations/gov.json'
 import economicAnimation from '../animations/economic.json'
 import creativityAnimation from '../animations/creativity.json'
 import migrationAnimation from '../animations/migration.json'
+
+import udiAnimationWebp from '../animations/udi_webp.json'
+import uhwAnimationWebp from '../animations/uhw_webp.json'
+import govAnimationWebp from '../animations/gov_webp.json'
+import economicAnimationWebp from '../animations/economic_webp.json'
+import creativityAnimationWebp from '../animations/creativity_webp.json'
+import migrationAnimationWebp from '../animations/migration_webp.json'
+
 import lottie from 'lottie-web'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
@@ -40,20 +49,35 @@ export default ({ pageContext }) => {
       6: migrationAnimation
     }
 
+    const ANIMATIONS_WEBP = {
+      1: udiAnimationWebp,
+      2: uhwAnimationWebp,
+      3: govAnimationWebp,
+      4: economicAnimationWebp,
+      5: creativityAnimationWebp,
+      6: migrationAnimationWebp
+    }
+
     const container = window.innerWidth < 900
       ? mobileContainer
       : desktopContainer
 
+    const isSafari =
+      navigator.userAgent.indexOf('Safari') > -1 &&
+      navigator.userAgent.indexOf('Chrome') > -1
+
     const anim = lottie.loadAnimation({
       container: container.current,
-      renderer: 'svg',
+      renderer: 'canvas',
       loop: false,
-      autoplay: false,
-      animationData: ANIMATIONS[pageId]
+      autoplay: true,
+      animationData: isSafari
+        ? ANIMATIONS[pageId]
+        : ANIMATIONS_WEBP[pageId]
     })
 
     anim.addEventListener('DOMLoaded', () => {
-      anim.play()
+      container.current.style.opacity = 1
     })
 
     return () => anim.destroy()
@@ -163,7 +187,9 @@ export default ({ pageContext }) => {
               width: '600px',
               height: '600px',
               mt: -4,
-              mr: -4
+              mr: -4,
+              opacity: 0,
+              transition: 'opacity .25s ease-in-out'
             }} />
           </Flex>
         </Container>
