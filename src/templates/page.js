@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx, Container, Flex, Box, Heading, Text } from 'theme-ui'
-import { useEffect, createRef, useRef } from 'react'
+import { useEffect, createRef } from 'react'
 import Layout from '../components/Layout'
 // import Seo from '../components/Seo'
 import PillarLinks from '../components/PillarLinks'
@@ -23,6 +23,24 @@ import migrationAnimationWebp from '../animations/migration_webp.json'
 import lottie from 'lottie-web'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
+const ANIMATIONS = {
+  1: udiAnimation,
+  2: uhwAnimation,
+  3: govAnimation,
+  4: economicAnimation,
+  5: creativityAnimation,
+  6: migrationAnimation
+}
+
+const ANIMATIONS_WEBP = {
+  1: udiAnimationWebp,
+  2: uhwAnimationWebp,
+  3: govAnimationWebp,
+  4: economicAnimationWebp,
+  5: creativityAnimationWebp,
+  6: migrationAnimationWebp
+}
+
 export default ({ pageContext }) => {
   const {
     page: {
@@ -35,28 +53,9 @@ export default ({ pageContext }) => {
 
   const desktopContainer = createRef()
   const mobileContainer = createRef()
-  const contentRef = useRef(null)
 
   useEffect(() => {
     if (typeof window === 'undefined') return
-
-    const ANIMATIONS = {
-      1: udiAnimation,
-      2: uhwAnimation,
-      3: govAnimation,
-      4: economicAnimation,
-      5: creativityAnimation,
-      6: migrationAnimation
-    }
-
-    const ANIMATIONS_WEBP = {
-      1: udiAnimationWebp,
-      2: uhwAnimationWebp,
-      3: govAnimationWebp,
-      4: economicAnimationWebp,
-      5: creativityAnimationWebp,
-      6: migrationAnimationWebp
-    }
 
     const container = window.innerWidth < 900
       ? mobileContainer
@@ -71,7 +70,7 @@ export default ({ pageContext }) => {
       renderer: 'canvas',
       loop: false,
       autoplay: true,
-      animationData: isSafari
+      animationData: !isSafari
         ? ANIMATIONS[pageId]
         : ANIMATIONS_WEBP[pageId]
     })
@@ -91,9 +90,7 @@ export default ({ pageContext }) => {
         pb: 5,
         backgroundColor: color
       }}>
-        <Container ref={contentRef} sx={{
-          // opacity: 0
-        }}>
+        <Container>
           <Flex sx={{
             position: 'relative',
             width: '100%',
