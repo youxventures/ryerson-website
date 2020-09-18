@@ -11,7 +11,6 @@ export default () => {
 
     setTimeout(() => {
       containerRef.current.style.transition = 'opacity .25s ease-in-out'
-      containerRef.current.style.transitionDelay = '.5s'
       containerRef.current.style.opacity = 1
     }, 500)
   }, [])

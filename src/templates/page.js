@@ -31,8 +31,6 @@ export default ({ pageContext }) => {
   useEffect(() => {
     if (typeof window === 'undefined') return
 
-    console.log(pageId)
-
     const ANIMATIONS = {
       1: udiAnimation,
       2: uhwAnimation,
@@ -50,18 +48,11 @@ export default ({ pageContext }) => {
       container: container.current,
       renderer: 'svg',
       loop: false,
-      autoplay: true,
+      autoplay: false,
       animationData: ANIMATIONS[pageId]
     })
 
-    anim.stop()
-
-    desktopContainer.current.style.opacity = 1
-    contentRef.current.style.transition = 'opacity .25s ease-in-out'
-    contentRef.current.style.transitionDelay = '1s'
-    contentRef.current.style.opacity = 1
-
-    anim.addEventListener('loaded_images', () => {
+    anim.addEventListener('DOMLoaded', () => {
       anim.play()
     })
 
@@ -77,7 +68,7 @@ export default ({ pageContext }) => {
         backgroundColor: color
       }}>
         <Container ref={contentRef} sx={{
-          opacity: 0
+          // opacity: 0
         }}>
           <Flex sx={{
             position: 'relative',
@@ -167,15 +158,12 @@ export default ({ pageContext }) => {
             </Box>
 
             <Box ref={desktopContainer} sx={{
-              opacity: 0,
               display: ['none', 'none', 'block'],
               position: 'relative',
               width: '600px',
               height: '600px',
               mt: -4,
-              mr: -4,
-              transition: 'opacity .25s ease-in-out',
-              transitionDelay: '.1s'
+              mr: -4
             }} />
           </Flex>
         </Container>
