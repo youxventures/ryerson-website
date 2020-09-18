@@ -133,7 +133,7 @@ export default {
   },
   styles: {
     root: {
-      fontSize: 3,
+      fontSize: [3, 3, 2, 2, 3],
       fontFamily: 'body',
       lineHeight: 'body',
       fontWeight: 'body',

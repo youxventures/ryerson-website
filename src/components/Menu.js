@@ -1,9 +1,9 @@
 /** @jsx jsx */
 import { jsx, Grid, Heading, Box } from 'theme-ui'
-import { useStaticQuery, graphql } from 'gatsby'
+import { useStaticQuery, graphql, Link } from 'gatsby'
 import Arrow from '../images/arrow.svg'
 import Burger from './Burger'
-import AniLink from 'gatsby-plugin-transition-link/AniLink'
+// import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
 export default ({ showMenu, setShowMenu }) => {
   const { wpgraphql } = useStaticQuery(
@@ -45,11 +45,9 @@ export default ({ showMenu, setShowMenu }) => {
           zIndex: 10
         }}>
           {menuItems.map(({ id, slug, title, pageSettings: { color } }) => (
-            <AniLink
+            <Link
               key={id}
-              paintDrip
               to={`/${slug}`}
-              hex={color}
               sx={{
                 color: 'black',
                 textDecoration: 'none'
@@ -84,7 +82,7 @@ export default ({ showMenu, setShowMenu }) => {
                 }} />
                 <img sx={{ width: ['6vw', '6vw', '4vw'] }} src={Arrow} alt="arrow"/>
               </Box>
-            </AniLink>
+            </Link>
           ))}
         </Grid>
       }

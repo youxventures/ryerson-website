@@ -1,10 +1,12 @@
 /** @jsx jsx */
 import { jsx, Container, Flex, Box, Heading, Text } from 'theme-ui'
 import { useEffect, createRef } from 'react'
+import { Link } from 'gatsby'
 import Layout from '../components/Layout'
 // import Seo from '../components/Seo'
 import PillarLinks from '../components/PillarLinks'
 import Arrow from '../images/arrow.svg'
+import lottie from 'lottie-web'
 
 import udiAnimation from '../animations/udi.json'
 import uhwAnimation from '../animations/uhw.json'
@@ -20,8 +22,7 @@ import economicAnimationWebp from '../animations/economic_webp.json'
 import creativityAnimationWebp from '../animations/creativity_webp.json'
 import migrationAnimationWebp from '../animations/migration_webp.json'
 
-import lottie from 'lottie-web'
-import AniLink from 'gatsby-plugin-transition-link/AniLink'
+// import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
 const ANIMATIONS = {
   1: udiAnimation,
@@ -118,11 +119,9 @@ export default ({ pageContext }) => {
 
               <Flex sx={{ flexDirection: 'column' }}>
                 {articles.map(article => (
-                  <AniLink
+                  <Link
                     key={article.id}
-                    paintDrip
                     to={`/blog/${article.slug}`}
-                    hex={color}
                     sx={{
                       color: 'black',
                       textDecoration: 'none'
@@ -133,7 +132,7 @@ export default ({ pageContext }) => {
                       flexDirection: ['column', 'column', 'row'],
                       alignItems: ['center', 'center', 'flex-start'],
                       textAlign: ['center', 'center', 'left'],
-                      mt: 4,
+                      mt: [4, 4, 3, 3, 4],
                       color: 'black',
                       textDecoration: 'none'
                     }}>
@@ -173,7 +172,7 @@ export default ({ pageContext }) => {
                         <img src={Arrow} alt="arrow" />
                       </Box>
                     </Box>
-                  </AniLink>
+                  </Link>
                 ))}
               </Flex>
             </Box>
@@ -181,10 +180,10 @@ export default ({ pageContext }) => {
             <Box ref={desktopContainer} sx={{
               display: ['none', 'none', 'block'],
               position: 'relative',
-              width: '600px',
-              height: '600px',
-              mt: -4,
-              mr: -4,
+              width: ['500px', '500px', '500px', '520px', '600px'],
+              height: ['500px', '500px', '500px', '520px', '600px'],
+              mt: [null, null, null, -3, -4],
+              mr: [null, null, null, null, -4],
               opacity: 0,
               transition: 'opacity .25s ease-in-out'
             }} />
