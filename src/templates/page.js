@@ -62,18 +62,18 @@ export default ({ pageContext }) => {
       ? mobileContainer
       : desktopContainer
 
-    const isSafari =
+    const isNotSafari =
       navigator.userAgent.indexOf('Safari') > -1 &&
       navigator.userAgent.indexOf('Chrome') > -1
 
     const anim = lottie.loadAnimation({
       container: container.current,
-      renderer: 'canvas',
+      renderer: window.innerWidth < 900 ? 'svg' : 'canvas',
       loop: false,
       autoplay: true,
-      animationData: !isSafari
-        ? ANIMATIONS[pageId]
-        : ANIMATIONS_WEBP[pageId]
+      animationData: isNotSafari
+        ? ANIMATIONS_WEBP[pageId]
+        : ANIMATIONS[pageId]
     })
 
     anim.addEventListener('DOMLoaded', () => {
