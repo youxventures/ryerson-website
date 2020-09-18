@@ -1,6 +1,6 @@
 export default {
   space: [0, 4, 8, 16, 32, 48, 64, 128, 256, 512],
-  breakpoints: ['600px', '900px', '1200px', '1800px'],
+  breakpoints: ['600px', '900px', '1200px', '1600px'],
   layout: {
     container: {
       py: 2,
