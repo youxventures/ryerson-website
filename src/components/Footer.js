@@ -12,7 +12,7 @@ export default () => (
     color: 'white'
   }}>
     <Container>
-      yo yo yo
+      new footer
     </Container>
   </footer>
 )
