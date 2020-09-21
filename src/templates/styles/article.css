@@ -1,35 +1,73 @@
+/*main {
+  margin-top: -150px;
+}*/
+
+main > div > h1 {
+  display: none;
+}
+
+.article-banner {
+  margin-left: calc(-100vw / 2 + 50%);
+  margin-right: calc(-100vw / 2 + 50%);
+  margin-bottom: 2rem;
+}
+
+.article-banner img {
+  width: 100%;
+}
+
 .article-content {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
 }
+
+.article-content h1 {
+  font-family: "lyon", times new roman, serif;
+  font-weight: bold;
+  font-size: 3rem;
+  line-height: 1.2em;
+  margin: 1rem 0;
+}
+
 .article-content h2 {
   font-family: "replica", arial, sans-serif;
   font-size: 1.8rem;
   width: 50%;
 }
+
 .article-content h3 {
   font-family: "lyon", times new roman, serif;
   font-weight: bold;
   font-size: 1.4rem;
 }
+
 .article-content p {
   font-family: "lyon", times new roman, serif;
   font-size: 1rem;
   line-height: 1.6em;
   width: 50%;
+  font-size: 18px;
+  margin: 1rem 0;
+  font-feature-settings: lnum;
+  font-variant-numeric: oldstyle-nums;
 }
+
 .article-content p:first-of-type {
   margin-top: 0;
 }
+
 .article-content a {
   font-family: "replica", arial, sans-serif;
   font-weight: bold;
   color: #000;
+  font-size: 18px;
 }
+
 .article-content a:hover {
   text-decoration: none;
 }
+
 .article-content blockquote {
   width: 40%;
   margin: 0 10% 0 0;
@@ -90,28 +128,9 @@
 
 .article-title {
   position: absolute;
-  top: 0;
+  top: 1rem;
   left: 0;
   margin-bottom: 1rem;
-}
-
-.article-content h1 {
-  font-family: "lyon", times new roman, serif;
-  font-weight: bold;
-  font-size: 3rem;
-  line-height: 1.2em;
-  margin: 1rem 0;
-}
-
-.article-content p {
-  font-size: 18px;
-  margin: 1rem 0;
-  font-feature-settings: lnum;
-  font-variant-numeric: oldstyle-nums;
-}
-
-.article-content a {
-  font-size: 18px;
 }
 
 .article-icon,
@@ -142,7 +161,7 @@
   margin-right: calc(-100vw / 2 + 50%);
 }
 
-.related-articles-container {
+/*.related-articles-container {
   max-width: 1136px;
   margin: 0 auto;
   padding: 1rem 2rem;
@@ -217,13 +236,17 @@
   width: 40px;
   margin-top: 1rem;
   display: block;
-}
+}*/
 
 /* responsive */
 @media (max-width: 800px) {
-  main#site-content {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+  /*main {
+    margin-top: -105px;
+  }*/
+
+  main > div {
+    padding-left: 1.5rem!important;
+    padding-right: 1.5rem!important;
   }
 
   .article-content {
@@ -280,12 +303,7 @@
     font-size: 6rem;
   }
 
-  .article-banner {
-    background: url("https://via.placeholder.com/800x250.jpg") no-repeat center;
-    height: 250px;
-  }
-
-  .related-articles-container {
+  /*.related-articles-container {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
   }
@@ -318,5 +336,5 @@
   .pillar-description a {
     display: flex;
     justify-content: center;
-  }
+  }*/
 }
