@@ -8,7 +8,6 @@ export default () => {
   const containerRef = useRef(null)
 
   useEffect(() => {
-
     setTimeout(() => {
       containerRef.current.style.transition = 'opacity .25s ease-in-out'
       containerRef.current.style.opacity = 1
