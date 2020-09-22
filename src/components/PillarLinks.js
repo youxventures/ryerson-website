@@ -1,10 +1,10 @@
 /** @jsx jsx */
 import { useEffect, useRef } from 'react'
 import { jsx, Grid, Box, Heading, Text } from 'theme-ui'
-import { useStaticQuery, graphql, Link} from 'gatsby'
+import { useStaticQuery, graphql } from 'gatsby'
 import Arrow from '../images/arrow.svg'
 import lottie from 'lottie-web'
-// import AniLink from 'gatsby-plugin-transition-link/AniLink'
+import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
 import udiAnim from '../animations/icon_migration.json'
 import uhwAnim from '../animations/icon_gov.json'
@@ -51,25 +51,47 @@ export default ({ pageId }) => {
   const creativityRef = useRef()
   const migrationRef = useRef()
 
-  const refs = [udiRef, uhwRef, govRef, economicRef, creativityRef, migrationRef]
-  const animationData = [udiAnim, uhwAnim, govAnim, economicAnim, creativityAnim, migrationAnim]
+  const refs = [
+    udiRef,
+    uhwRef,
+    govRef,
+    economicRef,
+    creativityRef,
+    migrationRef
+  ]
 
   useEffect(() => {
-    refs.forEach((ref, i) => {
-      let animation = lottie.loadAnimation({
-        container: ref.current,
-        renderer: 'canvas',
-        loop: false,
-        autoplay: true,
-        animationData: animationData[i],
-      })
-    })
+    const animRefs = [
+      udiRef,
+      uhwRef,
+      govRef,
+      economicRef,
+      creativityRef,
+      migrationRef
+    ]
+
+    const animationData = [
+      udiAnim,
+      uhwAnim,
+      govAnim,
+      economicAnim,
+      creativityAnim,
+      migrationAnim
+    ]
+
+    animRefs.forEach((ref, i) => lottie.loadAnimation({
+      container: ref.current,
+      renderer: 'canvas',
+      loop: false,
+      autoplay: false,
+      animationData: animationData[i],
+    }))
   }, [])
 
   return (
     <Grid columns={pageId ? [1, 5] : [1, 2, 3]} gap={pageId ? 4 : 6} sx={{ gridRowGap: 5 }}>
       {pillars.map((pillar, i) =>
-        <Link to={`/${pillar.slug}`} key={pillar.id} sx={{
+        <Box key={pillar.id} sx={{
           display: 'flex',
           flexDirection: 'column',
           textDecoration: 'none',
@@ -77,20 +99,18 @@ export default ({ pageId }) => {
           textAlign: ['center', 'left'],
           alignItems: ['center', 'flex-start']
         }}>
-          {/* <AniLink paintDrip hex={pillar.pageSettings.color} sx={{
+          <AniLink to={`/${pillar.slug}`} paintDrip hex={pillar.pageSettings.color} sx={{
             color: 'black'
-          }}> */}
-
+          }}>
             <Box ref={refs[i]} sx={{
               width: pageId ? '100px' : '200px',
               height: pageId ? '100px' : '200px'
             }}/>
+          </AniLink>
 
-          {/* </AniLink> */}
-
-          {/* <AniLink paintDrip to={`/${pillar.slug}`} hex={pillar.pageSettings.color} sx={{
+          <AniLink paintDrip to={`/${pillar.slug}`} hex={pillar.pageSettings.color} sx={{
             color: 'black'
-          }}> */}
+          }}>
             <Heading dangerouslySetInnerHTML={{__html: pillar.title}} sx={{
               maxWidth: pageId ? ['none', 'none', '200px'] : '260px',
               mt: '25px',
@@ -100,12 +120,12 @@ export default ({ pageId }) => {
               fontWeight: 'bold',
               textDecoration: 'underline'
             }} />
-          {/* </AniLink> */}
+          </AniLink>
 
-          {/* <AniLink paintDrip to={`/${pillar.slug}`} hex={pillar.pageSettings.color} sx={{
+          <AniLink paintDrip to={`/${pillar.slug}`} hex={pillar.pageSettings.color} sx={{
             color: 'black',
             textDecoration: 'none'
-          }}> */}
+          }}>
             <Text sx={{
               mt: pageId ? 3 : 0,
               mb: 3,
@@ -113,17 +133,17 @@ export default ({ pageId }) => {
             }}>
               {pillar.pageSettings.linkText}
             </Text>
-          {/* </AniLink> */}
+          </AniLink>
 
-          {/* <AniLink paintDrip to={`/${pillar.slug}`} hex={pillar.pageSettings.color}> */}
+          <AniLink paintDrip to={`/${pillar.slug}`} hex={pillar.pageSettings.color}>
             <Box sx={{
               width: pageId ? '35px' : '50px',
               mt: 'auto'
             }}>
               <img src={Arrow} alt="arrow" />
             </Box>
-          {/* </AniLink> */}
-        </Link>
+          </AniLink>
+        </Box>
       )}
     </Grid>
   )

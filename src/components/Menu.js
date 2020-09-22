@@ -1,5 +1,6 @@
 /** @jsx jsx */
 import { jsx, Grid, Heading, Box } from 'theme-ui'
+import { useEffect } from 'react'
 import { useStaticQuery, graphql, Link } from 'gatsby'
 import Arrow from '../images/arrow.svg'
 import Burger from './Burger'
@@ -29,6 +30,16 @@ export default ({ showMenu, setShowMenu }) => {
   let menuItems = wpgraphql.pages.nodes.sort((a, b) => (
     a.pageSettings.order - b.pageSettings.order
   ))
+
+  useEffect(() => {
+    const body = document.querySelector('body')
+    const documentWidth = document.documentElement.clientWidth
+    const windowWidth = window.innerWidth
+    const scrollBarWidth = windowWidth - documentWidth
+
+    body.style.paddingRight = showMenu ? `${scrollBarWidth}px` : 0
+    body.style.overflow = showMenu ? 'hidden' : 'auto'
+  }, [showMenu])
 
   return (
     <div>
