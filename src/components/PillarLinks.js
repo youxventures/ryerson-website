@@ -51,6 +51,13 @@ export default ({ pageId }) => {
   const creativityRef = useRef()
   const migrationRef = useRef()
 
+  const udiPillarRef = useRef()
+  const uhwPillarRef = useRef()
+  const govPillarRef = useRef()
+  const economicPillarRef = useRef()
+  const creativityPillarRef = useRef()
+  const migrationPillarRef = useRef()
+
   const refs = [
     udiRef,
     uhwRef,
@@ -58,6 +65,15 @@ export default ({ pageId }) => {
     economicRef,
     creativityRef,
     migrationRef
+  ]
+
+  const pillarRefs = [
+    udiPillarRef,
+    uhwPillarRef,
+    govPillarRef,
+    economicPillarRef,
+    creativityPillarRef,
+    migrationPillarRef
   ]
 
   useEffect(() => {
@@ -70,6 +86,15 @@ export default ({ pageId }) => {
       migrationRef
     ]
 
+    const pillarContainerRefs = [
+      udiPillarRef,
+      uhwPillarRef,
+      govPillarRef,
+      economicPillarRef,
+      creativityPillarRef,
+      migrationPillarRef
+    ]
+
     const animationData = [
       udiAnim,
       uhwAnim,
@@ -79,19 +104,31 @@ export default ({ pageId }) => {
       migrationAnim
     ]
 
-    animRefs.forEach((ref, i) => lottie.loadAnimation({
-      container: ref.current,
-      renderer: 'canvas',
-      loop: false,
-      autoplay: false,
-      animationData: animationData[i],
-    }))
+    let animations = []
+
+    animRefs.forEach((ref, i) => {
+      const anim = lottie.loadAnimation({
+        container: ref.current,
+        renderer: 'canvas',
+        loop: false,
+        autoplay: false,
+        animationData: animationData[i],
+      })
+
+      animations.push(anim)
+    })
+
+    pillarContainerRefs.forEach((pillar, i) => {
+      if (pillar.current) pillar.current.addEventListener('mouseenter', () => {
+        animations[i].play()
+      })
+    })
   }, [])
 
   return (
     <Grid columns={pageId ? [1, 5] : [1, 2, 3]} gap={pageId ? 4 : 6} sx={{ gridRowGap: 5 }}>
       {pillars.map((pillar, i) =>
-        <Box key={pillar.id} sx={{
+        <Box ref={pillarRefs[i]} key={pillar.id} sx={{
           display: 'flex',
           flexDirection: 'column',
           textDecoration: 'none',
@@ -99,18 +136,22 @@ export default ({ pageId }) => {
           textAlign: ['center', 'left'],
           alignItems: ['center', 'flex-start']
         }}>
-          <AniLink to={`/${pillar.slug}`} paintDrip hex={pillar.pageSettings.color} sx={{
-            color: 'black'
-          }}>
+          <AniLink
+            paintDrip to={`/${pillar.slug}`}
+            hex={pillar.pageSettings.color}
+            sx={{ color: 'black' }}
+          >
             <Box ref={refs[i]} sx={{
               width: pageId ? '100px' : '200px',
               height: pageId ? '100px' : '200px'
             }}/>
           </AniLink>
 
-          <AniLink paintDrip to={`/${pillar.slug}`} hex={pillar.pageSettings.color} sx={{
-            color: 'black'
-          }}>
+          <AniLink
+            paintDrip to={`/${pillar.slug}`}
+            hex={pillar.pageSettings.color}
+            sx={{ color: 'black' }}
+          >
             <Heading dangerouslySetInnerHTML={{__html: pillar.title}} sx={{
               maxWidth: pageId ? ['none', 'none', '200px'] : '260px',
               mt: '25px',
@@ -122,10 +163,11 @@ export default ({ pageId }) => {
             }} />
           </AniLink>
 
-          <AniLink paintDrip to={`/${pillar.slug}`} hex={pillar.pageSettings.color} sx={{
-            color: 'black',
-            textDecoration: 'none'
-          }}>
+          <AniLink
+            paintDrip to={`/${pillar.slug}`}
+            hex={pillar.pageSettings.color}
+            sx={{ color: 'black', textDecoration: 'none' }}
+          >
             <Text sx={{
               mt: pageId ? 3 : 0,
               mb: 3,
@@ -135,10 +177,13 @@ export default ({ pageId }) => {
             </Text>
           </AniLink>
 
-          <AniLink paintDrip to={`/${pillar.slug}`} hex={pillar.pageSettings.color}>
+          <AniLink
+            paintDrip to={`/${pillar.slug}`}
+            hex={pillar.pageSettings.color}
+            sx={{ mt: 'auto' }}
+          >
             <Box sx={{
               width: pageId ? '35px' : '50px',
-              mt: 'auto'
             }}>
               <img src={Arrow} alt="arrow" />
             </Box>

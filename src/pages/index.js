@@ -108,7 +108,7 @@ export default () => {
             width: windowWidth,
             height: '100%',
             zIndex: 7,
-            backgroundColor: 'cadetblue',
+            backgroundColor: '#9e67be',
             overflow: 'hidden'
           }}>
             one
@@ -125,7 +125,7 @@ export default () => {
             width: windowWidth,
             height: '100%',
             zIndex: 6,
-            backgroundColor: 'grey',
+            backgroundColor: '#cc8bf8',
             overflow: 'hidden'
           }}>
             two
@@ -142,7 +142,7 @@ export default () => {
             width: windowWidth,
             height: '100%',
             zIndex: 5,
-            backgroundColor: 'tomato',
+            backgroundColor: '#db9ef8',
             overflow: 'hidden'
           }}>
             three
@@ -159,7 +159,7 @@ export default () => {
             width: windowWidth,
             height: '100%',
             zIndex: 4,
-            backgroundColor: 'blue',
+            backgroundColor: '#e9aef8',
             overflow: 'hidden'
           }}>
             four
@@ -176,7 +176,7 @@ export default () => {
             width: windowWidth,
             height: '100%',
             zIndex: 3,
-            backgroundColor: 'green',
+            backgroundColor: '#f6bdf7',
             overflow: 'hidden'
           }}>
             five
@@ -193,7 +193,7 @@ export default () => {
             width: windowWidth,
             height: '100%',
             zIndex: 2,
-            backgroundColor: 'yellow',
+            backgroundColor: '#f7caf8',
             overflow: 'hidden'
           }}>
             <AniLink to="/home" paintDrip hex="#fff" sx={{
