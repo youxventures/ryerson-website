@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx, Container, Flex, Box, Heading, Text } from 'theme-ui'
-import { useEffect, createRef } from 'react'
+import { useEffect, useRef } from 'react'
 import { Link } from 'gatsby'
 import Layout from '../components/Layout'
 // import Seo from '../components/Seo'
@@ -42,7 +42,7 @@ const ANIMATIONS_WEBP = {
   6: migrationAnimationWebp
 }
 
-export default ({ pageContext }) => {
+export default ({ pageContext, transitionStatus }) => {
   const {
     page: {
       id,
@@ -52,11 +52,13 @@ export default ({ pageContext }) => {
     }
   } = pageContext
 
-  const desktopContainer = createRef()
-  const mobileContainer = createRef()
+  const desktopContainer = useRef()
+  const mobileContainer = useRef()
 
   useEffect(() => {
     if (typeof window === 'undefined') return
+
+    document.body.style.height = '100%'
 
     const container = window.innerWidth < 900
       ? mobileContainer
@@ -66,22 +68,26 @@ export default ({ pageContext }) => {
       navigator.userAgent.indexOf('Safari') > -1 &&
       navigator.userAgent.indexOf('Chrome') > -1
 
-    const anim = lottie.loadAnimation({
-      container: container.current,
-      renderer: window.innerWidth < 900 ? 'svg' : 'canvas',
-      loop: false,
-      autoplay: true,
-      animationData: isNotSafari
-        ? ANIMATIONS_WEBP[pageId]
-        : ANIMATIONS[pageId]
-    })
+    let anim
 
-    anim.addEventListener('DOMLoaded', () => {
-      container.current.style.opacity = 1
-    })
+    setTimeout(() => {
+      anim = lottie.loadAnimation({
+        container: container.current,
+        renderer: window.innerWidth < 900 ? 'svg' : 'canvas',
+        loop: false,
+        autoplay: true,
+        animationData: isNotSafari
+          ? ANIMATIONS_WEBP[pageId]
+          : ANIMATIONS[pageId]
+      })
 
-    return () => anim.destroy()
-  }, [desktopContainer, mobileContainer, pageId])
+      anim.addEventListener('DOMLoaded', () => {
+        container.current.style.opacity = 1
+      })
+    }, 1500)
+
+    return () => anim ? anim.destroy() : null
+  }, [pageId])
 
   return (
     <Layout bgColor={color}>

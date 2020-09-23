@@ -8,6 +8,8 @@ export default () => {
   const containerRef = useRef(null)
 
   useEffect(() => {
+    document.body.style.height = '100%'
+
     setTimeout(() => {
       containerRef.current.style.transition = 'opacity .25s ease-in-out'
       containerRef.current.style.opacity = 1

@@ -140,10 +140,11 @@ export default ({ pageId }) => {
             paintDrip to={`/${pillar.slug}`}
             hex={pillar.pageSettings.color}
             sx={{ color: 'black' }}
+            duration={1.5}
           >
             <Box ref={refs[i]} sx={{
-              width: pageId ? '100px' : '200px',
-              height: pageId ? '100px' : '200px'
+              width: pageId ? '150px' : '200px',
+              height: pageId ? '150px' : '200px'
             }}/>
           </AniLink>
 
@@ -151,6 +152,7 @@ export default ({ pageId }) => {
             paintDrip to={`/${pillar.slug}`}
             hex={pillar.pageSettings.color}
             sx={{ color: 'black' }}
+            duration={1.5}
           >
             <Heading dangerouslySetInnerHTML={{__html: pillar.title}} sx={{
               maxWidth: pageId ? ['none', 'none', '200px'] : '260px',
@@ -167,6 +169,7 @@ export default ({ pageId }) => {
             paintDrip to={`/${pillar.slug}`}
             hex={pillar.pageSettings.color}
             sx={{ color: 'black', textDecoration: 'none' }}
+            duration={1.5}
           >
             <Text sx={{
               mt: pageId ? 3 : 0,
@@ -181,6 +184,7 @@ export default ({ pageId }) => {
             paintDrip to={`/${pillar.slug}`}
             hex={pillar.pageSettings.color}
             sx={{ mt: 'auto' }}
+            duration={1.5}
           >
             <Box sx={{
               width: pageId ? '35px' : '50px',

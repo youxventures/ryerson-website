@@ -9,65 +9,69 @@ export default () => {
   const [currentPage, setCurrentPage] = useState(0)
   const pageContainer = useRef(null)
 
-  useEffect(() => {
-    document.body.style.height = `${window.innerHeight * 6}px`
-  }, [])
+  if (typeof window === 'undefined') {
+    return
+  } else {
+    useEffect(() => {
+      document.body.style.height = `${window.innerHeight * 6}px`
+    }, [])
 
-  useEffect(() => {
-    if (windowHeight) document.body.style.height = windowHeight
-  }, [windowHeight])
+    useEffect(() => {
+      if (windowHeight) document.body.style.height = windowHeight
+    }, [windowHeight])
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const totalScroll = window.scrollY
-      const pages = pageContainer.current.childNodes
+    useEffect(() => {
+      const handleScroll = () => {
+        const totalScroll = window.scrollY
+        const pages = pageContainer.current.childNodes
 
-      const centerPage = pages.item(currentPage)
-      const nextPage = pages.item(currentPage + 1)
-      const prevPage = pages.item(currentPage - 1)
+        const centerPage = pages.item(currentPage)
+        const nextPage = pages.item(currentPage + 1)
+        const prevPage = pages.item(currentPage - 1)
 
-      if (prevPage) {
-        prevPage.style.top = `${-windowHeight}px`
-        prevPage.style.transform = null
+        if (prevPage) {
+          prevPage.style.top = `${-windowHeight}px`
+          prevPage.style.transform = null
+        }
+
+        if (nextPage) {
+          nextPage.style.transform = null
+          nextPage.style.top = 0
+          centerPage.style.top = 0
+        }
+
+        const currentPageNumber = totalScroll < windowHeight ? 0
+          : totalScroll > windowHeight && totalScroll < windowHeight * 2 ? 1
+          : totalScroll > windowHeight * 2 && totalScroll < windowHeight * 3 ? 2
+          : totalScroll > windowHeight * 3 && totalScroll < windowHeight * 4 ? 3
+          : totalScroll > windowHeight * 4 && totalScroll < windowHeight * 5 ? 4
+          : totalScroll > windowHeight * 5 && totalScroll < windowHeight * 6 ? 5
+          : 5
+
+        const transform =
+          currentPage === 0 && totalScroll < windowHeight
+          ? `translateY(-${totalScroll}px)`
+          : currentPage === 1 && totalScroll > windowHeight && totalScroll < windowHeight * 2
+          ? `translateY(-${totalScroll - windowHeight}px)`
+          : currentPage === 2 && totalScroll > windowHeight && totalScroll < windowHeight * 3
+          ? `translateY(-${totalScroll - windowHeight * 2}px)`
+          : currentPage === 3 && totalScroll > windowHeight && totalScroll < windowHeight * 4
+          ? `translateY(-${totalScroll - windowHeight * 3}px)`
+          : currentPage === 4 && totalScroll > windowHeight && totalScroll < windowHeight * 5
+          ? `translateY(-${totalScroll - windowHeight * 4}px)`
+          : currentPage === 5 && totalScroll > windowHeight && totalScroll < windowHeight * 6
+          ? `translateY(-${totalScroll - windowHeight * 5}px)`
+          : `translateY(-${totalScroll - windowHeight * 6}px)`
+
+        setCurrentPage(currentPageNumber)
+        centerPage.style.transform = transform
       }
 
-      if (nextPage) {
-        nextPage.style.transform = null
-        nextPage.style.top = 0
-        centerPage.style.top = 0
-      }
+      window.addEventListener('scroll', handleScroll, { passive: true })
 
-      const currentPageNumber = totalScroll < windowHeight ? 0
-        : totalScroll > windowHeight && totalScroll < windowHeight * 2 ? 1
-        : totalScroll > windowHeight * 2 && totalScroll < windowHeight * 3 ? 2
-        : totalScroll > windowHeight * 3 && totalScroll < windowHeight * 4 ? 3
-        : totalScroll > windowHeight * 4 && totalScroll < windowHeight * 5 ? 4
-        : totalScroll > windowHeight * 5 && totalScroll < windowHeight * 6 ? 5
-        : 5
-
-      const transform =
-        currentPage === 0 && totalScroll < windowHeight
-        ? `translateY(-${totalScroll}px)`
-        : currentPage === 1 && totalScroll > windowHeight && totalScroll < windowHeight * 2
-        ? `translateY(-${totalScroll - windowHeight}px)`
-        : currentPage === 2 && totalScroll > windowHeight && totalScroll < windowHeight * 3
-        ? `translateY(-${totalScroll - windowHeight * 2}px)`
-        : currentPage === 3 && totalScroll > windowHeight && totalScroll < windowHeight * 4
-        ? `translateY(-${totalScroll - windowHeight * 3}px)`
-        : currentPage === 4 && totalScroll > windowHeight && totalScroll < windowHeight * 5
-        ? `translateY(-${totalScroll - windowHeight * 4}px)`
-        : currentPage === 5 && totalScroll > windowHeight && totalScroll < windowHeight * 6
-        ? `translateY(-${totalScroll - windowHeight * 5}px)`
-        : `translateY(-${totalScroll - windowHeight * 6}px)`
-
-      setCurrentPage(currentPageNumber)
-      centerPage.style.transform = transform
-    }
-
-    window.addEventListener('scroll', handleScroll, { passive: true })
-
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [windowHeight, currentPage])
+      return () => window.removeEventListener('scroll', handleScroll)
+    }, [windowHeight, currentPage])
+  }
 
   return (
     <div sx={{
@@ -99,7 +103,7 @@ export default () => {
         }}>
           <Box sx={{
             display: 'flex',
-            alignItems: 'flex-end',
+            alignItems: 'center',
             justifyContent: 'center',
             fontSize: '48px',
             position: 'absolute',
@@ -116,7 +120,7 @@ export default () => {
 
           <Box sx={{
             display: 'flex',
-            alignItems: 'flex-end',
+            alignItems: 'center',
             justifyContent: 'center',
             fontSize: '48px',
             position: 'absolute',
@@ -133,7 +137,7 @@ export default () => {
 
           <Box sx={{
             display: 'flex',
-            alignItems: 'flex-end',
+            alignItems: 'center',
             justifyContent: 'center',
             fontSize: '48px',
             position: 'absolute',
@@ -150,7 +154,7 @@ export default () => {
 
           <Box sx={{
             display: 'flex',
-            alignItems: 'flex-end',
+            alignItems: 'center',
             justifyContent: 'center',
             fontSize: '48px',
             position: 'absolute',
@@ -167,7 +171,7 @@ export default () => {
 
           <Box sx={{
             display: 'flex',
-            alignItems: 'flex-end',
+            alignItems: 'center',
             justifyContent: 'center',
             fontSize: '48px',
             position: 'absolute',
@@ -184,7 +188,7 @@ export default () => {
 
           <Box sx={{
             display: 'flex',
-            alignItems: 'flex-end',
+            alignItems: 'center',
             justifyContent: 'center',
             fontSize: '48px',
             position: 'absolute',

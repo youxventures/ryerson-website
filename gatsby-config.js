@@ -22,7 +22,12 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-offline`,
-    `gatsby-plugin-transition-link`,
+    {
+      resolve: 'gatsby-plugin-transition-link',
+      options: {
+        injectPageProps: false,
+      }
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

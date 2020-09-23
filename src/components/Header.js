@@ -9,7 +9,10 @@ export default ({ bgColor }) => {
   const [showMenu, setShowMenu] = useState(false)
 
   return (
-    <Box sx={{backgroundColor: showMenu ? 'white' : bgColor}}>
+    <Box sx={{
+      backgroundColor: showMenu ? 'white' : bgColor,
+      transition: 'background-color .2s ease-in-out'
+    }}>
       <Container>
         <header sx={{
           display: 'flex',
