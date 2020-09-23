@@ -4,7 +4,7 @@ import { useStaticQuery, graphql, Link } from 'gatsby'
 import Layout from '../components/Layout'
 // import Seo from '../components/Seo'
 import PillarLinks from '../components/PillarLinks'
-import './styles/article.css'
+import '../styles/article.css'
 
 const Post = ({ pageContext }) => {
   const { wpgraphql } = useStaticQuery(
