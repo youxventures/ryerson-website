@@ -119,10 +119,34 @@ export default ({ pageId }) => {
     })
 
     pillarContainerRefs.forEach((pillar, i) => {
-      if (pillar.current) pillar.current.addEventListener('mouseenter', () => {
-        animations[i].play()
-      })
+      if (pillar.current) {
+        pillar.current.addEventListener('mouseenter', () => {
+          animations[i].setDirection(1)
+          animations[i].play()
+        })
+
+        pillar.current.addEventListener('mouseleave', () => {
+          animations[i].setDirection(-1)
+          animations[i].play()
+        })
+      }
     })
+
+    return () => {
+      pillarContainerRefs.forEach((pillar, i) => {
+        if (pillar.current) {
+          pillar.current.removeEventListener('mouseenter', () => {
+            animations[i].setDirection(1)
+            animations[i].play()
+          })
+
+          pillar.current.removeEventListener('mouseleave', () => {
+            animations[i].setDirection(-1)
+            animations[i].play()
+          })
+        }
+      })
+    }
   }, [])
 
   return (

@@ -28,6 +28,7 @@ export default ({ showMenu, setShowMenu }) => (
         borderRadius: '10px',
         backgroundColor: 'black',
         transformOrigin: '1px',
+        transition: 'all .5s ease-in-out',
         '&:first-of-type': {
           transform: showMenu ? 'rotate(45deg)' : 'rotate(0)'
         },

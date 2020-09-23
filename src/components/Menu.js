@@ -1,10 +1,10 @@
 /** @jsx jsx */
 import { jsx, Grid, Heading, Box } from 'theme-ui'
 import { useEffect, useRef } from 'react'
-import { useStaticQuery, graphql, Link } from 'gatsby'
+import { useStaticQuery, graphql } from 'gatsby'
 import Arrow from '../images/arrow.svg'
 import Burger from './Burger'
-// import AniLink from 'gatsby-plugin-transition-link/AniLink'
+import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
 export default ({ showMenu, setShowMenu }) => {
   const menuRef = useRef(null)
@@ -40,6 +40,8 @@ export default ({ showMenu, setShowMenu }) => {
 
     body.style.paddingRight = showMenu ? `${scrollBarWidth}px` : 0
     body.style.overflow = showMenu ? 'hidden' : 'auto'
+
+    menuRef.current.style.visibility = showMenu ? 'visible' : 'hidden'
     menuRef.current.style.opacity = showMenu ? 1 : 0
   }, [showMenu])
 
@@ -55,21 +57,24 @@ export default ({ showMenu, setShowMenu }) => {
         gap={0}
         sx={{
           position: 'absolute',
-          top: ['96px', '96px', '140px'],
+          top: ['96px', '96px', '142px'],
           left: 0,
           right: 0,
           width: '100%',
           height: ['calc(100vh - 96px)', 'calc(100vh - 96px)', 'calc(100vh - 140px)'],
           zIndex: 10,
+          background: 'white',
           opacity: 0,
-          pointerEvents: 'none',
-          transition: 'opacity .2s ease-in-out'
+          visibility: 'hidden',
+          transition: 'visibility .5s ease-in-out, opacity .5s ease-in-out'
         }}
       >
         {menuItems.map(({ id, slug, title, pageSettings: { color } }) => (
-          <Link
+          <AniLink
+            paintDrip to={`/${slug}`}
+            hex={color}
+            duration={1.5}
             key={id}
-            to={`/${slug}`}
             sx={{
               color: 'black',
               textDecoration: 'none'
@@ -102,9 +107,12 @@ export default ({ showMenu, setShowMenu }) => {
                 fontFamily: 'serif',
                 fontWeight: 'bold'
               }} />
-              <img sx={{ width: ['6vw', '6vw', '4vw'] }} src={Arrow} alt="arrow"/>
+              <img src={Arrow} alt="arrow" sx={{
+                width: ['6vw', '6vw', '4vw'],
+                pointerEvents: 'none'
+              }}/>
             </Box>
-          </Link>
+          </AniLink>
         ))}
       </Grid>
     </div>
