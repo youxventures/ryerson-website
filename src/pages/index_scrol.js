@@ -1,8 +1,9 @@
 // /** @jsx jsx */
-import { jsx, Box } from 'theme-ui'
+import { jsx, Container, Box } from 'theme-ui'
 import { useEffect, useRef, useState } from 'react'
 import useWindowSize from '../hooks/useWindowSize'
 import PillarLinks from '../components/PillarLinks'
+import Footer from '../components/Footer'
 import lottie from 'lottie-web'
 
 import homeAnimation1 from '../animations/homepage1.json'
@@ -11,20 +12,6 @@ import homeAnimation3 from '../animations/homepage1.json'
 import homeAnimation4 from '../animations/homepage2.json'
 import homeAnimation5 from '../animations/homepage1.json'
 import homeAnimation6 from '../animations/homepage2.json'
-
-// function isInViewport(element) {
-//   const bounding = element.getBoundingClientRect()
-
-//   const yolo = bounding.top >= 0 && bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight)
-
-//   console.log(yolo)
-
-//   return yolo
-// }
-
-// function animate(animations) {
-//   animations.forEach(animation => isInViewport(animation.wrapper) && animation.play())
-// }
 
 export default () => {
   const { width: windowWidth, height: windowHeight } = useWindowSize()
@@ -75,8 +62,6 @@ export default () => {
         loop: false,
         animationData: animationData[i]
       })
-
-      animations.push(animation)
     })
   }
 
@@ -93,7 +78,6 @@ export default () => {
       anim.addEventListener('DOMLoaded', () => {
         animation1Ref.current.style.opacity = 1
 
-        // async
         loadAnimations()
       })
     }, 1500)
@@ -277,9 +261,6 @@ export default () => {
           </Box>
 
           <Box sx={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
             position: 'absolute',
             top: 0,
             left: 0,
@@ -288,14 +269,15 @@ export default () => {
             maxWidth: '100%',
             maxHeight: '100%',
             zIndex: 2,
-            backgroundColor: '#b8d9ef',
+            backgroundColor: 'white',
             overflow: 'hidden',
             opacity: 0,
             transition: 'opacity 2.5s ease-in-out'
           }}>
-            <PillarLinks />
+            <Container>
+              <PillarLinks />
+            </Container>
           </Box>
-
         </div>
       </div>
     </div>
