@@ -3,7 +3,6 @@ export default {
   breakpoints: ['600px', '900px', '1200px', '1600px'],
   layout: {
     container: {
-      py: 2,
       px: 4,
       maxWidth: ['1000px', '1000px', '1000px', '1200px']
     }

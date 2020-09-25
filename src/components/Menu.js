@@ -57,11 +57,11 @@ export default ({ showMenu, setShowMenu }) => {
         gap={0}
         sx={{
           position: 'absolute',
-          top: ['96px', '96px', '142px'],
+          top: ['96px', '96px', '130px'],
           left: 0,
           right: 0,
           width: '100%',
-          height: ['calc(100vh - 96px)', 'calc(100vh - 96px)', 'calc(100vh - 140px)'],
+          height: ['calc(100vh - 96px)', 'calc(100vh - 96px)', 'calc(100vh - 130px)'],
           zIndex: 10,
           background: 'white',
           opacity: 0,

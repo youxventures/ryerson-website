@@ -18,7 +18,7 @@ export default ({ bgColor }) => {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          py: [2, 2, 4]
+          height: '130px'
         }}>
           <Link to="/home">
             <img src={Logo} alt="logo" sx={{ width: '120px' }}/>
