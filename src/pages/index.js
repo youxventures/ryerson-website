@@ -222,7 +222,7 @@ export default () => {
             <Container sx={{ position: 'relative', width: '100%'}}>
               <Heading sx={{
                 position: 'absolute',
-                top: '200px',
+                top: '180px',
                 fontSize: '36px',
                 fontFamily: 'serif',
                 fontWeight: 'bold',
@@ -250,7 +250,7 @@ export default () => {
             <Container sx={{ position: 'relative', width: '100%'}}>
               <Heading sx={{
                 position: 'absolute',
-                top: '200px',
+                top: '180px',
                 fontSize: '36px',
                 fontFamily: 'serif',
                 fontWeight: 'bold',
@@ -278,7 +278,7 @@ export default () => {
             <Container sx={{ position: 'relative', width: '100%'}}>
               <Heading sx={{
                 position: 'absolute',
-                top: '200px',
+                top: '180px',
                 fontSize: '36px',
                 fontFamily: 'serif',
                 fontWeight: 'bold',
@@ -307,7 +307,7 @@ export default () => {
             <Container sx={{ position: 'relative', width: '100%'}}>
               <Heading sx={{
                 position: 'absolute',
-                top: '200px',
+                top: '180px',
                 fontSize: '36px',
                 fontFamily: 'serif',
                 fontWeight: 'bold',
@@ -335,7 +335,7 @@ export default () => {
             <Container sx={{ position: 'relative', width: '100%'}}>
               <Heading sx={{
                 position: 'absolute',
-                top: '200px',
+                top: '180px',
                 fontSize: '36px',
                 fontFamily: 'serif',
                 fontWeight: 'bold',
@@ -363,7 +363,7 @@ export default () => {
             <Container sx={{ position: 'relative', width: '100%'}}>
               <Heading sx={{
                 position: 'absolute',
-                top: '200px',
+                top: '180px',
                 fontSize: '36px',
                 fontFamily: 'serif',
                 fontWeight: 'bold',
