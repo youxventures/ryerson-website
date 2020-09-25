@@ -86,7 +86,7 @@ export default ({ showMenu, setShowMenu }) => {
                 alignItems: 'center',
                 justifyContent: 'space-between',
                 height: '100%',
-                px: 4,
+                px: ['32px', '36px', '40px'],
                 backgroundColor: color,
                 color: 'black',
                 textDecoration: 'none'
@@ -103,10 +103,12 @@ export default ({ showMenu, setShowMenu }) => {
 
               <Heading dangerouslySetInnerHTML={{__html: title}} sx={{
                 width: ['55%', '50%', '55%'],
-                fontSize: ['5vw', '5vw', '3.25vw'],
+                fontSize: ['5vw', '5vw', '3.15vw'],
+                lineHeight: 1.05,
                 fontFamily: 'serif',
                 fontWeight: 'bold'
               }} />
+
               <img src={Arrow} alt="arrow" sx={{
                 width: ['6vw', '6vw', '4vw'],
                 pointerEvents: 'none'

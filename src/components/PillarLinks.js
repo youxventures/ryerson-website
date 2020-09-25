@@ -2,7 +2,6 @@
 import { useEffect, useRef } from 'react'
 import { jsx, Grid, Box, Heading, Text } from 'theme-ui'
 import { useStaticQuery, graphql } from 'gatsby'
-import Arrow from '../images/arrow.svg'
 import lottie from 'lottie-web'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
@@ -158,7 +157,21 @@ export default ({ pageId }) => {
           textDecoration: 'none',
           color: 'primary',
           textAlign: ['center', 'left'],
-          alignItems: ['center', 'flex-start']
+          alignItems: ['center', 'flex-start'],
+          '&:hover': {
+            'a': {
+              textDecoration: pageId ? 'none' : 'underline'
+            },
+            'a h2': {
+              textDecoration: pageId ? 'none' : 'underline'
+            },
+            'svg g': {
+              fill: 'black'
+            },
+            'svg g path:nth-of-type(2)': {
+              fill: 'white'
+            }
+          }
         }}>
           <AniLink
             paintDrip to={`/${pillar.slug}`}
@@ -175,7 +188,7 @@ export default ({ pageId }) => {
           <AniLink
             paintDrip to={`/${pillar.slug}`}
             hex={pillar.pageSettings.color}
-            sx={{ color: 'black' }}
+            sx={{ color: 'black', transition: 'text-decoration .2s ease-in-out' }}
             duration={1.5}
           >
             <Heading dangerouslySetInnerHTML={{__html: pillar.title}} sx={{
@@ -185,7 +198,8 @@ export default ({ pageId }) => {
               fontSize: pageId ? '22px' : '30px',
               fontFamily: 'serif',
               fontWeight: 'bold',
-              textDecoration: 'underline'
+              textDecoration: 'underline',
+              transition: 'text-decoration .2s ease-in-out'
             }} />
           </AniLink>
 
@@ -213,7 +227,7 @@ export default ({ pageId }) => {
             <Box sx={{
               width: pageId ? '35px' : '50px',
             }}>
-              <img src={Arrow} alt="arrow" />
+              <svg viewBox="0 0 54 54"><g fill="none" fillRule="evenodd"><path d="M27.209 50.783c13.035 0 23.602-10.566 23.602-23.602 0-13.034-10.567-23.6-23.602-23.6S3.607 14.146 3.607 27.18c0 13.036 10.567 23.602 23.602 23.602z" stroke="#000" strokeWidth="4.782"/><path fill="#000" d="M26.852 18.255l-.357.357v.357l6.07 6.07v.357H15.069l-.357.357v2.856l.357.357h17.496v.358l-6.07 6.07v.356l.357.358h3.928l.714-.358 8.212-8.212v-.714l-8.212-8.212-.714-.357z"/></g></svg>
             </Box>
           </AniLink>
         </Box>
