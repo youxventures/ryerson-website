@@ -3,7 +3,7 @@
   font-style: normal;
   font-weight: normal;
   font-display: swap;
-  src: url("Replica-Light.woff") format("woff");
+  src: url("Replica-Regular.woff") format("woff");
 }
 
 @font-face {
@@ -12,4 +12,12 @@
   font-weight: bold;
   font-display: swap;
   src: url("Replica-Bold.woff") format("woff");
+}
+
+@font-face {
+  font-family: 'Replica';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("Replica-Light.woff") format("woff");
 }

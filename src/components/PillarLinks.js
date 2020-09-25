@@ -158,12 +158,12 @@ export default ({ pageId }) => {
           color: 'primary',
           textAlign: ['center', 'left'],
           alignItems: ['center', 'flex-start'],
-          '&:hover': {
+          '&:hover': !pageId ? null : {
             'a': {
-              textDecoration: pageId ? 'none' : 'underline'
+              textDecoration: 'none'
             },
             'a h2': {
-              textDecoration: pageId ? 'none' : 'underline'
+              textDecoration: 'none'
             },
             'svg g': {
               fill: 'black'

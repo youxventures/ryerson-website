@@ -12,16 +12,15 @@ console.log(`This WordPress Endpoint used is: '${process.env.WORDPRESS_URL}'`)
 
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter WordPress Advanced`,
-    description: `The great Gatsby Starter WordPress Advanced.`,
-    author: `Henrik Wirth`,
+    title: `Ryerson Innovation`,
+    description: `Website description.`,
+    author: `Kevin Ivan @kvzivn`,
   },
   plugins: [
     `gatsby-plugin-theme-ui`,
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    `gatsby-plugin-offline`,
     {
       resolve: 'gatsby-plugin-transition-link',
       options: {
@@ -34,12 +33,12 @@ module.exports = {
         name: `Gatsby Starter WordPress Advanced`,
         short_name: `gatsby-starter-wordpress-advanced`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
-        display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        background_color: `#fff`,
+        display: `standalone`,
+        icon: `src/images/favicon.png`, // This path is relative to the root of the site.
       },
     },
+    `gatsby-plugin-offline`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {

@@ -9,7 +9,7 @@ export default {
     }
   },
   fonts: {
-    body: '"Open Sans", system-ui, -apple-system, BlinkMacSystemFont, sans-serif',
+    body: 'Replica, Helvetica, system-ui, -apple-system, BlinkMacSystemFont, sans-serif',
     serif: 'Lyon, Georgia, system-ui, -apple-system, BlinkMacSystemFont, serif'
   },
   fontSizes: [12, 14, 16, 18, 22, 32, 48],
