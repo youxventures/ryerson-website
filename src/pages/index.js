@@ -1,5 +1,5 @@
 // /** @jsx jsx */
-import { jsx, Container, Box } from 'theme-ui'
+import { jsx, Container, Box, Heading } from 'theme-ui'
 import { Link } from 'gatsby'
 import { useEffect, useRef, useState } from 'react'
 import useWindowSize from '../hooks/useWindowSize'
@@ -218,7 +218,19 @@ export default () => {
             overflow: 'hidden',
             transition: 'opacity 1.5s ease-in-out',
             willChange: 'opacity'
-          }} />
+          }}>
+            <Container sx={{ position: 'relative', width: '100%'}}>
+              <Heading sx={{
+                position: 'absolute',
+                top: '200px',
+                fontSize: '36px',
+                fontFamily: 'serif',
+                fontWeight: 'bold',
+              }}>
+                To us, innovation means<br />building a brighter future<br />for us all.
+              </Heading>
+            </Container>
+          </Box>
 
           <Box ref={animation2Ref} sx={{
             position: 'absolute',
@@ -234,7 +246,19 @@ export default () => {
             opacity: 0,
             transition: 'opacity 2.5s ease-in-out',
             willChange: 'opacity'
-          }} />
+          }}>
+            <Container sx={{ position: 'relative', width: '100%'}}>
+              <Heading sx={{
+                position: 'absolute',
+                top: '200px',
+                fontSize: '36px',
+                fontFamily: 'serif',
+                fontWeight: 'bold',
+              }}>
+                It means building cities<br />and economies that take<br />care of our people and<br />our planet.
+              </Heading>
+            </Container>
+          </Box>
 
           <Box ref={animation3Ref} sx={{
             position: 'absolute',
@@ -250,7 +274,20 @@ export default () => {
             opacity: 0,
             transition: 'opacity 2.5s ease-in-out',
             willChange: 'opacity'
-          }} />
+          }}>
+            <Container sx={{ position: 'relative', width: '100%'}}>
+              <Heading sx={{
+                position: 'absolute',
+                top: '200px',
+                fontSize: '36px',
+                fontFamily: 'serif',
+                fontWeight: 'bold',
+                color: 'white'
+              }}>
+                Empowering communities<br />to grow fresh food and<br />produce clean water.
+              </Heading>
+            </Container>
+          </Box>
 
           <Box ref={animation4Ref} sx={{
             position: 'absolute',
@@ -266,7 +303,19 @@ export default () => {
             opacity: 0,
             transition: 'opacity 2.5s ease-in-out',
             willChange: 'opacity'
-          }} />
+          }}>
+            <Container sx={{ position: 'relative', width: '100%'}}>
+              <Heading sx={{
+                position: 'absolute',
+                top: '200px',
+                fontSize: '36px',
+                fontFamily: 'serif',
+                fontWeight: 'bold',
+              }}>
+                Merging creativity with<br />tech to transform our<br />experiences.
+              </Heading>
+            </Container>
+          </Box>
 
           <Box ref={animation5Ref} sx={{
             position: 'absolute',
@@ -282,12 +331,21 @@ export default () => {
             opacity: 0,
             transition: 'opacity 2.5s ease-in-out',
             willChange: 'opacity'
-          }} />
+          }}>
+            <Container sx={{ position: 'relative', width: '100%'}}>
+              <Heading sx={{
+                position: 'absolute',
+                top: '200px',
+                fontSize: '36px',
+                fontFamily: 'serif',
+                fontWeight: 'bold',
+              }}>
+                Advocating for a world<br />free of inequities and<br />inequalities.
+              </Heading>
+            </Container>
+          </Box>
 
           <Box ref={animation6Ref} sx={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
             position: 'absolute',
             top: 0,
             left: 0,
@@ -301,27 +359,20 @@ export default () => {
             opacity: 0,
             transition: 'opacity 2.5s ease-in-out',
             willChange: 'opacity'
-          }} />
-{/*
-          <Box sx={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '2560px',
-            height: '1600px',
-            maxWidth: '100%',
-            maxHeight: '100%',
-            zIndex: 2,
-            backgroundColor: 'white',
-            overflow: 'hidden',
-            opacity: 0,
-            transition: 'opacity 2.5s ease-in-out',
-            willChange: 'opacity'
           }}>
-            <Container>
-              <PillarLinks />
+            <Container sx={{ position: 'relative', width: '100%'}}>
+              <Heading sx={{
+                position: 'absolute',
+                top: '200px',
+                fontSize: '36px',
+                fontFamily: 'serif',
+                fontWeight: 'bold',
+                color: 'white'
+              }}>
+                Empowering communities<br />to grow fresh food and<br />produce clean water.
+              </Heading>
             </Container>
-          </Box> */}
+          </Box>
         </div>
       </div>
     </div>
