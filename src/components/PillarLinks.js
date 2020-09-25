@@ -5,11 +5,11 @@ import { useStaticQuery, graphql } from 'gatsby'
 import lottie from 'lottie-web'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
-import udiAnim from '../animations/icon_migration.json'
+import udiAnim from '../animations/icon_udi.json'
 import uhwAnim from '../animations/icon_gov.json'
 import govAnim from '../animations/icon_uhw.json'
-import economicAnim from '../animations/icon_uhw.json'
-import creativityAnim from '../animations/icon_gov.json'
+import economicAnim from '../animations/icon_economic.json'
+import creativityAnim from '../animations/icon_creativity.json'
 import migrationAnim from '../animations/icon_migration.json'
 
 export default ({ pageId }) => {
