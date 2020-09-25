@@ -179,7 +179,7 @@ export default ({ pageId }) => {
             sx={{ color: 'black' }}
             duration={1.5}
           >
-            <Box ref={refs[i]} sx={{
+            <Box ref={pageId ? refs[pillar.pageSettings.pageId - 1] : refs[i]} sx={{
               width: pageId ? '150px' : '200px',
               height: pageId ? '150px' : '200px'
             }}/>
