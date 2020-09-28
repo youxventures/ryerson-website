@@ -156,12 +156,14 @@ export default ({ pageContext, transitionStatus }) => {
                         transition: 'background-color .2s ease-in-out',
                         borderRadius: '50%',
                       }}>
-                        <img src={article.featuredImage.sourceUrl} alt="article icon" sx={{
-                          position: 'absolute',
-                          left: 0,
-                          bottom: '-4px',
-                          maxWidth: '100%'
-                        }}/>
+                        {article.featuredImage &&
+                          <img src={article.featuredImage.sourceUrl} alt="article icon" sx={{
+                            position: 'absolute',
+                            left: 0,
+                            bottom: '-4px',
+                            maxWidth: '100%'
+                          }}/>
+                        }
                       </Box>
 
                       <Box sx={{ maxWidth: '425px', mt: [3, 3, 0] }}>
