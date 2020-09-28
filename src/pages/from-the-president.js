@@ -3,14 +3,6 @@ import { Container } from 'theme-ui'
 import Layout from '../components/Layout'
 import '../styles/from-the-president.css'
 
-// heading is not visible becuase
-//
-// main > div > h1 {
-//   display: none;
-// }
-//
-// is set in article.css
-
 export default () => {
   return (
     <Layout>
