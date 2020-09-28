@@ -1,12 +1,12 @@
 /** @jsx jsx */
 import { jsx, Container, Flex, Box, Heading, Text } from 'theme-ui'
 import { useEffect, useRef } from 'react'
-import { Link } from 'gatsby'
 import Layout from '../components/Layout'
 // import Seo from '../components/Seo'
 import PillarLinks from '../components/PillarLinks'
 import Arrow from '../images/arrow.svg'
 import lottie from 'lottie-web'
+import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
 import udiAnimation from '../animations/udi.json'
 import uhwAnimation from '../animations/uhw.json'
@@ -21,8 +21,6 @@ import govAnimationWebp from '../animations/gov_webp.json'
 import economicAnimationWebp from '../animations/economic_webp.json'
 import creativityAnimationWebp from '../animations/creativity_webp.json'
 import migrationAnimationWebp from '../animations/migration_webp.json'
-
-// import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
 const ANIMATIONS = {
   1: udiAnimation,
@@ -125,9 +123,11 @@ export default ({ pageContext, transitionStatus }) => {
 
               <Flex sx={{ flexDirection: 'column' }}>
                 {articles.map(article => (
-                  <Link
+                  <AniLink
                     key={article.id}
-                    to={`/blog/${article.slug}`}
+                    paintDrip to={`/blog/${article.slug}`}
+                    hex="#fff"
+                    duration={1.5}
                     sx={{
                       color: 'black',
                       textDecoration: 'none',
@@ -193,7 +193,7 @@ export default ({ pageContext, transitionStatus }) => {
                         <img src={Arrow} alt="arrow" />
                       </Box>
                     </Box>
-                  </Link>
+                  </AniLink>
                 ))}
               </Flex>
             </Box>
