@@ -77,7 +77,7 @@ const Post = ({ pageContext }) => {
     <Layout>
       {/* <Seo title={post.title} /> */}
 
-      <Container>
+      <Container sx={{ px: '1.5rem' }}>
         <h1>{post.title}</h1>
         <div dangerouslySetInnerHTML={{__html: post.content}} />
       </Container>

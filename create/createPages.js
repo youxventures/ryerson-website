@@ -33,6 +33,13 @@ const GET_PAGES = `
                                 excerpt
                                 slug
                                 title
+                                postSettings {
+                                  iconBackgroundColor
+                                  iconHoverColor
+                                }
+                                featuredImage {
+                                  sourceUrl
+                                }
                             }
                         }
                     }

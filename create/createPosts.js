@@ -32,7 +32,6 @@ const GET_PAGES = `
     }
 `
 
-
 const allPosts = []
 let postNumber = 0
 const itemsPerPost = 10

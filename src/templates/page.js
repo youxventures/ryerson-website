@@ -130,7 +130,12 @@ export default ({ pageContext, transitionStatus }) => {
                     to={`/blog/${article.slug}`}
                     sx={{
                       color: 'black',
-                      textDecoration: 'none'
+                      textDecoration: 'none',
+                      '&:hover': {
+                        '.article-icon': {
+                          'backgroundColor': article.postSettings.iconHoverColor
+                        }
+                      }
                     }}
                   >
                     <Box sx={{
@@ -142,14 +147,22 @@ export default ({ pageContext, transitionStatus }) => {
                       color: 'black',
                       textDecoration: 'none'
                     }}>
-                      <Box sx={{
-                        width: '80px',
-                        height: '80px',
+                      <Box className="article-icon" sx={{
+                        position: 'relative',
+                        width: '100px',
+                        height: '100px',
                         mr: [0, 0, 3],
-                        backgroundColor: 'white',
+                        backgroundColor: article.postSettings.iconBackgroundColor,
+                        transition: 'background-color .2s ease-in-out',
                         borderRadius: '50%',
-                        opacity: .5
-                      }} />
+                      }}>
+                        <img src={article.featuredImage.sourceUrl} alt="article icon" sx={{
+                          position: 'absolute',
+                          left: 0,
+                          bottom: '-4px',
+                          maxWidth: '100%'
+                        }}/>
+                      </Box>
 
                       <Box sx={{ maxWidth: '425px', mt: [3, 3, 0] }}>
                         <Heading sx={{
