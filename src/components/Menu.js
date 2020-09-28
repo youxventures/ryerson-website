@@ -146,8 +146,8 @@ export default ({ showMenu, setShowMenu }) => {
               }}
             >
               <Img fluid={menuItemIcons[i].childImageSharp.fluid} sx={{
-                width: ['15vw', '15vw', '10vw'],
-                height: ['15vw', '15vw', '10vw'],
+                width: ['17.5vw', '17.5vw', '10vw'],
+                height: ['17.5vw', '17.5vw', '10vw'],
                 mr: 0
               }} />
 
