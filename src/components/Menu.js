@@ -2,13 +2,22 @@
 import { jsx, Grid, Heading, Box } from 'theme-ui'
 import { useEffect, useRef } from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
+import Img from 'gatsby-image'
 import Arrow from '../images/arrow.svg'
 import Burger from './Burger'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
 export default ({ showMenu, setShowMenu }) => {
   const menuRef = useRef(null)
-  const { wpgraphql } = useStaticQuery(
+  const {
+    wpgraphql,
+    menuUdi,
+    menuUhw,
+    menuGov,
+    menuEconomic,
+    menuCreativity,
+    menuMigration
+  } = useStaticQuery(
     graphql`
       query {
         wpgraphql {
@@ -23,6 +32,48 @@ export default ({ showMenu, setShowMenu }) => {
               }
             }
           }
+        },
+        menuUdi: file(relativePath: { eq: "menu-udi.png" }) {
+          childImageSharp {
+            fluid(maxWidth: 400, quality: 95) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        },
+        menuUhw: file(relativePath: { eq: "menu-uhw.png" }) {
+          childImageSharp {
+            fluid(maxWidth: 400, quality: 95) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        },
+        menuGov: file(relativePath: { eq: "menu-gov.png" }) {
+          childImageSharp {
+            fluid(maxWidth: 400, quality: 95) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        },
+        menuEconomic: file(relativePath: { eq: "menu-economic.png" }) {
+          childImageSharp {
+            fluid(maxWidth: 400, quality: 95) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        },
+        menuCreativity: file(relativePath: { eq: "menu-creativity.png" }) {
+          childImageSharp {
+            fluid(maxWidth: 400, quality: 95) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        },
+        menuMigration: file(relativePath: { eq: "menu-migration.png" }) {
+          childImageSharp {
+            fluid(maxWidth: 400, quality: 95) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
         }
       }
     `
@@ -31,6 +82,8 @@ export default ({ showMenu, setShowMenu }) => {
   let menuItems = wpgraphql.pages.nodes.sort((a, b) => (
     a.pageSettings.order - b.pageSettings.order
   ))
+
+  let menuItemIcons = [menuUdi, menuUhw, menuGov, menuEconomic, menuCreativity, menuMigration]
 
   useEffect(() => {
     const body = document.querySelector('body')
@@ -69,7 +122,7 @@ export default ({ showMenu, setShowMenu }) => {
           transition: 'visibility .5s ease-in-out, opacity .5s ease-in-out'
         }}
       >
-        {menuItems.map(({ id, slug, title, pageSettings: { color } }) => (
+        {menuItems.map(({ id, slug, title, pageSettings: { color } }, i) => (
           <AniLink
             paintDrip to={`/${slug}`}
             hex={color}
@@ -92,13 +145,10 @@ export default ({ showMenu, setShowMenu }) => {
                 textDecoration: 'none'
               }}
             >
-              <Box sx={{
+              <Img fluid={menuItemIcons[i].childImageSharp.fluid} sx={{
                 width: ['15vw', '15vw', '10vw'],
                 height: ['15vw', '15vw', '10vw'],
-                mr: 0,
-                backgroundColor: 'white',
-                opacity: .5,
-                borderRadius: '50%'
+                mr: 0
               }} />
 
               <Heading dangerouslySetInnerHTML={{__html: title}} sx={{
