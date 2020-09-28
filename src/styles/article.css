@@ -91,11 +91,50 @@ main > div > h1 {
   margin-bottom: 0;
 }
 .article-content blockquote .pullquote-text {
-  color: #0077c8;
   line-height: 1.2em;
   font-size: 1.8rem;
   margin-bottom: 1rem;
 }
+
+.article-content#udi-a blockquote .pullquote-text,
+.article-content#udi-b blockquote .pullquote-text,
+.article-content#udi-c blockquote .pullquote-text {
+  color: #0077c8;
+}
+
+.article-content#uhw-a blockquote .pullquote-text,
+.article-content#uhw-b blockquote .pullquote-text,
+.article-content#uhw-c blockquote .pullquote-text,
+.article-content#uhw-d blockquote .pullquote-text,
+.article-content#uhw-e blockquote .pullquote-text {
+  color: #009a44;
+}
+
+.article-content#gsj-a blockquote .pullquote-text,
+.article-content#gsj-b blockquote .pullquote-text,
+.article-content#gsj-c blockquote .pullquote-text,
+.article-content#gsj-d blockquote .pullquote-text {
+  color: #eb0072;
+}
+
+.article-content#ed-a blockquote .pullquote-text,
+.article-content#ed-b blockquote .pullquote-text,
+.article-content#ed-c blockquote .pullquote-text {
+  color: #F06C00;
+}
+
+.article-content#cc-a blockquote .pullquote-text,
+.article-content#cc-b blockquote .pullquote-text,
+.article-content#cc-c blockquote .pullquote-text {
+  color: #792082;
+}
+
+.article-content#mi-a blockquote .pullquote-text,
+.article-content#mi-b blockquote .pullquote-text,
+.article-content#mi-c blockquote .pullquote-text {
+  color: #004c9b;
+}
+
 .article-content blockquote .pullquote-text::before {
   content: open-quote;
   position: absolute;
@@ -108,7 +147,7 @@ main > div > h1 {
 .article-content figcaption {
   color: #000;
   font-family: "replica", arial, sans-serif;
-  font-weight: normal;
+  font-weight: 300;
   font-size: 1rem;
   margin-top: 1rem;
 }
@@ -239,6 +278,13 @@ main > div > h1 {
 }*/
 
 /* responsive */
+
+@media (max-width: 1199px) {
+  .article-content blockquote .pullquote-number.small {
+    font-size: 5.5rem;
+  }
+}
+
 @media (max-width: 800px) {
   /*main {
     margin-top: -105px;

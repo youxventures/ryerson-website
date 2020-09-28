@@ -1,7 +1,105 @@
-.about-heading {
-  color: cadetblue;
+/*h1.about-heading {
+	display: block;
+	font-family: "lyon", times new roman, serif;
+  font-weight: bold;
+  font-size: 3rem;
+  line-height: 1.2em;
+  margin: 1rem 10% 1rem 0;
+  flex-basis: 40%;
+}*/
+
+.about-banner {
+  margin-left: calc(-100vw / 2 + 50%);
+  margin-right: calc(-100vw / 2 + 50%);
+  margin-bottom: 2rem;
 }
 
-.about-text {
-  color: tomato;
+.about-banner img {
+  width: 100%;
+}
+
+.about-content {
+  font-family: "lyon", arial, sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.6em;
+}
+
+.about-content .lead {
+	display: flex;
+}
+
+.about-content .lead h1 {
+	display: block;
+	font-family: "lyon", times new roman, serif;
+  font-weight: bold;
+  font-size: 3rem;
+  line-height: 1.2em;
+  margin: 1rem 10% 1rem 0;
+  flex: 0 0 40%;
+}
+
+.about-content .lead p {
+	flex: 0 0 50%;	
+}
+
+.about-content .video {
+	position: relative;
+  padding-bottom: 56.25%;    
+  height: 0;
+  margin: 2rem 0;
+  clip-path: inset(1px 1px);
+}
+
+.about-content .video iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.about-content .about-links {
+	display: flex;
+	flex-flow: row wrap;	
+	margin: 0 -2rem;
+}
+
+.about-content .about-links > div {
+	flex: 0 0 33.333333%;
+	padding: 1rem 2rem;
+}
+
+.about-links img {
+	width: 100%;
+}
+
+.about-content h2 {
+	font-family: "replica", arial, sans-serif;
+  font-size: 1.8rem;
+  line-height: 1.2em;
+}
+
+.about-content a {
+	color: #000;
+}
+
+.about-content a:hover {
+	text-decoration: none;
+}
+
+.about-content > h2 {
+	margin-top: 4rem;
+}
+
+@media (max-width: 800px) {
+	.about-content .lead {
+		flex-flow: column;
+	}
+	.about-content .lead h1 {
+		margin-right: 0;
+	}
+	.about-content .about-links > div {
+		flex: 0 0 100%;
+	}
 }
