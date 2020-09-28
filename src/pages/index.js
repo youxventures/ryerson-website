@@ -24,10 +24,17 @@ export default () => {
   const { height: windowHeight } = useWindowSize()
   const [currentPage, setCurrentPage] = useState(0)
   const [showMenu, setShowMenu] = useState(false)
+  const [loadedAnimations, setLoadedAnimations] = useState([])
 
   const pageContainerRef = useRef()
   const headerRef = useRef()
+
   const heading1Ref = useRef()
+  const heading2Ref = useRef()
+  const heading3Ref = useRef()
+  const heading4Ref = useRef()
+  const heading5Ref = useRef()
+  const heading6Ref = useRef()
 
   const animation1Ref = useRef()
   const animation2Ref = useRef()
@@ -42,16 +49,8 @@ export default () => {
   }, [])
 
   useEffect(() => {
-    if (typeof window === 'undefined') return
     if (windowHeight) document.body.style.height = windowHeight
   }, [windowHeight])
-
-  const fadeIn = () => {
-    console.log(heading1Ref.current)
-    animation1Ref.current.style.opacity = 1
-    headerRef.current.style.opacity = 1
-    heading1Ref.current.style.opacity = 1
-  }
 
   useEffect(() => {
     const animationData = [
@@ -71,15 +70,21 @@ export default () => {
     ]
 
     const loadAnimations = async () => {
+      let animations = []
+
       await asyncForEach(refs, async (ref, i) => {
-        await lottie.loadAnimation({
+        let anim = lottie.loadAnimation({
           container: ref.current,
           renderer: 'canvas',
           autoplay: false,
           loop: false,
           animationData: animationData[i]
         })
+
+        animations.push(anim)
       })
+
+      setLoadedAnimations(animations)
 
       const anim = lottie.loadAnimation({
         container: animation1Ref.current,
@@ -90,7 +95,9 @@ export default () => {
       })
 
       anim.addEventListener('DOMLoaded', () => {
-        fadeIn()
+        animation1Ref.current.style.opacity = 1
+        headerRef.current.style.opacity = 1
+        heading1Ref.current.style.opacity = 1
       })
     }
 
@@ -120,6 +127,31 @@ export default () => {
         nextPage.style.opacity = 1
       }
 
+      if (totalScroll > windowHeight / 2 && totalScroll < windowHeight * 2) {
+        loadedAnimations[0].play()
+        heading2Ref.current.style.opacity = 1
+      }
+
+      if (totalScroll > windowHeight * 1.5 && totalScroll < windowHeight * 3) {
+        loadedAnimations[1].play()
+        heading3Ref.current.style.opacity = 1
+      }
+
+      if (totalScroll > windowHeight * 2.5 && totalScroll < windowHeight * 4) {
+        loadedAnimations[2].play()
+        heading4Ref.current.style.opacity = 1
+      }
+
+      if (totalScroll > windowHeight * 3.5 && totalScroll < windowHeight * 5) {
+        loadedAnimations[3].play()
+        heading5Ref.current.style.opacity = 1
+      }
+
+      if (totalScroll > windowHeight * 4.5 && totalScroll < windowHeight * 6) {
+        loadedAnimations[4].play()
+        heading6Ref.current.style.opacity = 1
+      }
+
       const currentPageNumber = totalScroll < windowHeight ? 0
         : totalScroll > windowHeight && totalScroll < windowHeight * 2 ? 1
         : totalScroll > windowHeight * 2 && totalScroll < windowHeight * 3 ? 2
@@ -129,8 +161,7 @@ export default () => {
         : 5
 
       const translateY =
-        currentPage === 0 && totalScroll < windowHeight
-        ? `translateY(-${totalScroll}px)`
+        currentPage === 0 && totalScroll < windowHeight ? `translateY(-${totalScroll}px)`
         : currentPage === 1 && totalScroll > windowHeight && totalScroll < windowHeight * 2
         ? `translateY(-${totalScroll - windowHeight}px)`
         : currentPage === 2 && totalScroll > windowHeight && totalScroll < windowHeight * 3
@@ -150,7 +181,7 @@ export default () => {
     window.addEventListener('scroll', handleScroll, { passive: true })
 
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [windowHeight, currentPage])
+  }, [windowHeight, currentPage, loadedAnimations])
 
   return (
     <div sx={{
@@ -255,12 +286,16 @@ export default () => {
             willChange: 'opacity'
           }}>
             <Container sx={{ position: 'relative', width: '100%'}}>
-              <Heading sx={{
+              <Heading ref={heading2Ref} sx={{
                 position: 'absolute',
                 top: '180px',
                 fontSize: '36px',
                 fontFamily: 'serif',
                 fontWeight: 'bold',
+                opacity: 0,
+                transition: 'opacity 1.5s ease-in-out',
+                transitionDelay: '2s',
+                willChange: 'opacity'
               }}>
                 It means building cities<br />and economies that take<br />care of our people and<br />our planet.
               </Heading>
@@ -283,12 +318,16 @@ export default () => {
             willChange: 'opacity'
           }}>
             <Container sx={{ position: 'relative', width: '100%'}}>
-              <Heading sx={{
+              <Heading ref={heading3Ref} sx={{
                 position: 'absolute',
                 top: '180px',
                 fontSize: '36px',
                 fontFamily: 'serif',
                 fontWeight: 'bold',
+                opacity: 0,
+                transition: 'opacity 1.5s ease-in-out',
+                transitionDelay: '2s',
+                willChange: 'opacity',
                 color: 'white'
               }}>
                 Empowering communities<br />to grow fresh food and<br />produce clean water.
@@ -312,12 +351,16 @@ export default () => {
             willChange: 'opacity'
           }}>
             <Container sx={{ position: 'relative', width: '100%'}}>
-              <Heading sx={{
+              <Heading ref={heading4Ref} sx={{
                 position: 'absolute',
                 top: '180px',
                 fontSize: '36px',
                 fontFamily: 'serif',
                 fontWeight: 'bold',
+                opacity: 0,
+                transition: 'opacity 1.5s ease-in-out',
+                transitionDelay: '2s',
+                willChange: 'opacity'
               }}>
                 Merging creativity with<br />tech to transform our<br />experiences.
               </Heading>
@@ -340,12 +383,16 @@ export default () => {
             willChange: 'opacity'
           }}>
             <Container sx={{ position: 'relative', width: '100%'}}>
-              <Heading sx={{
+              <Heading ref={heading5Ref} sx={{
                 position: 'absolute',
                 top: '180px',
                 fontSize: '36px',
                 fontFamily: 'serif',
                 fontWeight: 'bold',
+                opacity: 0,
+                transition: 'opacity 1.5s ease-in-out',
+                transitionDelay: '2s',
+                willChange: 'opacity'
               }}>
                 Advocating for a world<br />free of inequities and<br />inequalities.
               </Heading>
@@ -368,12 +415,16 @@ export default () => {
             willChange: 'opacity'
           }}>
             <Container sx={{ position: 'relative', width: '100%'}}>
-              <Heading sx={{
+              <Heading ref={heading6Ref} sx={{
                 position: 'absolute',
                 top: '180px',
                 fontSize: '36px',
                 fontFamily: 'serif',
                 fontWeight: 'bold',
+                opacity: 0,
+                transition: 'opacity 1.5s ease-in-out',
+                transitionDelay: '2s',
+                willChange: 'opacity',
                 color: 'white'
               }}>
                 Empowering communities<br />to grow fresh food and<br />produce clean water.
