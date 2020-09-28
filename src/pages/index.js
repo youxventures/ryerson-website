@@ -14,13 +14,20 @@ import homeAnimation4 from '../animations/homepage1.json'
 import homeAnimation5 from '../animations/homepage2.json'
 import homeAnimation6 from '../animations/homepage3.json'
 
+async function asyncForEach(array, callback) {
+  for (let index = 0; index < array.length; index++) {
+    await callback(array[index], index, array)
+  }
+}
+
 export default () => {
-  const { width: windowWidth, height: windowHeight } = useWindowSize()
+  const { height: windowHeight } = useWindowSize()
   const [currentPage, setCurrentPage] = useState(0)
   const [showMenu, setShowMenu] = useState(false)
-  const pageContainerRef = useRef(null)
 
-  const headerRef = useRef(null)
+  const pageContainerRef = useRef()
+  const headerRef = useRef()
+  const heading1Ref = useRef()
 
   const animation1Ref = useRef()
   const animation2Ref = useRef()
@@ -28,24 +35,6 @@ export default () => {
   const animation4Ref = useRef()
   const animation5Ref = useRef()
   const animation6Ref = useRef()
-
-  const refs = [
-    animation2Ref,
-    animation3Ref,
-    animation4Ref,
-    animation5Ref,
-    animation6Ref
-  ]
-
-  const animationData = [
-    homeAnimation2,
-    homeAnimation3,
-    homeAnimation4,
-    homeAnimation5,
-    homeAnimation6
-  ]
-
-  // let animations = []
 
   useEffect(() => {
     if (typeof window === 'undefined') return
@@ -57,26 +46,41 @@ export default () => {
     if (windowHeight) document.body.style.height = windowHeight
   }, [windowHeight])
 
-  let animations = []
+  const fadeIn = () => {
+    console.log(heading1Ref.current)
+    animation1Ref.current.style.opacity = 1
+    headerRef.current.style.opacity = 1
+    heading1Ref.current.style.opacity = 1
+  }
 
   useEffect(() => {
-    refs.forEach((ref, i) => {
-      setTimeout(() => {
-        let animation = lottie.loadAnimation({
+    const animationData = [
+      homeAnimation2,
+      homeAnimation3,
+      homeAnimation4,
+      homeAnimation5,
+      homeAnimation6
+    ]
+
+    const refs = [
+      animation2Ref,
+      animation3Ref,
+      animation4Ref,
+      animation5Ref,
+      animation6Ref
+    ]
+
+    const loadAnimations = async () => {
+      await asyncForEach(refs, async (ref, i) => {
+        await lottie.loadAnimation({
           container: ref.current,
           renderer: 'canvas',
           autoplay: false,
           loop: false,
           animationData: animationData[i]
         })
+      })
 
-        animations.push(animation)
-      }, 0)
-    })
-  }, [])
-
-  useEffect(() => {
-    setTimeout(() => {
       const anim = lottie.loadAnimation({
         container: animation1Ref.current,
         renderer: 'canvas',
@@ -86,13 +90,11 @@ export default () => {
       })
 
       anim.addEventListener('DOMLoaded', () => {
-        animation1Ref.current.style.opacity = 1
+        fadeIn()
       })
-    }, 1500)
+    }
 
-    setTimeout(() => {
-      headerRef.current.style.opacity = 1
-    }, 2000)
+    loadAnimations()
   }, [])
 
   useEffect(() => {
@@ -181,6 +183,7 @@ export default () => {
           zIndex: 10,
           backgroundColor: showMenu ? 'white' : 'transparent',
           transition: 'all .5s ease-in-out',
+          transitionDelay: '1s',
           opacity: 0
         }}>
           <Container sx={{
@@ -202,7 +205,7 @@ export default () => {
           top: 0,
           left: 0,
           height: '100%',
-          width: windowWidth
+          width: '100%'
         }}>
           <Box ref={animation1Ref} sx={{
             position: 'absolute',
@@ -220,12 +223,16 @@ export default () => {
             willChange: 'opacity'
           }}>
             <Container sx={{ position: 'relative', width: '100%'}}>
-              <Heading sx={{
+              <Heading ref={heading1Ref} sx={{
                 position: 'absolute',
                 top: '180px',
                 fontSize: '36px',
                 fontFamily: 'serif',
                 fontWeight: 'bold',
+                opacity: 0,
+                transition: 'opacity 1.5s ease-in-out',
+                transitionDelay: '2s',
+                willChange: 'opacity'
               }}>
                 To us, innovation means<br />building a brighter future<br />for us all.
               </Heading>
