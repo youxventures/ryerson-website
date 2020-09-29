@@ -176,14 +176,57 @@ main > div > h1 {
 .article-icon,
 .article-icon-mobile {
   border-radius: 50%;
-  background-color: #888;
   width: 100px;
   height: 100px;
+  position: relative;
+}
+
+.article-content#udi-a .article-icon, .article-content#udi-a .article-icon-mobile,
+.article-content#udi-b .article-icon, .article-content#udi-b .article-icon-mobile,
+.article-content#udi-c .article-icon, .article-content#udi-c .article-icon-mobile {
+  background-color: #0077c8;
+}
+
+.article-content#uhw-a .article-icon, .article-content#uhw-a .article-icon-mobile,
+.article-content#uhw-b .article-icon, .article-content#uhw-b .article-icon-mobile,
+.article-content#uhw-c .article-icon, .article-content#uhw-c .article-icon-mobile,
+.article-content#uhw-d .article-icon, .article-content#uhw-d .article-icon-mobile,
+.article-content#uhw-e .article-icon, .article-content#uhw-e .article-icon-mobile {
+  background-color: #009a44;
+}
+
+.article-content#gsj-a .article-icon, .article-content#gsj-a .article-icon-mobile,
+.article-content#gsj-b .article-icon, .article-content#gsj-b .article-icon-mobile,
+.article-content#gsj-c .article-icon, .article-content#gsj-c .article-icon-mobile,
+.article-content#gsj-d .article-icon, .article-content#gsj-d .article-icon-mobile {
+  background-color: #eb0072;
+}
+
+.article-content#ed-a .article-icon, .article-content#ed-a .article-icon-mobile,
+.article-content#ed-b .article-icon, .article-content#ed-b .article-icon-mobile,
+.article-content#ed-c .article-icon, .article-content#ed-c .article-icon-mobile {
+  background-color: #ff7200;
+}
+
+.article-content#cc-a .article-icon, .article-content#cc-a .article-icon-mobile,
+.article-content#cc-b .article-icon, .article-content#cc-b .article-icon-mobile,
+.article-content#cc-c .article-icon, .article-content#cc-c .article-icon-mobile {
+  background-color: #792082;
+}
+
+.article-content#mi-a .article-icon, .article-content#mi-a .article-icon-mobile,
+.article-content#mi-b .article-icon, .article-content#mi-b .article-icon-mobile,
+.article-content#mi-c .article-icon, .article-content#mi-c .article-icon-mobile {
+  background-color: #004c9b;
 }
 
 .article-icon img,
 .article-icon-mobile img {
-  width: 100%;
+  position: absolute;
+  width: 117%;
+  left: -8.5%;
+  bottom: -8.5%;
+  max-width: 117%;
 }
 
 .article-icon-mobile {
@@ -321,6 +364,12 @@ main > div > h1 {
 
   .article-icon {
     display: none;
+  }
+
+  a .article-icon {
+    display: block;
+    width: 150px;
+    height: 150px;
   }
 
   .article-icon-mobile {

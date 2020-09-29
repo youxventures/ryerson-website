@@ -157,12 +157,7 @@ export default ({ pageContext, transitionStatus }) => {
                         borderRadius: '50%',
                       }}>
                         {article.featuredImage &&
-                          <img src={article.featuredImage.sourceUrl} alt="article icon" sx={{
-                            position: 'absolute',
-                            left: 0,
-                            bottom: '-4px',
-                            maxWidth: '100%'
-                          }}/>
+                          <img src={article.featuredImage.sourceUrl} alt="" />
                         }
                       </Box>
 
