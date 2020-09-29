@@ -260,13 +260,12 @@ export default () => {
                 To us, innovation means<br />building a brighter future<br />for us all.
                 <svg ref={arrowRef} viewBox="0 0 12.7 12.7" sx={{
                   position: 'absolute',
-                  top: '115px',
-                  left: [0, 0, null],
-                  right: [null, null, '150px'],
+                  top: '125px',
+                  left: '-10px',
                   width: ['40px', '40px', '45px'],
                   opacity: 0,
                   transition: 'all 1s ease-in-out',
-                  transitionDelay: '4.25s',
+                  transitionDelay: '3.75s',
                 }}>
                   <path fill="#000" d="M5.644 2.117h1.412V7.76l2.116-2.117.706.706L6.35 9.878 2.822 6.35l.706-.706 2.116 2.117z" />
                 </svg>
