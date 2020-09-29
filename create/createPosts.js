@@ -4,7 +4,7 @@ const GET_PAGES = `
     query GET_POSTS($first:Int $after:String) {
         wpgraphql {
             posts(
-                first: $first
+                first: 18
                 after: $after
                 # This will make sure to only get the parent nodes and no children
                 where: {
@@ -34,7 +34,7 @@ const GET_PAGES = `
 
 const allPosts = []
 let postNumber = 0
-const itemsPerPost = 10
+const itemsPerPost = 20
 
 /**
  * This is the export which Gatbsy will use to process.
@@ -90,7 +90,7 @@ module.exports = async ({ actions, graphql, reporter }, options) => {
       if (hasNextPage) {
         postNumber++
         reporter.info(`fetch post ${postNumber} of posts...`)
-        return fetchPosts({ first: itemsPerPost, after: endCursor })
+        return fetchPosts({ first: 20, after: endCursor })
       }
 
       /**
@@ -105,7 +105,7 @@ module.exports = async ({ actions, graphql, reporter }, options) => {
    * Kick off our `fetchPosts` method which will get us all
    * the posts we need to create individual posts.
    */
-  await fetchPosts({ first: itemsPerPost, after: null }).then((wpPosts) => {
+  await fetchPosts({ first: 20, after: null }).then((wpPosts) => {
 
     wpPosts && wpPosts.map((post) => {
       /**

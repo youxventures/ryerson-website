@@ -6,7 +6,7 @@ import Layout from '../components/Layout'
 import PillarLinks from '../components/PillarLinks'
 import '../styles/article.css'
 
-const Post = ({ pageContext }) => {
+const Post = ({ pageContext, data }) => {
   const { wpgraphql } = useStaticQuery(
     graphql`
       query {
@@ -20,7 +20,7 @@ const Post = ({ pageContext }) => {
               }
             }
           }
-          posts {
+          posts(first: 18) {
             nodes {
               id
               title

@@ -7,9 +7,9 @@ import Menu from '../components/Menu'
 import Logo from '../images/logo.svg'
 import lottie from 'lottie-web'
 
-import homeAnimation1 from '../animations/homepage1.json'
-import homeAnimation2 from '../animations/homepage2.json'
-import homeAnimation3 from '../animations/homepage3.json'
+import homeAnimation1 from '../animations/homepage1_new.json'
+import homeAnimation2 from '../animations/homepage2_new.json'
+import homeAnimation3 from '../animations/homepage3_new.json'
 import homeAnimation4 from '../animations/homepage1.json'
 import homeAnimation5 from '../animations/homepage2.json'
 import homeAnimation6 from '../animations/homepage3.json'
@@ -128,7 +128,7 @@ export default () => {
       }
 
       if (totalScroll > windowHeight - windowHeight * .5 && totalScroll < windowHeight * 2) {
-        // loadedAnimations[0].play()
+        loadedAnimations[0].play()
         heading2Ref.current.style.opacity = 1
       }
 

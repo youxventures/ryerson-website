@@ -51,7 +51,7 @@ const GET_PAGES = `
 
 const allPages = []
 let pageNumber = 0
-const itemsPerPage = 10
+const itemsPerPage = 20
 
 /**
  * This is the export which Gatbsy will use to process.
