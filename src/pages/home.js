@@ -11,14 +11,17 @@ export default () => {
     document.body.style.height = '100%'
 
     setTimeout(() => {
-      containerRef.current.style.transition = 'opacity .25s ease-in-out'
       containerRef.current.style.opacity = 1
     }, 500)
   }, [])
 
   return (
     <Layout>
-      <Container ref={containerRef} style={{ opacity: 0 }}>
+      <Container ref={containerRef} sx={{
+        opacity: 0,
+        transition: 'opacity 1.5s ease-in-out',
+        willChange: 'opacity'
+      }}>
         <Heading sx={{
           mt: 4,
           mb: 6,

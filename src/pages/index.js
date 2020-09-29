@@ -4,7 +4,6 @@ import { Link, navigate } from 'gatsby'
 import { useEffect, useRef, useState } from 'react'
 import useWindowSize from '../hooks/useWindowSize'
 import Menu from '../components/Menu'
-import PillarLinks from '../components/PillarLinks'
 import Logo from '../images/logo.svg'
 import lottie from 'lottie-web'
 
@@ -48,7 +47,7 @@ export default () => {
 
   useEffect(() => {
     if (typeof window === 'undefined') return
-    document.body.style.height = `${window.innerHeight * 6}px`
+    document.body.style.height = `${window.innerHeight * 10}px`
     window.scrollTo(0, 0)
   }, [])
 
@@ -131,7 +130,13 @@ export default () => {
         setAllowScroll(false)
 
         if (!nextPage) {
-          return
+          setTimeout(() => {
+            pageContainerRef.current.style.opacity = 0
+          }, 1000)
+
+          setTimeout(() => {
+            navigate('/home')
+          }, 2500)
         } else {
           centerPage.style.opacity = 0
 
@@ -149,9 +154,6 @@ export default () => {
 
               setCurrentPage(currentPage + 1)
             }, 1750)
-          } else {
-            console.log('you reach end')
-            navigate('/home')
           }
         }
       }
@@ -189,7 +191,7 @@ export default () => {
           alignItems: 'center',
           justifyContent: 'space-between',
           width: '100%',
-          height: '130px',
+          height: ['95px', '130px', '130px'],
           zIndex: 10,
           backgroundColor: showMenu ? 'white' : 'transparent',
           transition: 'background-color .5s ease-in-out',
@@ -211,19 +213,21 @@ export default () => {
 
         <div ref={pageContainerRef} sx={{
           position: 'absolute',
-          top: 0,
-          left: 0,
+          left: ['-35%', '-35%', 0],
           height: '100%',
-          width: '100%'
+          width: '100%',
+          transition: 'opacity 1.5s ease-in-out',
+          willChange: 'opacity'
         }}>
           <Box ref={animation1Ref} sx={{
             position: 'absolute',
             top: 0,
             left: 0,
-            width: '2560px',
-            height: '1600px',
+            width: ['1280px', '1280px', '2560px'],
+            height: ['800px', '800px', '1600px'],
             maxWidth: '100%',
             maxHeight: '100%',
+            padding: ['140px 140px 0', '140px 140px 0', 0],
             zIndex: 7,
             backgroundColor: '#8bd4f7',
             opacity: 0,
@@ -231,11 +235,19 @@ export default () => {
             transition: 'opacity 1.5s ease-in-out',
             willChange: 'opacity'
           }}>
-            <Container sx={{ position: 'relative', width: '100%'}}>
+            <Container sx={{
+              position: 'relative',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              width: '100%'
+            }}>
               <Heading ref={heading1Ref} sx={{
                 position: 'absolute',
-                top: '180px',
-                fontSize: '36px',
+                top: ['-10px', '-10px', '180px'],
+                left: [null, null, 0],
+                transform: ['translateX(26px)', 'translateX(26px)', null],
+                fontSize: ['24px', '24px', '36px'],
                 fontFamily: 'serif',
                 fontWeight: 'bold',
                 opacity: 0,
@@ -247,8 +259,9 @@ export default () => {
                 <svg ref={arrowRef} viewBox="0 0 12.7 12.7" sx={{
                   position: 'absolute',
                   top: '115px',
-                  right: '150px',
-                  width: '45px',
+                  left: [0, 0, null],
+                  right: [null, null, '150px'],
+                  width: ['40px', '40px', '45px'],
                   opacity: 0,
                   transition: 'all 1s ease-in-out',
                   transitionDelay: '4.25s',
@@ -263,10 +276,11 @@ export default () => {
             position: 'absolute',
             top: 0,
             left: 0,
-            width: '2560px',
-            height: '1600px',
+            width: ['1280px', '1280px', '2560px'],
+            height: ['800px', '800px', '1600px'],
             maxWidth: '100%',
             maxHeight: '100%',
+            padding: ['260px 260px 0', '260px 260px 0', 0],
             zIndex: 6,
             backgroundColor: '#b8d9ef',
             overflow: 'hidden',
@@ -274,11 +288,19 @@ export default () => {
             transition: 'opacity 1.5s ease-in-out',
             willChange: 'opacity'
           }}>
-            <Container sx={{ position: 'relative', width: '100%'}}>
+            <Container sx={{
+              position: 'relative',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              width: '100%'
+            }}>
               <Heading ref={heading2Ref} sx={{
                 position: 'absolute',
-                top: '180px',
-                fontSize: '36px',
+                top: ['-120px', '-120px', '180px'],
+                left: [null, null, 0],
+                transform: ['translateX(20px)', 'translateX(20px)', null],
+                fontSize: ['24px', '24px', '36px'],
                 fontFamily: 'serif',
                 fontWeight: 'bold',
                 opacity: 0,
@@ -295,10 +317,11 @@ export default () => {
             position: 'absolute',
             top: 0,
             left: 0,
-            width: '2560px',
-            height: '1600px',
+            width: ['1280px', '1280px', '2560px'],
+            height: ['800px', '800px', '1600px'],
             maxWidth: '100%',
             maxHeight: '100%',
+            padding: ['260px 260px 0', '260px 260px 0', 0],
             zIndex: 5,
             backgroundColor: '#000',
             overflow: 'hidden',
@@ -306,11 +329,19 @@ export default () => {
             transition: 'opacity 1.5s ease-in-out',
             willChange: 'opacity'
           }}>
-            <Container sx={{ position: 'relative', width: '100%'}}>
+            <Container sx={{
+              position: 'relative',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              width: '100%'
+            }}>
               <Heading ref={heading3Ref} sx={{
                 position: 'absolute',
-                top: '180px',
-                fontSize: '36px',
+                top: ['-80px', '-80px', '180px'],
+                left: [null, null, 0],
+                transform: ['translateX(26px)', 'translateX(26px)', null],
+                fontSize: ['24px', '24px', '36px'],
                 fontFamily: 'serif',
                 fontWeight: 'bold',
                 opacity: 0,
@@ -328,10 +359,11 @@ export default () => {
             position: 'absolute',
             top: 0,
             left: 0,
-            width: '2560px',
-            height: '1600px',
+            width: ['1280px', '1280px', '2560px'],
+            height: ['800px', '800px', '1600px'],
             maxWidth: '100%',
             maxHeight: '100%',
+            padding: ['140px 140px 0', '140px 140px 0', 0],
             zIndex: 4,
             backgroundColor: '#8bd4f7',
             overflow: 'hidden',
@@ -339,11 +371,19 @@ export default () => {
             transition: 'opacity 1.5s ease-in-out',
             willChange: 'opacity'
           }}>
-            <Container sx={{ position: 'relative', width: '100%'}}>
+            <Container sx={{
+              position: 'relative',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              width: '100%'
+            }}>
               <Heading ref={heading4Ref} sx={{
                 position: 'absolute',
-                top: '180px',
-                fontSize: '36px',
+                top: ['-10px', '-10px', '180px'],
+                left: [null, null, 0],
+                transform: ['translateX(16px)', 'translateX(16px)', null],
+                fontSize: ['24px', '24px', '36px'],
                 fontFamily: 'serif',
                 fontWeight: 'bold',
                 opacity: 0,
@@ -360,10 +400,11 @@ export default () => {
             position: 'absolute',
             top: 0,
             left: 0,
-            width: '2560px',
-            height: '1600px',
+            width: ['1280px', '1280px', '2560px'],
+            height: ['800px', '800px', '1600px'],
             maxWidth: '100%',
             maxHeight: '100%',
+            padding: ['260px 260px 0', '260px 260px 0', 0],
             zIndex: 3,
             backgroundColor: '#b8d9ef',
             overflow: 'hidden',
@@ -371,11 +412,19 @@ export default () => {
             transition: 'opacity 2.5s ease-in-out',
             willChange: 'opacity'
           }}>
-            <Container sx={{ position: 'relative', width: '100%'}}>
+            <Container sx={{
+              position: 'relative',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              width: '100%'
+            }}>
               <Heading ref={heading5Ref} sx={{
                 position: 'absolute',
-                top: '180px',
-                fontSize: '36px',
+                top: ['-100px', '-100px', '180px'],
+                left: [null, null, 0],
+                transform: ['translateX(16px)', 'translateX(16px)', null],
+                fontSize: ['24px', '24px', '36px'],
                 fontFamily: 'serif',
                 fontWeight: 'bold',
                 opacity: 0,
@@ -392,10 +441,11 @@ export default () => {
             position: 'absolute',
             top: 0,
             left: 0,
-            width: '2560px',
-            height: '1600px',
+            width: ['1280px', '1280px', '2560px'],
+            height: ['800px', '800px', '1600px'],
             maxWidth: '100%',
             maxHeight: '100%',
+            padding: ['260px 260px 0', '260px 260px 0', 0],
             zIndex: 2,
             backgroundColor: '#000',
             overflow: 'hidden',
@@ -403,11 +453,19 @@ export default () => {
             transition: 'opacity 2.5s ease-in-out',
             willChange: 'opacity'
           }}>
-            <Container sx={{ position: 'relative', width: '100%'}}>
+            <Container sx={{
+              position: 'relative',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              width: '100%'
+            }}>
               <Heading ref={heading6Ref} sx={{
                 position: 'absolute',
-                top: '180px',
-                fontSize: '36px',
+                top: ['-100px', '-100px', '180px'],
+                left: [null, null, 0],
+                transform: ['translateX(26px)', 'translateX(26px)', null],
+                fontSize: ['24px', '24px', '36px'],
                 fontFamily: 'serif',
                 fontWeight: 'bold',
                 opacity: 0,
