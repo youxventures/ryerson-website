@@ -252,7 +252,6 @@ export default () => {
             position: 'absolute',
             top: 0,
             left: 0,
-            bottom: 0,
             width: ['1280px', '1280px', '2560px'],
             height: ['800px', '800px', '1600px'],
             maxWidth: '100%',
