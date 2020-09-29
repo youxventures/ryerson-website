@@ -125,6 +125,7 @@ export default () => {
 
       let centerPage = pages.item(currentPage)
       let nextPage = pages.item(currentPage + 1)
+      let prevAnimation = loadedAnimations[currentPage - 1]
 
       if (allowScroll) {
         setAllowScroll(false)
@@ -142,6 +143,7 @@ export default () => {
 
           setTimeout(() => {
             nextPage.style.opacity = 1
+            if (prevAnimation) prevAnimation.destroy()
             if (headingRefs[currentPage]) headingRefs[currentPage].current.style.opacity = 1
           }, 1500)
 
