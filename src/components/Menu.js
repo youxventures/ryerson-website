@@ -7,7 +7,7 @@ import Arrow from '../images/arrow.svg'
 import Burger from './Burger'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
-export default ({ showMenu, setShowMenu }) => {
+export default ({ showMenu, setShowMenu, homePage }) => {
   const menuRef = useRef(null)
   const {
     wpgraphql,
@@ -86,17 +86,19 @@ export default ({ showMenu, setShowMenu }) => {
   let menuItemIcons = [menuUdi, menuUhw, menuGov, menuEconomic, menuCreativity, menuMigration]
 
   useEffect(() => {
-    const body = document.querySelector('body')
-    const documentWidth = document.documentElement.clientWidth
-    const windowWidth = window.innerWidth
-    const scrollBarWidth = windowWidth - documentWidth
+    if (!homePage) {
+      const body = document.querySelector('body')
+      const documentWidth = document.documentElement.clientWidth
+      const windowWidth = window.innerWidth
+      const scrollBarWidth = windowWidth - documentWidth
 
-    body.style.paddingRight = showMenu ? `${scrollBarWidth}px` : 0
-    body.style.overflow = showMenu ? 'hidden' : 'auto'
+      body.style.paddingRight = showMenu ? `${scrollBarWidth}px` : 0
+      body.style.overflow = showMenu ? 'hidden' : 'auto'
+    }
 
     menuRef.current.style.visibility = showMenu ? 'visible' : 'hidden'
     menuRef.current.style.opacity = showMenu ? 1 : 0
-  }, [showMenu])
+  }, [showMenu, homePage])
 
   return (
     <div>

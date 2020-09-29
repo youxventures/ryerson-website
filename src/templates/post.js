@@ -84,7 +84,7 @@ const Post = ({ pageContext }) => {
 
       {relatedArticles().length > 0 &&
         <Box sx={{ mt: 4, backgroundColor: postColor }}>
-          <Container>
+          <Container sx={{ py: 2 }}>
             <Heading sx={{
               mt: 5,
               mb: 3,
