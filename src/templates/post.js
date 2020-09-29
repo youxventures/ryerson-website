@@ -100,6 +100,9 @@ const Post = ({ pageContext }) => {
                   <Link key={article.id} to={`/blog/${article.slug}`} sx={{
                     display: 'flex',
                     flexDirection: ['column', 'column', 'row'],
+                    flexGrow: '1',
+                    flexShrink: '0',
+                    flexBasis: '0',
                     alignItems: 'center',
                     textAlign: ['center', 'center', 'left'],
                     mt: 4,
@@ -107,15 +110,16 @@ const Post = ({ pageContext }) => {
                     textDecoration: 'none'
                   }}>
                     <Box sx={{
-                      width: '190px',
-                      height: '190px',
+                      minWidth: '150px',
+                      width: '150px',
+                      height: '150px',
                       mr: [0, 0, 4],
                       backgroundColor: 'white',
                       borderRadius: '50%',
                       opacity: .5
                     }} />
 
-                    <Box sx={{ maxWidth: '320px', mt: [3, 3, 0] }}>
+                    <Box sx={{ mt: [3, 3, 0], mr: [0, 3, 3], ml: [0, 3, 0] }}>
                       <Heading sx={{
                         m: 0,
                         fontSize: '22px',
