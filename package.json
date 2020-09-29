@@ -20,6 +20,7 @@
     "gatsby-transformer-sharp": "^2.3.3",
     "glob": "^7.1.6",
     "gsap": "^3.5.1",
+    "lodash.debounce": "^4.0.8",
     "lodash.isempty": "^4.4.0",
     "lodash.uniqby": "^4.7.0",
     "lottie-web": "^5.7.3",

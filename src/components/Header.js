@@ -11,7 +11,7 @@ export default ({ bgColor }) => {
   return (
     <Box sx={{
       backgroundColor: showMenu ? 'white' : bgColor,
-      transition: 'background-color .5s ease-in-out'
+      transition: 'background-color .1s ease-in-out'
     }}>
       <Container>
         <header sx={{
