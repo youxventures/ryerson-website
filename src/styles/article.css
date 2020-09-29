@@ -88,7 +88,8 @@ main > div > h1 {
   font-variant-numeric: lining-nums;
   font-kerning: normal;
   letter-spacing: -3px;
-  margin-bottom: 0;
+  line-height: 0.8em;
+  margin: 2rem 0 1.5rem;
 }
 .article-content blockquote .pullquote-text {
   line-height: 1.2em;
@@ -342,6 +343,10 @@ main > div > h1 {
 
   .article-content blockquote .pullquote-number {
     font-size: 6rem;
+  }
+
+  .article-content blockquote .pullquote-number.small {
+    font-size: 5rem;
   }
 
   /*.related-articles-container {
