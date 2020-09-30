@@ -15,9 +15,9 @@ export default () => {
       <Container>
 	      <div className="about-banner">
 					<picture>
-						<source media="(max-width: 800px)" srcSet="http://3.97.1.121/wp-content/uploads/2020/09/about-header-mobile.jpg" />
-						<source media="(min-width: 801px)" srcSet="http://3.97.1.121/wp-content/uploads/2020/09/about-header.jpg" />
-							<img src="http://3.97.1.121/wp-content/uploads/2020/09/about-header.jpg" alt="" />
+						<source media="(max-width: 800px)" srcSet="https://media-ryu.youxventures.com/wp-content/uploads/2020/09/about-header-mobile.jpg" />
+						<source media="(min-width: 801px)" srcSet="https://media-ryu.youxventures.com/wp-content/uploads/2020/09/about-header.jpg" />
+							<img src="https://media-ryu.youxventures.com/wp-content/uploads/2020/09/about-header.jpg" alt="" />
 						</picture>
 				</div>
 				<div className="about-content">
@@ -31,42 +31,42 @@ export default () => {
 	        <div className="about-links">
 	        	<div>
 	        		<div>
-		        		<img src="http://3.97.1.121/wp-content/uploads/2020/09/about-1.jpg" alt="downtown toronto" />
+		        		<img src="https://media-ryu.youxventures.com/wp-content/uploads/2020/09/about-1.jpg" alt="downtown toronto" />
 		        		<h2><Link to="https://www.ryerson.ca/facilities-management-development/campus-development/">Our Downtown Toronto Campus</Link></h2>
 		        		<p>Ryerson’s location in the centre of Canada’s most diverse city places us in a unique position to make an impact both locally and globally.</p>
 	        		</div>
 	        	</div>
 	        	<div>
 	        		<div>
-		        		<img src="http://3.97.1.121/wp-content/uploads/2020/09/about-2.jpg" alt="research & innovation" />
+		        		<img src="https://media-ryu.youxventures.com/wp-content/uploads/2020/09/about-2.jpg" alt="research & innovation" />
 		        		<h2><Link to="https://www.ryerson.ca/research/">Research & Innovation</Link></h2>
 		        		<p>Ryerson University engages in scholarly, research and creative (SRC) activity that addresses real-world challenges to drive economic growth and improve quality of life for Canadians.</p>
 	        		</div>
 	        	</div>
 	        	<div>
 		        	<div>
-		        		<img src="http://3.97.1.121/wp-content/uploads/2020/09/about-3.jpg" alt="leadership" />
+		        		<img src="https://media-ryu.youxventures.com/wp-content/uploads/2020/09/about-3.jpg" alt="leadership" />
 		        		<h2><Link to="https://www.ryerson.ca/about/leadership/">Leadership</Link></h2>
 		        		<p>Mohamed Lachemi, president and vice-chancellor of Ryerson University, is proud to lead our comprehensive innovation university.</p>
 	        		</div>
 	        		</div>
 	        	<div>
 		        	<div>
-		        		<img src="http://3.97.1.121/wp-content/uploads/2020/09/about-4.jpg" alt="zone learning" />
+		        		<img src="https://media-ryu.youxventures.com/wp-content/uploads/2020/09/about-4.jpg" alt="zone learning" />
 		        		<h2><Link to="https://www.ryerson.ca/zone-learning/">Zone Learning</Link></h2>
 		        		<p>Ryerson has built an entrepreneurial culture through a unique model of experiential education we call Zone Learning.</p>
 	        		</div>
 	        	</div>
 	        	<div>
 		        	<div>
-		        		<img src="http://3.97.1.121/wp-content/uploads/2020/09/about-5.jpg" alt="social innovation" />
+		        		<img src="https://media-ryu.youxventures.com/wp-content/uploads/2020/09/about-5.jpg" alt="social innovation" />
 		        		<h2><Link to="https://www.ryerson.ca/social-innovation/">Social Innovation</Link></h2>
 		        		<p>Ryerson has created an extensive network of research and community organizations, which enables the university to play an important role in building Canada’s culture of innovation.</p>
 	        		</div>
 	        	</div>
 	        	<div>
 		        	<div>
-		        		<img src="http://3.97.1.121/wp-content/uploads/2020/09/about-6.jpg" alt="academic plan" />
+		        		<img src="https://media-ryu.youxventures.com/wp-content/uploads/2020/09/about-6.jpg" alt="academic plan" />
 		        		<h2><Link to="https://www.ryerson.ca/provost/strategic-plans/academic-plan/">Academic Plan</Link></h2>
 		        		<p>Ryerson’s five-year academic plan, establishes the university’s vision to become Canada’s leading comprehensive innovation university.</p>
 		        	</div>

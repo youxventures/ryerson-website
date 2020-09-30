@@ -104,7 +104,7 @@ export default () => {
             fontSize: '24px',
             fontWeight: 'bold'
           }}>
-            <a href="https://ryerson.ca" sx={{ color: 'white' }}>ryerson.ca</a>
+            <a href="https://ryerson.ca" target="_blank" rel="noopener noreferrer" sx={{ color: 'white' }}>ryerson.ca</a>
             <img src={Arrow} alt="arrow" sx={{
                 ml: 5,
                 width: '40px',
