@@ -21,7 +21,7 @@ export default ({ bgColor }) => {
           height: ['96px', '130px', '130px']
         }}>
           <Link to="/home">
-            <img src={Logo} alt="logo" sx={{ width: ['110px', '120px'] }}/>
+            <img src={Logo} alt="logo" sx={{ width: ['110px', '120px'] }} />
           </Link>
 
           <Menu showMenu={showMenu} setShowMenu={setShowMenu} />

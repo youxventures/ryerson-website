@@ -7,12 +7,12 @@ import Menu from '../components/Menu'
 import Logo from '../images/logo.svg'
 import lottie from 'lottie-web'
 
-import homeAnimation1 from '../animations/homepage1_new.json'
-import homeAnimation2 from '../animations/homepage2_new.json'
-import homeAnimation3 from '../animations/homepage3_new.json'
-import homeAnimation4 from '../animations/homepage4.json'
-import homeAnimation5 from '../animations/homepage5.json'
-import homeAnimation6 from '../animations/homepage6.json'
+import homeAnimation1 from '../animations/homepage1_webp.json'
+import homeAnimation2 from '../animations/homepage2_webp.json'
+import homeAnimation3 from '../animations/homepage3_webp.json'
+import homeAnimation4 from '../animations/homepage4_webp.json'
+import homeAnimation5 from '../animations/homepage5_webp.json'
+import homeAnimation6 from '../animations/homepage6_webp.json'
 
 async function asyncForEach(array, callback) {
   for (let index = 0; index < array.length; index++) {
@@ -152,12 +152,12 @@ export default () => {
         heading6Ref.current.style.opacity = 1
         loadedAnimations[4].addEventListener('complete', () => {
           setTimeout(() => {
-            pageContainerRef.current.style.opacity = 0
+            if (pageContainerRef.current) pageContainerRef.current.style.opacity = 0
           }, 2000)
 
           setTimeout(() => {
             navigate('/home')
-          }, 3500)
+          }, 4500)
         })
       }
 
@@ -232,7 +232,7 @@ export default () => {
             width: '100%'
           }}>
             <Link to="/home">
-              <img src={Logo} alt="logo" sx={{ width: '120px' }}/>
+              <img src={Logo} alt="logo" sx={{ width: ['110px', '120px'] }} />
             </Link>
 
             <Menu showMenu={showMenu} setShowMenu={setShowMenu} homePage={true} />
@@ -281,7 +281,7 @@ export default () => {
                 fontWeight: 'bold',
                 opacity: 0,
                 transition: 'opacity 1.5s ease-in-out',
-                transitionDelay: '2s',
+                transitionDelay: '1.25s',
                 willChange: 'opacity'
               }}>
                 To us, innovation means<br />building a brighter future<br />for us all.
@@ -322,7 +322,7 @@ export default () => {
                 fontWeight: 'bold',
                 opacity: 0,
                 transition: 'opacity 1.5s ease-in-out',
-                transitionDelay: '2s',
+                transitionDelay: '1.25s',
                 willChange: 'opacity'
               }}>
                 It means building cities<br />and economies that take<br />care of our people and<br />our planet.
@@ -363,7 +363,7 @@ export default () => {
                 fontWeight: 'bold',
                 opacity: 0,
                 transition: 'opacity 1.5s ease-in-out',
-                transitionDelay: '2s',
+                transitionDelay: '1.25s',
                 willChange: 'opacity',
                 color: 'white'
               }}>
@@ -405,7 +405,7 @@ export default () => {
                 fontWeight: 'bold',
                 opacity: 0,
                 transition: 'opacity 1.5s ease-in-out',
-                transitionDelay: '2s',
+                transitionDelay: '1.25s',
                 willChange: 'opacity'
               }}>
                 Merging creativity with<br />tech to transform our<br />experiences.
@@ -446,7 +446,7 @@ export default () => {
                 fontWeight: 'bold',
                 opacity: 0,
                 transition: 'opacity 1.5s ease-in-out',
-                transitionDelay: '2s',
+                transitionDelay: '1.25s',
                 willChange: 'opacity'
               }}>
                 Advocating for a world<br />free of inequities and<br />inequalities.
@@ -487,11 +487,11 @@ export default () => {
                 fontWeight: 'bold',
                 opacity: 0,
                 transition: 'opacity 1.5s ease-in-out',
-                transitionDelay: '2s',
+                transitionDelay: '1.25s',
                 willChange: 'opacity',
                 color: 'white'
               }}>
-                Empowering communities<br />to grow fresh food and<br />produce clean water.
+                And ensuring everyone has<br />a place to call home.
               </Heading>
             </Container>
           </Box>

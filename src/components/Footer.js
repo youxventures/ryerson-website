@@ -26,7 +26,7 @@ export default () => {
       alignItems: 'center',
       width: '100%',
       height: [null, null, '240px'],
-      mt: 6,
+      mt: [6, 6, 7],
       py: [4, 4, null],
       backgroundColor: 'footer',
       color: 'white'
