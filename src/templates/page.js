@@ -125,7 +125,7 @@ export default ({ pageContext, transitionStatus }) => {
                 {articles.map(article => (
                   <AniLink
                     key={article.id}
-                    paintDrip to={`/blog/${article.slug}`}
+                    paintDrip to={article.uri}
                     hex="#fff"
                     duration={1.5}
                     sx={{
@@ -157,7 +157,7 @@ export default ({ pageContext, transitionStatus }) => {
                         borderRadius: '50%',
                       }}>
                         {article.featuredImage &&
-                          <img src={article.featuredImage.sourceUrl} alt="" />
+                          <img src={article.featuredImage.sourceUrl} alt="article" sx={{ maxWidth: '100%' }} />
                         }
                       </Box>
 

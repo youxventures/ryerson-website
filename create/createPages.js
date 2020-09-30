@@ -33,6 +33,7 @@ const GET_PAGES = `
                                 excerpt
                                 slug
                                 title
+                                uri
                                 postSettings {
                                   iconBackgroundColor
                                   iconHoverColor

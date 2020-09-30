@@ -35,6 +35,7 @@ export default ({ pageId }) => {
     `
   )
 
+
   let pillars = pageId
     ? wpgraphql.pages.nodes.filter(pillar => pillar.id !== pageId)
     : wpgraphql.pages.nodes
@@ -176,7 +177,10 @@ export default ({ pageId }) => {
           <AniLink
             paintDrip to={`/${pillar.slug}`}
             hex={pillar.pageSettings.color}
-            sx={{ color: 'black' }}
+            sx={{
+              position: 'relative',
+              color: 'black'
+            }}
             duration={1.5}
           >
             <Box ref={pageId ? refs[pillar.pageSettings.pageId - 1] : refs[i]} sx={{

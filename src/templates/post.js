@@ -1,12 +1,13 @@
 /** @jsx jsx */
 import { jsx, Container, Flex, Box, Heading } from 'theme-ui'
-import { useStaticQuery, graphql, Link } from 'gatsby'
+import { useStaticQuery, graphql } from 'gatsby'
 import Layout from '../components/Layout'
 // import Seo from '../components/Seo'
 import PillarLinks from '../components/PillarLinks'
 import '../styles/article.css'
+import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
-const Post = ({ pageContext, data }) => {
+const Post = ({ pageContext }) => {
   const { wpgraphql } = useStaticQuery(
     graphql`
       query {
@@ -26,6 +27,14 @@ const Post = ({ pageContext, data }) => {
               title
               excerpt
               slug
+              uri
+              featuredImage {
+                sourceUrl
+              }
+              postSettings {
+                iconBackgroundColor
+                iconHoverColor
+              }
               categories {
                 nodes {
                   name
@@ -97,27 +106,42 @@ const Post = ({ pageContext, data }) => {
             <Flex sx={{ mb: 5, justifyContent: 'space-between', flexDirection: ['column', 'row', 'row'] }}>
               {relatedArticles().map((article, i) => {
                 return i === 2 ? null : (
-                  <Link key={article.id} to={`/blog/${article.slug}`} sx={{
-                    display: 'flex',
-                    flexDirection: ['column', 'column', 'row'],
-                    flexGrow: '1',
-                    flexShrink: '0',
-                    flexBasis: '0',
-                    alignItems: 'center',
-                    textAlign: ['center', 'center', 'left'],
-                    mt: 4,
-                    color: 'black',
-                    textDecoration: 'none'
-                  }}>
-                    <Box sx={{
-                      minWidth: '150px',
-                      width: '150px',
+                  <AniLink
+                    key={article.id}
+                    paintDrip to={article.uri}
+                    hex="#fff"
+                    sx={{
+                      display: 'flex',
+                      flexDirection: ['column', 'column', 'row'],
+                      flexGrow: '1',
+                      flexShrink: '0',
+                      flexBasis: '0',
+                      alignItems: 'center',
+                      textAlign: ['center', 'center', 'left'],
+                      mt: 4,
+                      color: 'black',
+                      textDecoration: 'none',
+                      cursor: 'pointer',
+                      '&:hover': {
+                        '.article-icon': {
+                          'backgroundColor': article.postSettings.iconHoverColor
+                        }
+                      }
+                    }}>
+                    <Box className="article-icon" sx={{
+                      position: 'relative',
+                      width: '100%',
                       height: '150px',
+                      maxWidth: '150px',
                       mr: [0, 0, 4],
-                      backgroundColor: 'white',
+                      backgroundColor: article.postSettings.iconBackgroundColor,
+                      transition: 'background-color .2s ease-in-out',
                       borderRadius: '50%',
-                      opacity: .5
-                    }} />
+                    }}>
+                      {article.featuredImage &&
+                        <img src={article.featuredImage.sourceUrl} alt="article" />
+                      }
+                    </Box>
 
                     <Box sx={{ mt: [3, 3, 0], mr: [0, 3, 3], ml: [0, 3, 0] }}>
                       <Heading sx={{
@@ -138,7 +162,7 @@ const Post = ({ pageContext, data }) => {
                         }
                       }} />
                     </Box>
-                  </Link>
+                  </AniLink>
                 )
               }
               )}
