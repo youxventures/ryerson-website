@@ -62,5 +62,13 @@ module.exports = {
         },
       },
     },
-  ],
+    {
+      resolve: "gatsby-plugin-google-tagmanager",
+      options: {
+        id: "GTM-MJMHPZ",
+        includeInDevelopment: false,
+        defaultDataLayer: { platform: "gatsby" },
+      }
+    }
+  ]
 }

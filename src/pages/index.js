@@ -4,6 +4,8 @@ import { Link, navigate } from 'gatsby'
 import { useEffect, useRef, useState } from 'react'
 import useWindowSize from '../hooks/useWindowSize'
 import Menu from '../components/Menu'
+import PillarLinks from '../components/PillarLinks'
+import Footer from '../components/Footer'
 import Logo from '../images/logo.svg'
 import lottie from 'lottie-web'
 
@@ -45,7 +47,7 @@ export default () => {
 
   useEffect(() => {
     if (typeof window === 'undefined') return
-    document.body.style.height = `${window.innerHeight * 6}px`
+    document.body.style.height = `${window.innerHeight * 8 + 2000}px`
   }, [])
 
   useEffect(() => {
@@ -81,6 +83,7 @@ export default () => {
           animationData: animationData[i]
         })
 
+        anim.goToAndStop(anim.totalFrames-1, true)
         animations.push(anim)
       })
 
@@ -128,37 +131,28 @@ export default () => {
       }
 
       if (totalScroll > windowHeight - windowHeight * .5 && totalScroll < windowHeight * 2) {
-        loadedAnimations[0].play()
+        // loadedAnimations[0].play()
         heading2Ref.current.style.opacity = 1
       }
 
       if (totalScroll > windowHeight * 1.5 && totalScroll < windowHeight * 3) {
-        loadedAnimations[1].play()
+        // loadedAnimations[1].play()
         heading3Ref.current.style.opacity = 1
       }
 
       if (totalScroll > windowHeight * 2.5 && totalScroll < windowHeight * 4) {
-        loadedAnimations[2].play()
+        // loadedAnimations[2].play()
         heading4Ref.current.style.opacity = 1
       }
 
       if (totalScroll > windowHeight * 3.5 && totalScroll < windowHeight * 5) {
-        loadedAnimations[3].play()
+        // loadedAnimations[3].play()
         heading5Ref.current.style.opacity = 1
       }
 
       if (totalScroll > windowHeight * 4.5 && totalScroll < windowHeight * 6) {
-        loadedAnimations[4].play()
+        // loadedAnimations[4].play()
         heading6Ref.current.style.opacity = 1
-        loadedAnimations[4].addEventListener('complete', () => {
-          setTimeout(() => {
-            if (pageContainerRef.current) pageContainerRef.current.style.opacity = 0
-          }, 2000)
-
-          setTimeout(() => {
-            navigate('/home')
-          }, 4500)
-        })
       }
 
       const currentPageNumber = totalScroll < windowHeight ? 0
@@ -167,7 +161,8 @@ export default () => {
         : totalScroll > windowHeight * 3 && totalScroll < windowHeight * 4 ? 3
         : totalScroll > windowHeight * 4 && totalScroll < windowHeight * 5 ? 4
         : totalScroll > windowHeight * 5 && totalScroll < windowHeight * 6 ? 5
-        : 5
+        : totalScroll > windowHeight * 6 && totalScroll < windowHeight * 7 ? 6
+        : 7
 
       const translateY =
         currentPage === 0 && totalScroll < windowHeight ? `translateY(-${totalScroll}px) translateZ(0px)`
@@ -181,7 +176,11 @@ export default () => {
         ? `translateY(-${totalScroll - windowHeight * 4}px) translateZ(0px)`
         : currentPage === 5 && totalScroll > windowHeight && totalScroll < windowHeight * 6
         ? `translateY(-${totalScroll - windowHeight * 5}px) translateZ(0px)`
-        : `translateY(-${totalScroll - windowHeight * 6}px) translateZ(0px)`
+        : currentPage === 6 && totalScroll > windowHeight && totalScroll < windowHeight * 7
+        ? `translateY(-${totalScroll - windowHeight * 6}px) translateZ(0px)`
+        : currentPage === 7 && totalScroll > windowHeight && totalScroll < windowHeight * 8
+        ? `translateY(-${totalScroll - windowHeight * 7}px) translateZ(0px)`
+        : `translateY(-${totalScroll - windowHeight * 8}px) translateZ(0px)`
 
       setCurrentPage(currentPageNumber)
       centerPage.style.transform = translateY
@@ -257,7 +256,7 @@ export default () => {
             maxWidth: '100%',
             maxHeight: '100%',
             padding: ['140px 140px 0', '140px 140px 0', 0],
-            zIndex: 7,
+            zIndex: 9,
             backgroundColor: '#8bd4f7',
             opacity: 0,
             overflow: 'hidden',
@@ -298,7 +297,7 @@ export default () => {
             maxWidth: '100%',
             maxHeight: '100%',
             padding: ['260px 260px 0', '260px 260px 0', 0],
-            zIndex: 6,
+            zIndex: 8,
             backgroundColor: '#b8d9ef',
             overflow: 'hidden',
             opacity: 0,
@@ -322,7 +321,7 @@ export default () => {
                 fontWeight: 'bold',
                 opacity: 0,
                 transition: 'opacity 1.5s ease-in-out',
-                transitionDelay: '1.25s',
+                transitionDelay: '1s',
                 willChange: 'opacity'
               }}>
                 It means building cities<br />and economies that take<br />care of our people and<br />our planet.
@@ -339,7 +338,7 @@ export default () => {
             maxWidth: '100%',
             maxHeight: '100%',
             padding: ['260px 260px 0', '260px 260px 0', 0],
-            zIndex: 5,
+            zIndex: 7,
             backgroundColor: '#000',
             overflow: 'hidden',
             opacity: 0,
@@ -363,7 +362,7 @@ export default () => {
                 fontWeight: 'bold',
                 opacity: 0,
                 transition: 'opacity 1.5s ease-in-out',
-                transitionDelay: '1.25s',
+                transitionDelay: '1s',
                 willChange: 'opacity',
                 color: 'white'
               }}>
@@ -381,7 +380,7 @@ export default () => {
             maxWidth: '100%',
             maxHeight: '100%',
             padding: ['140px 140px 0', '140px 140px 0', 0],
-            zIndex: 4,
+            zIndex: 6,
             backgroundColor: '#8bd4f7',
             overflow: 'hidden',
             opacity: 0,
@@ -405,7 +404,7 @@ export default () => {
                 fontWeight: 'bold',
                 opacity: 0,
                 transition: 'opacity 1.5s ease-in-out',
-                transitionDelay: '1.25s',
+                transitionDelay: '1s',
                 willChange: 'opacity'
               }}>
                 Merging creativity with<br />tech to transform our<br />experiences.
@@ -422,7 +421,7 @@ export default () => {
             maxWidth: '100%',
             maxHeight: '100%',
             padding: ['260px 260px 0', '260px 260px 0', 0],
-            zIndex: 3,
+            zIndex: 5,
             backgroundColor: '#b8d9ef',
             overflow: 'hidden',
             opacity: 0,
@@ -446,7 +445,7 @@ export default () => {
                 fontWeight: 'bold',
                 opacity: 0,
                 transition: 'opacity 1.5s ease-in-out',
-                transitionDelay: '1.25s',
+                transitionDelay: '1s',
                 willChange: 'opacity'
               }}>
                 Advocating for a world<br />free of inequities and<br />inequalities.
@@ -463,7 +462,7 @@ export default () => {
             maxWidth: '100%',
             maxHeight: '100%',
             padding: ['260px 260px 0', '260px 260px 0', 0],
-            zIndex: 2,
+            zIndex: 4,
             backgroundColor: '#000',
             overflow: 'hidden',
             opacity: 0,
@@ -487,13 +486,52 @@ export default () => {
                 fontWeight: 'bold',
                 opacity: 0,
                 transition: 'opacity 1.5s ease-in-out',
-                transitionDelay: '1.25s',
+                transitionDelay: '1s',
                 willChange: 'opacity',
                 color: 'white'
               }}>
                 And ensuring everyone has<br />a place to call home.
               </Heading>
             </Container>
+          </Box>
+
+          <Box sx={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: ['1280px', '1280px', '2560px'],
+            height: ['800px', '800px', '1600px'],
+            maxWidth: '100%',
+            maxHeight: '100%',
+            zIndex: 3,
+            backgroundColor: '#fff',
+            overflow: 'hidden',
+            opacity: 0,
+            transition: 'opacity 2.5s ease-in-out',
+            willChange: 'opacity'
+          }}>
+	        	<iframe title="ryerson at a glance" width="100%" height="100%" src="https://www.youtube.com/embed/vJnpw5Bz6zM?controls=0" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+          </Box>
+
+          <Box sx={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: ['1280px', '1280px', '2560px'],
+            height: '2000px',
+            maxWidth: '100%',
+            maxHeight: '100%',
+            zIndex: 2,
+            backgroundColor: '#fff',
+            overflow: 'hidden',
+            opacity: 0,
+            transition: 'opacity 2.5s ease-in-out',
+            willChange: 'opacity'
+          }}>
+            <Container>
+              <PillarLinks homePage />
+            </Container>
+            <Footer />
           </Box>
         </div>
       </div>
