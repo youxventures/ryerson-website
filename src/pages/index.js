@@ -47,7 +47,7 @@ export default () => {
 
   useEffect(() => {
     if (typeof window === 'undefined') return
-    document.body.style.height = `${window.innerHeight * 8 + 2000}px`
+    document.body.style.height = `${window.innerHeight * 7 + 1564}px`
   }, [])
 
   useEffect(() => {
@@ -176,11 +176,9 @@ export default () => {
         ? `translateY(-${totalScroll - windowHeight * 4}px) translateZ(0px)`
         : currentPage === 5 && totalScroll > windowHeight && totalScroll < windowHeight * 6
         ? `translateY(-${totalScroll - windowHeight * 5}px) translateZ(0px)`
-        : currentPage === 6 && totalScroll > windowHeight && totalScroll < windowHeight * 7
+        : currentPage === 6 && totalScroll > windowHeight && totalScroll < windowHeight * 7 + 1564
         ? `translateY(-${totalScroll - windowHeight * 6}px) translateZ(0px)`
-        : currentPage === 7 && totalScroll > windowHeight && totalScroll < windowHeight * 8
-        ? `translateY(-${totalScroll - windowHeight * 7}px) translateZ(0px)`
-        : `translateY(-${totalScroll - windowHeight * 8}px) translateZ(0px)`
+        : `translateY(-${totalScroll - windowHeight * 7}px) translateZ(0px)`
 
       setCurrentPage(currentPageNumber)
       centerPage.style.transform = translateY
@@ -518,9 +516,8 @@ export default () => {
             top: 0,
             left: 0,
             width: ['1280px', '1280px', '2560px'],
-            height: '2000px',
+            height: '1564px',
             maxWidth: '100%',
-            maxHeight: '100%',
             zIndex: 2,
             backgroundColor: '#fff',
             overflow: 'hidden',

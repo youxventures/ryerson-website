@@ -154,9 +154,8 @@ export default ({ pageId, homePage }) => {
       columns={pageId ? [1, 5] : [1, 2, 3]}
       gap={pageId ? 4 : 6}
       sx={{
-        mt: homePage ? 8 : 0,
-        gridRowGap: 5,
-        backgroundColor: homePage ? 'tomato' : '#fff'
+        mt: homePage ? '200px' : 0,
+        gridRowGap: 5
       }}>
       {pillars.map((pillar, i) =>
         <Box ref={pillarRefs[i]} key={pillar.id} sx={{
