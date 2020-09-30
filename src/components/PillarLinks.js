@@ -180,8 +180,8 @@ export default ({ pageId }) => {
             duration={1.5}
           >
             <Box ref={pageId ? refs[pillar.pageSettings.pageId - 1] : refs[i]} sx={{
-              width: pageId ? '150px' : '200px',
-              height: pageId ? '150px' : '200px'
+              width: pageId ? '175.5px' : '200px',
+              height: pageId ? '175.5px' : '200px'
             }}/>
           </AniLink>
 
@@ -193,7 +193,7 @@ export default ({ pageId }) => {
           >
             <Heading dangerouslySetInnerHTML={{__html: pillar.title}} sx={{
               maxWidth: pageId ? ['none', 'none', '200px'] : '260px',
-              mt: '25px',
+              mt: 3,
               marginBottom: pageId ? 0 : 3,
               fontSize: pageId ? '22px' : '30px',
               fontFamily: 'serif',
@@ -212,7 +212,7 @@ export default ({ pageId }) => {
             <Text sx={{
               mt: pageId ? 3 : 0,
               mb: 3,
-              fontSize: pageId ? '16px' : '20px'
+              fontSize: pageId ? ['18px', '16px'] : '20px'
             }}>
               {pillar.pageSettings.linkText}
             </Text>

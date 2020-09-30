@@ -44,17 +44,17 @@ main > div > h1 {
 
 .article-content p {
   font-family: "lyon", times new roman, serif;
-  font-size: 1rem;
   line-height: 1.6em;
   width: 50%;
   font-size: 18px;
   margin: 1rem 0;
   font-feature-settings: lnum;
   font-variant-numeric: oldstyle-nums;
+  letter-spacing: -0.05px;
 }
 
-.article-content p:first-of-type {
-  margin-top: 0;
+.article-content > p:first-of-type {
+  margin-top: 36px;
 }
 
 .article-content a {
@@ -89,7 +89,12 @@ main > div > h1 {
   font-kerning: normal;
   letter-spacing: -3px;
   line-height: 0.8em;
-  margin: 2rem 0 1.5rem;
+  margin: 2rem 0 1rem;
+}
+
+.article-content blockquote .pullquote-number.small {
+  font-size: 5.5rem;
+
 }
 .article-content blockquote .pullquote-text {
   line-height: 1.2em;
@@ -137,12 +142,12 @@ main > div > h1 {
 }
 
 .article-content blockquote .pullquote-text::before {
-  content: open-quote;
+  content: "\201c";
   position: absolute;
   left: -1rem;
 }
 .article-content blockquote .pullquote-text::after {
-  content: close-quote;
+  content: "\201d";
 }
 .article-content blockquote .pullquote-src,
 .article-content figcaption {
@@ -323,11 +328,11 @@ main > div > h1 {
 
 /* responsive */
 
-@media (max-width: 1199px) {
+/*@media (max-width: 1199px) {
   .article-content blockquote .pullquote-number.small {
     font-size: 5.5rem;
   }
-}
+}*/
 
 @media (max-width: 800px) {
   /*main {

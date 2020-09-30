@@ -1,6 +1,6 @@
 /*h1.about-heading {
-	display: block;
-	font-family: "lyon", times new roman, serif;
+  display: block;
+  font-family: "lyon", times new roman, serif;
   font-weight: bold;
   font-size: 3rem;
   line-height: 1.2em;
@@ -26,12 +26,12 @@
 }
 
 .about-content .lead {
-	display: flex;
+  display: flex;
 }
 
 .about-content .lead h1 {
-	display: block;
-	font-family: "lyon", times new roman, serif;
+  display: block;
+  font-family: "lyon", times new roman, serif;
   font-weight: bold;
   font-size: 3rem;
   line-height: 1.2em;
@@ -40,11 +40,11 @@
 }
 
 .about-content .lead p {
-	flex: 0 0 50%;	
+  flex: 0 0 50%;  
 }
 
 .about-content .video {
-	position: relative;
+  position: relative;
   padding-bottom: 56.25%;    
   height: 0;
   margin: 2rem 0;
@@ -60,46 +60,62 @@
 }
 
 .about-content .about-links {
-	display: flex;
-	flex-flow: row wrap;	
-	margin: 0 -2rem;
+  display: flex;
+  flex-flow: row wrap;  
+  margin: 0 -2rem;
 }
 
 .about-content .about-links > div {
-	flex: 0 0 33.333333%;
-	padding: 1rem 2rem;
+  flex: 0 0 33.333333%;
+  padding: 1rem 2rem; 
+}
+
+.about-content .about-links > div > div {
+  position: relative;
 }
 
 .about-links img {
-	width: 100%;
+  width: 100%;
 }
 
 .about-content h2 {
-	font-family: "replica", arial, sans-serif;
+  font-family: "replica", arial, sans-serif;
   font-size: 1.8rem;
   line-height: 1.2em;
 }
 
+.about-content h2 a::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  pointer-events: auto;
+  content: "";
+  background-color: rgba(0,0,0,0);
+}
+
 .about-content a {
-	color: #000;
+  color: #000;
 }
 
 .about-content a:hover {
-	text-decoration: none;
+  text-decoration: none;
 }
 
 .about-content > h2 {
-	margin-top: 4rem;
+  margin-top: 4rem;
 }
 
 @media (max-width: 800px) {
-	.about-content .lead {
-		flex-flow: column;
-	}
-	.about-content .lead h1 {
-		margin-right: 0;
-	}
-	.about-content .about-links > div {
-		flex: 0 0 100%;
-	}
+  .about-content .lead {
+    flex-flow: column;
+  }
+  .about-content .lead h1 {
+    margin-right: 0;
+  }
+  .about-content .about-links > div {
+    flex: 0 0 100%;
+  }
 }
