@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'gatsby'
 import { Container } from 'theme-ui'
 import Layout from '../components/Layout'
@@ -6,6 +6,10 @@ import PillarLinks from '../components/PillarLinks'
 import '../styles/about.css'
 
 export default () => {
+  useEffect(() => {
+    document.body.style.height = '100%'
+  }, [])
+
   return (
     <Layout>
       <Container>
@@ -22,7 +26,7 @@ export default () => {
 	        	<p>Every university claims a culture of innovation, but at Ryerson it’s embedded in our DNA. It’s the strand that connects our investment in experiential learning, our culture of entrepreneurship and our commitment to city building. It’s why we believe inclusion is a strength that propels us forward. It’s also why we measure ourselves against real-world impact and apply our knowledge to improve lives. The drive to create positive change defines our mission and identity.</p>
 	        </div>
 	        <div className="video">
-	        	<iframe title="ryerson at a glance" width="560" height="315" src="https://www.youtube.com/embed/vJnpw5Bz6zM?controls=0" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>	        
+	        	<iframe title="ryerson at a glance" width="560" height="315" src="https://www.youtube.com/embed/vJnpw5Bz6zM?controls=0" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
 	        </div>
 	        <div className="about-links">
 	        	<div>

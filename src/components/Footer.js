@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx, Container, Flex, Text } from 'theme-ui'
-import { useStaticQuery, graphql } from 'gatsby'
+import { useStaticQuery, graphql, Link } from 'gatsby'
 import Img from 'gatsby-image'
 import Arrow from '../images/arrow-white.svg'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
@@ -11,8 +11,8 @@ export default () => {
       query {
         logo: file(relativePath: { eq: "logo-white-stacked.png" }) {
           childImageSharp {
-            fluid(maxWidth: 140, quality: 100) {
-              ...GatsbyImageSharpFluid
+            fluid(maxWidth: 140, quality: 90) {
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
         }
@@ -44,7 +44,9 @@ export default () => {
           alignItems: ['flex-end', 'flex-end', 'flex-start'],
           mt: [5, 5, 0]
         }}>
-          <Img fluid={logo.childImageSharp.fluid} sx={{ width: ['120px', '120px', '140px'] }} />
+          <Link to="/home">
+            <Img fluid={logo.childImageSharp.fluid} sx={{ width: ['120px', '120px', '140px'] }} />
+          </Link>
           <Text sx={{ mt: [0, 0, 6], fontSize: '15px' }}>© Ryerson University</Text>
         </Flex>
         <Flex sx={{

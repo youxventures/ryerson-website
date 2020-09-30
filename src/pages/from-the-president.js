@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Container } from 'theme-ui'
 import Layout from '../components/Layout'
 import '../styles/article.css'
 
 export default () => {
+  useEffect(() => {
+    document.body.style.height = '100%'
+  }, [])
+
   return (
     <Layout>
       <Container>
@@ -16,7 +20,7 @@ export default () => {
 				</div>
 				<div className="article-content" id="president">
 					<div className="left">
-						<div className="article-title">							
+						<div className="article-title">
 							<h1>An innovative new model for modern cities</h1>
 						</div>
 					</div>
