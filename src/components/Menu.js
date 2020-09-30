@@ -155,7 +155,7 @@ export default ({ showMenu, setShowMenu, homePage }) => {
 
               <Heading dangerouslySetInnerHTML={{__html: title}} sx={{
                 width: ['55%', '50%', '55%'],
-                fontSize: ['5vw', '5vw', '3.15vw'],
+                fontSize: ['6vw', '5vw', '3.15vw'],
                 lineHeight: 1.05,
                 fontFamily: 'serif',
                 fontWeight: 'bold'

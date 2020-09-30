@@ -92,7 +92,7 @@ export default ({ pageContext, transitionStatus }) => {
       {/* <Seo title={title} /> */}
 
       <Box sx={{
-        pb: 5,
+        pt: 3, pb: 5,
         backgroundColor: color
       }}>
         <Container>
@@ -106,12 +106,15 @@ export default ({ pageContext, transitionStatus }) => {
               <Heading dangerouslySetInnerHTML={{__html: title }} sx={{
                 m: 0,
                 fontSize: '36px',
-                fontWeight: 'bold'
+                fontWeight: 'bold',
+                lineHeight: '1.1em'
               }}/>
 
               <Text dangerouslySetInnerHTML={{__html: content}} sx={{
                 maxWidth: '500px',
-                fontFamily: 'serif'
+                fontFamily: 'serif',
+                letterSpacing: '-0.05px',
+                lineHeight: '1.4em'
               }}/>
 
               <Box ref={mobileContainer} sx={{
@@ -144,6 +147,7 @@ export default ({ pageContext, transitionStatus }) => {
                       alignItems: ['center', 'center', 'flex-start'],
                       textAlign: ['center', 'center', 'left'],
                       mt: [4, 4, 3, 3, 4],
+                      mb: 2,
                       color: 'black',
                       textDecoration: 'none'
                     }}>
@@ -151,10 +155,13 @@ export default ({ pageContext, transitionStatus }) => {
                         position: 'relative',
                         width: '100px',
                         height: '100px',
-                        mr: [0, 0, 3],
+                        mr: [0, 0, '24px'],
                         backgroundColor: article.postSettings.iconBackgroundColor,
                         transition: 'background-color .2s ease-in-out',
                         borderRadius: '50%',
+                        flexGrow: '1',
+                        flexShrink: '0',
+                        flexBasis: 'auto'
                       }}>
                         {article.featuredImage &&
                           <img src={article.featuredImage.sourceUrl} alt="article" sx={{ maxWidth: '100%' }} />
@@ -164,7 +171,7 @@ export default ({ pageContext, transitionStatus }) => {
                       <Box sx={{ maxWidth: '425px', mt: [3, 3, 0] }}>
                         <Heading sx={{
                           m: 0,
-                          fontSize: ['22px', '20px'],
+                          fontSize: '22px',
                           fontFamily: 'serif',
                           fontWeight: 'bold',
                           textDecoration: 'underline',
@@ -173,7 +180,7 @@ export default ({ pageContext, transitionStatus }) => {
                         </Heading>
 
                         <Box dangerouslySetInnerHTML={{__html: article.excerpt}} sx={{
-                          fontSize: '16px',
+                          fontSize: ['18px', '16px'],
                           'p': {
                             mt: [3, 2],
                             mb: 3
