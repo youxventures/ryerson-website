@@ -25,9 +25,11 @@ export default () => {
   const [currentPage, setCurrentPage] = useState(0)
   const [showMenu, setShowMenu] = useState(false)
   const [loadedAnimations, setLoadedAnimations] = useState([])
+  const [allowScroll, setAllowScroll] = useState(false)
 
   const pageContainerRef = useRef()
   const headerRef = useRef()
+  const arrowRef = useRef()
 
   const heading1Ref = useRef()
   const heading2Ref = useRef()
@@ -46,11 +48,8 @@ export default () => {
   useEffect(() => {
     if (typeof window === 'undefined') return
     document.body.style.height = `${window.innerHeight * 6}px`
+    window.scrollTo(0, 0)
   }, [])
-
-  useEffect(() => {
-    if (windowHeight) document.body.style.height = windowHeight
-  }, [windowHeight])
 
   useEffect(() => {
     const animationData = [
@@ -98,6 +97,12 @@ export default () => {
         animation1Ref.current.style.opacity = 1
         headerRef.current.style.opacity = 1
         heading1Ref.current.style.opacity = 1
+        arrowRef.current.style.opacity = 1
+        arrowRef.current.style.transform = 'translateY(25px)'
+      })
+
+      anim.addEventListener('complete', () => {
+        setAllowScroll(true)
       })
     }
 
@@ -106,91 +111,60 @@ export default () => {
 
   useEffect(() => {
     if (typeof window === 'undefined') return
+
+    const headingRefs = [
+      heading2Ref,
+      heading3Ref,
+      heading4Ref,
+      heading5Ref,
+      heading6Ref
+    ]
+
     const handleScroll = () => {
-      const totalScroll = window.scrollY
       const pages = pageContainerRef.current.childNodes
 
-      const centerPage = pages.item(currentPage)
-      const nextPage = pages.item(currentPage + 1)
-      const prevPage = pages.item(currentPage - 1)
+      let centerPage = pages.item(currentPage)
+      let nextPage = pages.item(currentPage + 1)
+      let prevAnimation = loadedAnimations[currentPage - 1]
 
-      if (prevPage) {
-        prevPage.style.top = `${-windowHeight}px`
-        prevPage.style.transform = null
-        prevPage.style.opacity = 1
-      }
+      if (allowScroll) {
+        setAllowScroll(false)
 
-      if (nextPage) {
-        centerPage.style.top = 0
-        nextPage.style.transform = null
-        nextPage.style.top = 0
-        nextPage.style.opacity = 1
-      }
-
-      if (totalScroll > windowHeight - windowHeight * .5 && totalScroll < windowHeight * 2) {
-        loadedAnimations[0].play()
-        heading2Ref.current.style.opacity = 1
-      }
-
-      if (totalScroll > windowHeight * 1.5 && totalScroll < windowHeight * 3) {
-        loadedAnimations[1].play()
-        heading3Ref.current.style.opacity = 1
-      }
-
-      if (totalScroll > windowHeight * 2.5 && totalScroll < windowHeight * 4) {
-        loadedAnimations[2].play()
-        heading4Ref.current.style.opacity = 1
-      }
-
-      if (totalScroll > windowHeight * 3.5 && totalScroll < windowHeight * 5) {
-        loadedAnimations[3].play()
-        heading5Ref.current.style.opacity = 1
-      }
-
-      if (totalScroll > windowHeight * 4.5 && totalScroll < windowHeight * 6) {
-        loadedAnimations[4].play()
-        heading6Ref.current.style.opacity = 1
-        loadedAnimations[4].addEventListener('complete', () => {
+        if (!nextPage) {
           setTimeout(() => {
-            if (pageContainerRef.current) pageContainerRef.current.style.opacity = 0
-          }, 2000)
+            pageContainerRef.current.style.opacity = 0
+          }, 1000)
 
           setTimeout(() => {
             navigate('/home')
-          }, 4500)
-        })
+          }, 2500)
+        } else {
+          centerPage.style.opacity = 0
+
+          setTimeout(() => {
+            nextPage.style.opacity = 1
+            if (prevAnimation) prevAnimation.destroy()
+            if (headingRefs[currentPage]) headingRefs[currentPage].current.style.opacity = 1
+          }, 1750)
+
+          if (loadedAnimations[currentPage]) {
+            setTimeout(() => {
+              loadedAnimations[currentPage].play()
+              loadedAnimations[currentPage].addEventListener('complete', () => {
+                setAllowScroll(true)
+              })
+
+              setCurrentPage(currentPage + 1)
+            }, 2000)
+          }
+        }
       }
-
-      const currentPageNumber = totalScroll < windowHeight ? 0
-        : totalScroll > windowHeight && totalScroll < windowHeight * 2 ? 1
-        : totalScroll > windowHeight * 2 && totalScroll < windowHeight * 3 ? 2
-        : totalScroll > windowHeight * 3 && totalScroll < windowHeight * 4 ? 3
-        : totalScroll > windowHeight * 4 && totalScroll < windowHeight * 5 ? 4
-        : totalScroll > windowHeight * 5 && totalScroll < windowHeight * 6 ? 5
-        : 5
-
-      const translateY =
-        currentPage === 0 && totalScroll < windowHeight ? `translateY(-${totalScroll}px) translateZ(0px)`
-        : currentPage === 1 && totalScroll > windowHeight && totalScroll < windowHeight * 2
-        ? `translateY(-${totalScroll - windowHeight}px) translateZ(0px)`
-        : currentPage === 2 && totalScroll > windowHeight && totalScroll < windowHeight * 3
-        ? `translateY(-${totalScroll - windowHeight * 2}px) translateZ(0px)`
-        : currentPage === 3 && totalScroll > windowHeight && totalScroll < windowHeight * 4
-        ? `translateY(-${totalScroll - windowHeight * 3}px) translateZ(0px)`
-        : currentPage === 4 && totalScroll > windowHeight && totalScroll < windowHeight * 5
-        ? `translateY(-${totalScroll - windowHeight * 4}px) translateZ(0px)`
-        : currentPage === 5 && totalScroll > windowHeight && totalScroll < windowHeight * 6
-        ? `translateY(-${totalScroll - windowHeight * 5}px) translateZ(0px)`
-        : `translateY(-${totalScroll - windowHeight * 6}px) translateZ(0px)`
-
-      setCurrentPage(currentPageNumber)
-      centerPage.style.transform = translateY
     }
 
-    window.addEventListener('scroll', handleScroll, { passive: true })
+    window.addEventListener('scroll', handleScroll, {passive: true})
 
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [windowHeight, currentPage, loadedAnimations])
+  }, [windowHeight, currentPage, loadedAnimations, allowScroll])
 
   return (
     <div sx={{
@@ -212,7 +186,6 @@ export default () => {
         overflow: 'hidden',
         zIndex: '1'
       }}>
-
         <header ref={headerRef} sx={{
           position: 'fixed',
           display: 'flex',
@@ -285,6 +258,17 @@ export default () => {
                 willChange: 'opacity'
               }}>
                 To us, innovation means<br />building a brighter future<br />for us all.
+                <svg ref={arrowRef} viewBox="0 0 12.7 12.7" sx={{
+                  position: 'absolute',
+                  top: '125px',
+                  left: '-10px',
+                  width: ['40px', '40px', '45px'],
+                  opacity: 0,
+                  transition: 'all 1s ease-in-out',
+                  transitionDelay: '3.75s',
+                }}>
+                  <path fill="#000" d="M5.644 2.117h1.412V7.76l2.116-2.117.706.706L6.35 9.878 2.822 6.35l.706-.706 2.116 2.117z" />
+                </svg>
               </Heading>
             </Container>
           </Box>
@@ -302,7 +286,7 @@ export default () => {
             backgroundColor: '#b8d9ef',
             overflow: 'hidden',
             opacity: 0,
-            transition: 'opacity 2.5s ease-in-out',
+            transition: 'opacity 1.5s ease-in-out',
             willChange: 'opacity'
           }}>
             <Container sx={{
@@ -343,7 +327,7 @@ export default () => {
             backgroundColor: '#000',
             overflow: 'hidden',
             opacity: 0,
-            transition: 'opacity 2.5s ease-in-out',
+            transition: 'opacity 1.5s ease-in-out',
             willChange: 'opacity'
           }}>
             <Container sx={{
@@ -385,7 +369,7 @@ export default () => {
             backgroundColor: '#8bd4f7',
             overflow: 'hidden',
             opacity: 0,
-            transition: 'opacity 2.5s ease-in-out',
+            transition: 'opacity 1.5s ease-in-out',
             willChange: 'opacity'
           }}>
             <Container sx={{
@@ -426,7 +410,7 @@ export default () => {
             backgroundColor: '#b8d9ef',
             overflow: 'hidden',
             opacity: 0,
-            transition: 'opacity 2.5s ease-in-out',
+            transition: 'opacity 1.5s ease-in-out',
             willChange: 'opacity'
           }}>
             <Container sx={{
@@ -467,7 +451,7 @@ export default () => {
             backgroundColor: '#000',
             overflow: 'hidden',
             opacity: 0,
-            transition: 'opacity 2.5s ease-in-out',
+            transition: 'opacity 1.5s ease-in-out',
             willChange: 'opacity'
           }}>
             <Container sx={{
