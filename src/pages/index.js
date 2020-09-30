@@ -10,9 +10,9 @@ import lottie from 'lottie-web'
 import homeAnimation1 from '../animations/homepage1_new.json'
 import homeAnimation2 from '../animations/homepage2_new.json'
 import homeAnimation3 from '../animations/homepage3_new.json'
-import homeAnimation4 from '../animations/homepage1.json'
-import homeAnimation5 from '../animations/homepage2.json'
-import homeAnimation6 from '../animations/homepage3.json'
+import homeAnimation4 from '../animations/homepage4.json'
+import homeAnimation5 from '../animations/homepage5.json'
+import homeAnimation6 from '../animations/homepage6.json'
 
 async function asyncForEach(array, callback) {
   for (let index = 0; index < array.length; index++) {
@@ -133,32 +133,32 @@ export default () => {
       }
 
       if (totalScroll > windowHeight * 1.5 && totalScroll < windowHeight * 3) {
-        // loadedAnimations[1].play()
+        loadedAnimations[1].play()
         heading3Ref.current.style.opacity = 1
       }
 
       if (totalScroll > windowHeight * 2.5 && totalScroll < windowHeight * 4) {
-        // loadedAnimations[2].play()
+        loadedAnimations[2].play()
         heading4Ref.current.style.opacity = 1
       }
 
       if (totalScroll > windowHeight * 3.5 && totalScroll < windowHeight * 5) {
-        // loadedAnimations[3].play()
+        loadedAnimations[3].play()
         heading5Ref.current.style.opacity = 1
       }
 
       if (totalScroll > windowHeight * 4.5 && totalScroll < windowHeight * 6) {
-        // loadedAnimations[4].play()
+        loadedAnimations[4].play()
         heading6Ref.current.style.opacity = 1
-        setTimeout(() => {
-          pageContainerRef.current.style.opacity = 0
-        }, 2000)
+        loadedAnimations[4].addEventListener('complete', () => {
+          setTimeout(() => {
+            pageContainerRef.current.style.opacity = 0
+          }, 2000)
 
-        setTimeout(() => {
-          navigate('/home')
-        }, 3500)
-        // loadedAnimations[4].addEventListener('complete', () => {
-        // })
+          setTimeout(() => {
+            navigate('/home')
+          }, 3500)
+        })
       }
 
       const currentPageNumber = totalScroll < windowHeight ? 0

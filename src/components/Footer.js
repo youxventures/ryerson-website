@@ -25,26 +25,38 @@ export default () => {
       display: 'flex',
       alignItems: 'center',
       width: '100%',
-      height: '240px',
+      height: [null, null, '240px'],
       mt: 6,
+      py: [4, 4, null],
       backgroundColor: 'footer',
       color: 'white'
     }}>
-      <Container sx={{ display: 'flex' }}>
-        <Flex sx={{ flex: 1, flexDirection: 'column', justifyContent: 'center' }}>
-          <Img fluid={logo.childImageSharp.fluid} sx={{ width: '140px' }} />
-          <Text sx={{ mt: 6 }}>© Ryerson University</Text>
+      <Container sx={{
+        display: 'flex',
+        flexDirection: ['column-reverse', 'column-reverse', 'row'],
+        alignItems: ['center', 'center', 'flex-end']
+      }}>
+        <Flex sx={{
+          flex: 1,
+          width: '100%',
+          flexDirection: ['row', 'row', 'column'],
+          justifyContent: ['space-between', 'space-between', 'space-between'],
+          alignItems: ['flex-end', 'flex-end', 'flex-start'],
+          mt: [5, 5, 0]
+        }}>
+          <Img fluid={logo.childImageSharp.fluid} sx={{ width: ['120px', '120px', '140px'] }} />
+          <Text sx={{ mt: [0, 0, 6], fontSize: '15px' }}>© Ryerson University</Text>
         </Flex>
         <Flex sx={{
           flexDirection: 'column',
-          '> * + *': {
-            mt: '16px'
-          }
+          justifyContent: 'space-between',
+          height: '155px',
+          width: ['100%', '100%', 'auto']
         }}>
           <Flex sx={{
             justifyContent: 'space-between',
             alignItems: 'center',
-            width: '350px',
+            width: '100%',
             fontSize: '24px',
             fontWeight: 'bold'
           }}>
@@ -57,14 +69,15 @@ export default () => {
               From the President
             </AniLink>
             <img src={Arrow} alt="arrow" sx={{
-                width: '45px',
-                height: '45px'
+                ml: 5,
+                width: '40px',
+                height: '40px'
               }}/>
           </Flex>
           <Flex sx={{
             justifyContent: 'space-between',
             alignItems: 'center',
-            width: '350px',
+            width: '100%',
             fontSize: '24px',
             fontWeight: 'bold'
           }}>
@@ -77,21 +90,23 @@ export default () => {
               About Ryerson
             </AniLink>
             <img src={Arrow} alt="arrow" sx={{
-                width: '45px',
-                height: '45px'
+                ml: 5,
+                width: '40px',
+                height: '40px'
               }}/>
           </Flex>
           <Flex sx={{
             justifyContent: 'space-between',
             alignItems: 'center',
-            width: '350px',
+            width: '100%',
             fontSize: '24px',
             fontWeight: 'bold'
           }}>
             <a href="https://ryerson.ca" sx={{ color: 'white' }}>ryerson.ca</a>
             <img src={Arrow} alt="arrow" sx={{
-                width: '45px',
-                height: '45px'
+                ml: 5,
+                width: '40px',
+                height: '40px'
               }}/>
           </Flex>
         </Flex>
