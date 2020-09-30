@@ -13,9 +13,9 @@ export default () => {
       <Container>
         <div className="article-banner">
 					<picture>
-						<source media="(max-width: 800px)" srcset="http://3.97.1.121/wp-content/uploads/2020/09/PM-Header-Mobile-r1.jpg" />
-						<source media="(min-width: 801px)" srcset="http://3.97.1.121/wp-content/uploads/2020/09/PM-Header.jpg" />
-						<img src="http://3.97.1.121/wp-content/uploads/2020/09/PM-Header.jpg" alt="" />
+						<source media="(max-width: 800px)" srcset="https://media-ryu.youxventures.com/wp-content/uploads/2020/09/PM-Header-Mobile-r1.jpg" />
+						<source media="(min-width: 801px)" srcset="https://media-ryu.youxventures.com/wp-content/uploads/2020/09/PM-Header.jpg" />
+						<img src="https://media-ryu.youxventures.com/wp-content/uploads/2020/09/PM-Header.jpg" alt="" />
 					</picture>
 				</div>
 				<div className="article-content" id="president">
@@ -36,7 +36,7 @@ export default () => {
 					<p>We do this as an institution dedicated to learning and knowledge mobilization &mdash; producing innovative, forward-looking research designed to address societal need and make life better for people. This link is clear in all we do and it&rsquo;s embodied in our vision for Ryerson 2030. We are creating a campus that reflects and advances the pillars of our research: sustainable urban design and infrastructure, urban health and wellbeing, governance and social justice, economic development, creativity and culture, migration and integration. </p>
 					<p>For example, Ryerson researcher Seth Dworkin is working to improve and scale geothermal technologies as a sustainable alternative to fossil fuels. As COVID-19 emerged in Canada, our Creative Technology Lab quickly pivoted to innovate an origami inspired face shield design, reducing production time from hours to 40 seconds. Beyond pandemic response, many of the lab&rsquo;s activities are pushing the limits of how robotics can be used creatively. Professor Anna Triandafyllidou, the Canada Excellence Research Chair (CERC) in Migration and Integration, is studying the impact of migration at both ends of the labour market. The insights could help restart Canada&rsquo;s immigration post-pandemic, protect labour rights and support migrant entrepreneurship. </p>
 					<figure>
-				    <img src="http://3.97.1.121/wp-content/uploads/2020/09/PM-Headshot.jpg" className="article-img" alt="Mohamed Lachemi" />
+				    <img src="https://media-ryu.youxventures.com/wp-content/uploads/2020/09/PM-Headshot.jpg" className="article-img" alt="Mohamed Lachemi" />
 				    <figcaption><strong>Mohammed Lachemi,</strong> President & Vice-Chancellor, Ryerson University</figcaption>
 				  </figure>
 					<p>One of our newest initiatives, City Building Ryerson, will pull together all the innovative research being done across the university to facilitate co-operation and advance city building initiatives designed to address critical issues related to urban development, smart cities, social equity, urban sustainability and more. </p>
