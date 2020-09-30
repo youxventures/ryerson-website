@@ -508,7 +508,7 @@ export default () => {
             transition: 'opacity 2.5s ease-in-out',
             willChange: 'opacity'
           }}>
-	        	<iframe title="ryerson at a glance" width="100%" height="100%" src="https://www.youtube.com/embed/vJnpw5Bz6zM?controls=0" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+	        	<iframe title="ryerson at a glance" width="100%" height="100%" src="https://www.youtube.com/embed/0wNNKU30v3Y?controls=0" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
           </Box>
 
           <Box sx={{
