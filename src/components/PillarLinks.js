@@ -12,7 +12,7 @@ import economicAnim from '../animations/icon_economic.json'
 import creativityAnim from '../animations/icon_creativity.json'
 import migrationAnim from '../animations/icon_migration.json'
 
-export default ({ pageId, homePage }) => {
+export default ({ pageId }) => {
   const { wpgraphql } = useStaticQuery(
     graphql`
       query {
@@ -153,10 +153,7 @@ export default ({ pageId, homePage }) => {
     <Grid
       columns={pageId ? [1, 5] : [1, 2, 3]}
       gap={pageId ? 4 : 6}
-      sx={{
-        mt: homePage ? '200px' : 0,
-        gridRowGap: 5
-      }}>
+      sx={{ gridRowGap: 5 }}>
       {pillars.map((pillar, i) =>
         <Box ref={pillarRefs[i]} key={pillar.id} sx={{
           display: 'flex',
@@ -165,7 +162,10 @@ export default ({ pageId, homePage }) => {
           color: 'primary',
           textAlign: ['center', 'left'],
           alignItems: ['center', 'flex-start'],
-          '&:hover': !pageId ? null : {
+          'svg g path': {
+            transition: 'fill .35s ease-in-out'
+          },
+          '&:hover': {
             'a': {
               textDecoration: 'none'
             },

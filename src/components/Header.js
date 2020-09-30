@@ -20,7 +20,7 @@ export default ({ bgColor }) => {
           justifyContent: 'space-between',
           height: ['96px', '130px', '130px']
         }}>
-          <Link to="/home">
+          <Link to="/">
             <img src={Logo} alt="logo" sx={{ width: ['110px', '120px'] }} />
           </Link>
 

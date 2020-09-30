@@ -13,8 +13,8 @@ export default () => {
       <Container>
         <div className="article-banner">
 					<picture>
-						<source media="(max-width: 800px)" srcset="https://media-ryu.youxventures.com/wp-content/uploads/2020/09/PM-Header-Mobile-r1.jpg" />
-						<source media="(min-width: 801px)" srcset="https://media-ryu.youxventures.com/wp-content/uploads/2020/09/PM-Header.jpg" />
+						<source media="(max-width: 800px)" srcSet="https://media-ryu.youxventures.com/wp-content/uploads/2020/09/PM-Header-Mobile-r1.jpg" />
+						<source media="(min-width: 801px)" srcSet="https://media-ryu.youxventures.com/wp-content/uploads/2020/09/PM-Header.jpg" />
 						<img src="https://media-ryu.youxventures.com/wp-content/uploads/2020/09/PM-Header.jpg" alt="" />
 					</picture>
 				</div>

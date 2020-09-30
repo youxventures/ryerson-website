@@ -15,12 +15,14 @@ module.exports = {
     title: `Ryerson Innovation`,
     description: `Website description.`,
     author: `Kevin Ivan @kvzivn`,
+    siteUrl: `https://innovation.ryerson.ca`
   },
   plugins: [
     `gatsby-plugin-theme-ui`,
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    `gatsby-plugin-sitemap`,
     {
       resolve: 'gatsby-plugin-transition-link',
       options: {

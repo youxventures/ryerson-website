@@ -1,7 +1,8 @@
 /** @jsx jsx */
 import { jsx, Container, Box, Heading } from 'theme-ui'
-import { Link } from 'gatsby'
+import { useStaticQuery, graphql, Link } from 'gatsby'
 import { useEffect, useRef, useState } from 'react'
+import Img from 'gatsby-image'
 import useWindowSize from '../hooks/useWindowSize'
 import Menu from '../components/Menu'
 import PillarLinks from '../components/PillarLinks'
@@ -9,99 +10,95 @@ import Footer from '../components/Footer'
 import Logo from '../images/logo.svg'
 import lottie from 'lottie-web'
 
-import homeAnimation1 from '../animations/homepage1_webp.json'
-import homeAnimation2 from '../animations/homepage2_webp.json'
-import homeAnimation3 from '../animations/homepage3_webp.json'
-import homeAnimation4 from '../animations/homepage4_webp.json'
-import homeAnimation5 from '../animations/homepage5_webp.json'
-import homeAnimation6 from '../animations/homepage6_webp.json'
-
-async function asyncForEach(array, callback) {
-  for (let index = 0; index < array.length; index++) {
-    await callback(array[index], index, array)
-  }
-}
+import homeAnimation from '../animations/homepage1_webp.json'
 
 export default () => {
+const {
+    homepage2,
+    homepage3,
+    homepage4,
+    homepage5,
+    homepage6
+  } = useStaticQuery(
+    graphql`
+      query {
+        homepage2: file(relativePath: { eq: "homepage2.jpg" }) {
+          childImageSharp {
+            fluid(maxWidth: 2560, quality: 75) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        },
+        homepage3: file(relativePath: { eq: "homepage3.jpg" }) {
+          childImageSharp {
+            fluid(maxWidth: 2560, quality: 75) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        },
+        homepage4: file(relativePath: { eq: "homepage4.jpg" }) {
+          childImageSharp {
+            fluid(maxWidth: 2560, quality: 75) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        },
+        homepage5: file(relativePath: { eq: "homepage5.jpg" }) {
+          childImageSharp {
+            fluid(maxWidth: 2560, quality: 75) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        },
+        homepage6: file(relativePath: { eq: "homepage6.jpg" }) {
+          childImageSharp {
+            fluid(maxWidth: 2560, quality: 75) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
+      }
+    `
+  )
+
   const { height: windowHeight } = useWindowSize()
   const [currentPage, setCurrentPage] = useState(0)
   const [showMenu, setShowMenu] = useState(false)
-  const [loadedAnimations, setLoadedAnimations] = useState([])
 
   const pageContainerRef = useRef()
   const headerRef = useRef()
-
+  const videoRef = useRef()
   const heading1Ref = useRef()
   const heading2Ref = useRef()
   const heading3Ref = useRef()
   const heading4Ref = useRef()
   const heading5Ref = useRef()
   const heading6Ref = useRef()
-
-  const animation1Ref = useRef()
-  const animation2Ref = useRef()
-  const animation3Ref = useRef()
-  const animation4Ref = useRef()
-  const animation5Ref = useRef()
-  const animation6Ref = useRef()
+  const animationRef = useRef()
 
   useEffect(() => {
     if (typeof window === 'undefined') return
-    document.body.style.height = `${window.innerHeight * 7 + 1564}px`
-    window.scrollTo(0, 0)
+    document.body.style.height = `${window.innerHeight * 6 + 2460}px`
   }, [])
 
   useEffect(() => {
-    const animationData = [
-      homeAnimation2,
-      homeAnimation3,
-      homeAnimation4,
-      homeAnimation5,
-      homeAnimation6
-    ]
+    const anim = lottie.loadAnimation({
+      container: animationRef.current,
+      renderer: 'canvas',
+      loop: false,
+      autoplay: false,
+      animationData: homeAnimation,
+    })
 
-    const refs = [
-      animation2Ref,
-      animation3Ref,
-      animation4Ref,
-      animation5Ref,
-      animation6Ref
-    ]
+    anim.addEventListener('DOMLoaded', () => {
+      animationRef.current.style.opacity = 1
+      headerRef.current.style.opacity = 1
+      heading1Ref.current.style.opacity = 1
 
-    const loadAnimations = async () => {
-      let animations = []
-
-      await asyncForEach(refs, async (ref, i) => {
-        let anim = lottie.loadAnimation({
-          container: ref.current,
-          renderer: 'canvas',
-          autoplay: false,
-          loop: false,
-          animationData: animationData[i]
-        })
-
-        anim.goToAndStop(anim.totalFrames-1, true)
-        animations.push(anim)
-      })
-
-      setLoadedAnimations(animations)
-
-      const anim = lottie.loadAnimation({
-        container: animation1Ref.current,
-        renderer: 'canvas',
-        loop: false,
-        autoplay: true,
-        animationData: homeAnimation1,
-      })
-
-      anim.addEventListener('DOMLoaded', () => {
-        animation1Ref.current.style.opacity = 1
-        headerRef.current.style.opacity = 1
-        heading1Ref.current.style.opacity = 1
-      })
-    }
-
-    loadAnimations()
+      setTimeout(() => {
+        anim.play()
+      }, 250)
+    })
   }, [])
 
   useEffect(() => {
@@ -128,29 +125,28 @@ export default () => {
       }
 
       if (totalScroll > windowHeight - windowHeight * .5 && totalScroll < windowHeight * 2) {
-        // loadedAnimations[0].play()
         heading2Ref.current.style.opacity = 1
       }
 
       if (totalScroll > windowHeight * 1.5 && totalScroll < windowHeight * 3) {
-        // loadedAnimations[1].play()
         heading3Ref.current.style.opacity = 1
       }
 
       if (totalScroll > windowHeight * 2.5 && totalScroll < windowHeight * 4) {
-        // loadedAnimations[2].play()
         heading4Ref.current.style.opacity = 1
       }
 
       if (totalScroll > windowHeight * 3.5 && totalScroll < windowHeight * 5) {
-        // loadedAnimations[3].play()
         heading5Ref.current.style.opacity = 1
       }
 
       if (totalScroll > windowHeight * 4.5 && totalScroll < windowHeight * 6) {
-        // loadedAnimations[4].play()
         heading6Ref.current.style.opacity = 1
       }
+
+
+      videoRef.current.style.opacity = totalScroll > windowHeight * 5.5 ? 1 : 0
+      headerRef.current.style.opacity = totalScroll > windowHeight * 5.75 ? 0 : 1
 
       const currentPageNumber = totalScroll < windowHeight ? 0
         : totalScroll > windowHeight && totalScroll < windowHeight * 2 ? 1
@@ -158,8 +154,7 @@ export default () => {
         : totalScroll > windowHeight * 3 && totalScroll < windowHeight * 4 ? 3
         : totalScroll > windowHeight * 4 && totalScroll < windowHeight * 5 ? 4
         : totalScroll > windowHeight * 5 && totalScroll < windowHeight * 6 ? 5
-        : totalScroll > windowHeight * 6 && totalScroll < windowHeight * 7 ? 6
-        : 7
+        : 6
 
       const translateY =
         currentPage === 0 && totalScroll < windowHeight ? `translateY(-${totalScroll}px) translateZ(0px)`
@@ -171,11 +166,9 @@ export default () => {
         ? `translateY(-${totalScroll - windowHeight * 3}px) translateZ(0px)`
         : currentPage === 4 && totalScroll > windowHeight && totalScroll < windowHeight * 5
         ? `translateY(-${totalScroll - windowHeight * 4}px) translateZ(0px)`
-        : currentPage === 5 && totalScroll > windowHeight && totalScroll < windowHeight * 6
+        : currentPage === 5 && totalScroll > windowHeight && totalScroll < windowHeight * 6 + 1600
         ? `translateY(-${totalScroll - windowHeight * 5}px) translateZ(0px)`
-        : currentPage === 6 && totalScroll > windowHeight && totalScroll < windowHeight * 7 + 1564
-        ? `translateY(-${totalScroll - windowHeight * 6}px) translateZ(0px)`
-        : `translateY(-${totalScroll - windowHeight * 7}px) translateZ(0px)`
+        : `translateY(-${totalScroll - windowHeight * 6}px) translateZ(0px)`
 
       setCurrentPage(currentPageNumber)
       centerPage.style.transform = translateY
@@ -184,7 +177,7 @@ export default () => {
     window.addEventListener('scroll', handleScroll, { passive: true })
 
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [windowHeight, currentPage, loadedAnimations])
+  }, [windowHeight, currentPage])
 
   return (
     <div sx={{
@@ -206,7 +199,6 @@ export default () => {
         overflow: 'hidden',
         zIndex: '1'
       }}>
-
         <header ref={headerRef} sx={{
           position: 'fixed',
           display: 'flex',
@@ -225,7 +217,7 @@ export default () => {
             justifyContent: 'space-between',
             width: '100%'
           }}>
-            <Link to="/home">
+            <Link to="/">
               <img src={Logo} alt="logo" sx={{ width: ['110px', '120px'] }} />
             </Link>
 
@@ -236,22 +228,25 @@ export default () => {
         <div ref={pageContainerRef} sx={{
           position: 'absolute',
           top: 0,
-          left: ['-35%', '-35%', 0],
+          left: 0,
           height: '100%',
           width: '100%',
           transition: 'opacity 1.5s ease-in-out',
           willChange: 'opacity'
         }}>
-          <Box ref={animation1Ref} sx={{
+          <Box ref={animationRef} sx={{
             position: 'absolute',
             top: 0,
             left: 0,
-            width: ['1280px', '1280px', '2560px'],
-            height: ['800px', '800px', '1600px'],
+            width: ['100%', '100%', '2560px'],
+            height: ['100%', '800px', '1600px'],
             maxWidth: '100%',
             maxHeight: '100%',
-            padding: ['140px 140px 0', '140px 140px 0', 0],
-            zIndex: 9,
+            border: '2px solid tomato',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'flex-end',
+            zIndex: 8,
             backgroundColor: '#8bd4f7',
             opacity: 0,
             overflow: 'hidden',
@@ -263,19 +258,18 @@ export default () => {
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
-              width: '100%'
+              width: '100%',
+              maxWidth: '100%',
             }}>
               <Heading ref={heading1Ref} sx={{
                 position: 'absolute',
-                top: ['-10px', '-10px', '180px'],
-                left: [null, null, 0],
-                transform: ['translateX(26px)', 'translateX(26px)', null],
-                fontSize: ['24px', '24px', '36px'],
+                top: ['100px', '100px', '210px'],
+                left: 0,
+                fontSize: ['1.5rem', '5rem', '2.5rem'],
                 fontFamily: 'serif',
                 fontWeight: 'bold',
-                opacity: 0,
-                transition: 'opacity 1.5s ease-in-out',
-                transitionDelay: '1.25s',
+                opacity: 1,
+                transition: 'opacity 2.5s ease-in-out',
                 willChange: 'opacity'
               }}>
                 To us, innovation means<br />building a brighter future<br />for us all.
@@ -283,7 +277,7 @@ export default () => {
             </Container>
           </Box>
 
-          <Box ref={animation2Ref} sx={{
+          <Box sx={{
             position: 'absolute',
             top: 0,
             left: 0,
@@ -291,8 +285,7 @@ export default () => {
             height: ['800px', '800px', '1600px'],
             maxWidth: '100%',
             maxHeight: '100%',
-            padding: ['260px 260px 0', '260px 260px 0', 0],
-            zIndex: 8,
+            zIndex: 7,
             backgroundColor: '#b8d9ef',
             overflow: 'hidden',
             opacity: 0,
@@ -304,27 +297,31 @@ export default () => {
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
-              width: '100%'
+              width: '100%',
             }}>
               <Heading ref={heading2Ref} sx={{
                 position: 'absolute',
-                top: ['-120px', '-120px', '180px'],
-                left: [null, null, 0],
-                transform: ['translateX(20px)', 'translateX(20px)', null],
-                fontSize: ['24px', '24px', '36px'],
+                top: ['-120px', '-120px', '250px'],
+                left: [null, null, '35px'],
+                fontSize: ['24px', '24px', '3.5vh'],
                 fontFamily: 'serif',
                 fontWeight: 'bold',
-                opacity: 0,
+                opacity: 1,
                 transition: 'opacity 1.5s ease-in-out',
                 transitionDelay: '1s',
-                willChange: 'opacity'
+                willChange: 'opacity',
+                zIndex: 10,
               }}>
                 It means building cities<br />and economies that take<br />care of our people and<br />our planet.
               </Heading>
             </Container>
+
+            <Img fluid={homepage2.childImageSharp.fluid} sx={{
+
+             }} />
           </Box>
 
-          <Box ref={animation3Ref} sx={{
+          <Box sx={{
             position: 'absolute',
             top: 0,
             left: 0,
@@ -332,14 +329,14 @@ export default () => {
             height: ['800px', '800px', '1600px'],
             maxWidth: '100%',
             maxHeight: '100%',
-            padding: ['260px 260px 0', '260px 260px 0', 0],
-            zIndex: 7,
+            zIndex: 6,
             backgroundColor: '#000',
             overflow: 'hidden',
             opacity: 0,
             transition: 'opacity 2.5s ease-in-out',
             willChange: 'opacity'
           }}>
+            <Img fluid={homepage3.childImageSharp.fluid} sx={{ width: '100%' }} />
             <Container sx={{
               position: 'relative',
               display: 'flex',
@@ -351,11 +348,10 @@ export default () => {
                 position: 'absolute',
                 top: ['-80px', '-80px', '180px'],
                 left: [null, null, 0],
-                transform: ['translateX(26px)', 'translateX(26px)', null],
                 fontSize: ['24px', '24px', '36px'],
                 fontFamily: 'serif',
                 fontWeight: 'bold',
-                opacity: 0,
+                opacity: 1,
                 transition: 'opacity 1.5s ease-in-out',
                 transitionDelay: '1s',
                 willChange: 'opacity',
@@ -366,7 +362,7 @@ export default () => {
             </Container>
           </Box>
 
-          <Box ref={animation4Ref} sx={{
+          <Box sx={{
             position: 'absolute',
             top: 0,
             left: 0,
@@ -374,14 +370,14 @@ export default () => {
             height: ['800px', '800px', '1600px'],
             maxWidth: '100%',
             maxHeight: '100%',
-            padding: ['140px 140px 0', '140px 140px 0', 0],
-            zIndex: 6,
+            zIndex: 5,
             backgroundColor: '#8bd4f7',
             overflow: 'hidden',
             opacity: 0,
             transition: 'opacity 2.5s ease-in-out',
             willChange: 'opacity'
           }}>
+            <Img fluid={homepage4.childImageSharp.fluid} sx={{ width: '100%' }} />
             <Container sx={{
               position: 'relative',
               display: 'flex',
@@ -393,11 +389,10 @@ export default () => {
                 position: 'absolute',
                 top: ['-10px', '-10px', '180px'],
                 left: [null, null, 0],
-                transform: ['translateX(26px)', 'translateX(26px)', null],
                 fontSize: ['24px', '24px', '36px'],
                 fontFamily: 'serif',
                 fontWeight: 'bold',
-                opacity: 0,
+                opacity: 1,
                 transition: 'opacity 1.5s ease-in-out',
                 transitionDelay: '1s',
                 willChange: 'opacity'
@@ -407,7 +402,7 @@ export default () => {
             </Container>
           </Box>
 
-          <Box ref={animation5Ref} sx={{
+          <Box sx={{
             position: 'absolute',
             top: 0,
             left: 0,
@@ -415,14 +410,14 @@ export default () => {
             height: ['800px', '800px', '1600px'],
             maxWidth: '100%',
             maxHeight: '100%',
-            padding: ['260px 260px 0', '260px 260px 0', 0],
-            zIndex: 5,
+            zIndex: 4,
             backgroundColor: '#b8d9ef',
             overflow: 'hidden',
             opacity: 0,
             transition: 'opacity 2.5s ease-in-out',
             willChange: 'opacity'
           }}>
+            <Img fluid={homepage5.childImageSharp.fluid} sx={{ width: '100%' }} />
             <Container sx={{
               position: 'relative',
               display: 'flex',
@@ -434,11 +429,10 @@ export default () => {
                 position: 'absolute',
                 top: ['-100px', '-100px', '180px'],
                 left: [null, null, 0],
-                transform: ['translateX(26px)', 'translateX(26px)', null],
                 fontSize: ['24px', '24px', '36px'],
                 fontFamily: 'serif',
                 fontWeight: 'bold',
-                opacity: 0,
+                opacity: 1,
                 transition: 'opacity 1.5s ease-in-out',
                 transitionDelay: '1s',
                 willChange: 'opacity'
@@ -448,7 +442,7 @@ export default () => {
             </Container>
           </Box>
 
-          <Box ref={animation6Ref} sx={{
+          <Box sx={{
             position: 'absolute',
             top: 0,
             left: 0,
@@ -456,14 +450,14 @@ export default () => {
             height: ['800px', '800px', '1600px'],
             maxWidth: '100%',
             maxHeight: '100%',
-            padding: ['260px 260px 0', '260px 260px 0', 0],
-            zIndex: 4,
+            zIndex: 3,
             backgroundColor: '#000',
             overflow: 'hidden',
             opacity: 0,
             transition: 'opacity 2.5s ease-in-out',
             willChange: 'opacity'
           }}>
+            <Img fluid={homepage6.childImageSharp.fluid} sx={{ width: '100%' }} />
             <Container sx={{
               position: 'relative',
               display: 'flex',
@@ -475,11 +469,10 @@ export default () => {
                 position: 'absolute',
                 top: ['-100px', '-100px', '180px'],
                 left: [null, null, 0],
-                transform: ['translateX(26px)', 'translateX(26px)', null],
                 fontSize: ['24px', '24px', '36px'],
                 fontFamily: 'serif',
                 fontWeight: 'bold',
-                opacity: 0,
+                opacity: 1,
                 transition: 'opacity 1.5s ease-in-out',
                 transitionDelay: '1s',
                 willChange: 'opacity',
@@ -495,25 +488,7 @@ export default () => {
             top: 0,
             left: 0,
             width: ['1280px', '1280px', '2560px'],
-            height: ['800px', '800px', '1600px'],
-            maxWidth: '100%',
-            maxHeight: '100%',
-            zIndex: 3,
-            backgroundColor: '#fff',
-            overflow: 'hidden',
-            opacity: 0,
-            transition: 'opacity 2.5s ease-in-out',
-            willChange: 'opacity'
-          }}>
-	        	<iframe title="ryerson at a glance" width="100%" height="100%" src="https://www.youtube.com/embed/0wNNKU30v3Y?controls=0" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
-          </Box>
-
-          <Box sx={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: ['1280px', '1280px', '2560px'],
-            height: '1564px',
+            height: '2460px',
             maxWidth: '100%',
             zIndex: 2,
             backgroundColor: '#fff',
@@ -523,7 +498,31 @@ export default () => {
             willChange: 'opacity'
           }}>
             <Container>
-              <PillarLinks homePage />
+              <Heading sx={{
+                mt: '100px',
+                mb: '60px',
+                fontFamily: 'serif',
+                fontWeight: 'bold',
+                fontSize: '48px'
+              }}>
+                Watch our vision for the future unfold:
+              </Heading>
+
+	        	  <iframe ref={videoRef} title="ryerson at a glance" width="100%" height="640px" src="https://www.youtube.com/embed/0wNNKU30v3Y?controls=0" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen sx={{
+                opacity: 0,
+                transition: 'opacity 2.5s ease-in-out',
+                willChange: 'opacity'
+              }} />
+
+              <Heading sx={{
+                my: 6,
+                fontSize: ['30px', '32px', '36px'],
+                fontWeight: 'bold'
+              }}>
+                Our research and innovation is focused on key areas with the potential to improve life for people here and around the globe.
+              </Heading>
+
+              <PillarLinks />
             </Container>
             <Footer />
           </Box>

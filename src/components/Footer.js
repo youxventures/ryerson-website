@@ -12,7 +12,7 @@ export default () => {
         logo: file(relativePath: { eq: "logo-white-stacked.png" }) {
           childImageSharp {
             fluid(maxWidth: 140, quality: 90) {
-              ...GatsbyImageSharpFluid_withWebp
+              ...GatsbyImageSharpFluid_withWebp_noBase64
             }
           }
         }
