@@ -1,7 +1,5 @@
 /** @jsx jsx */
-import { jsx, Container, Heading, Text } from 'theme-ui'
-import React from "react"
-
+import { jsx, Container, Heading } from 'theme-ui'
 import Layout from "../components/Layout"
 
 const NotFoundPage = () => (

@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx, Container, Box, Heading } from 'theme-ui'
-import { Link, navigate } from 'gatsby'
+import { Link } from 'gatsby'
 import { useEffect, useRef, useState } from 'react'
 import useWindowSize from '../hooks/useWindowSize'
 import Menu from '../components/Menu'
@@ -48,11 +48,8 @@ export default () => {
   useEffect(() => {
     if (typeof window === 'undefined') return
     document.body.style.height = `${window.innerHeight * 7 + 1564}px`
+    window.scrollTo(0, 0)
   }, [])
-
-  useEffect(() => {
-    if (windowHeight) document.body.style.height = windowHeight
-  }, [windowHeight])
 
   useEffect(() => {
     const animationData = [

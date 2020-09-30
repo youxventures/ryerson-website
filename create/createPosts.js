@@ -111,7 +111,7 @@ module.exports = async ({ actions, graphql, reporter }, options) => {
       /**
        * Build post path based of theme blogURI setting.
        */
-      const path = post.uri
+      const path = `${post.uri}`
 
       createPage({
         path: path,
