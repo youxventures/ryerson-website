@@ -27,6 +27,7 @@ const GET_PAGES = `
                         order
                         pageId
                         linkText
+                        videoUrl
                         articles {
                             ... on WPGraphQL_Post {
                                 id

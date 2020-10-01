@@ -46,9 +46,18 @@ export default ({ pageContext, transitionStatus }) => {
       id,
       title,
       content,
-      pageSettings: { articles, color, pageId }
+      pageSettings: { articles, color, pageId, videoUrl }
     }
   } = pageContext
+
+  const pageTitle = pageId === 1 ? 'Urban Design & Infrastructure'
+    : pageId === 2 ? 'Urban Health & Wellbeing'
+    : pageId === 3 ? 'Governance & Social Justice'
+    : pageId === 4 ? 'Economic Development'
+    : pageId === 5 ? 'Creativity & Culture'
+    : 'Migration & Integration'
+
+  console.log(pageTitle)
 
   const desktopContainer = useRef()
   const mobileContainer = useRef()
@@ -89,7 +98,7 @@ export default ({ pageContext, transitionStatus }) => {
 
   return (
     <Layout bgColor={color}>
-      <SEO title={title} />
+      <SEO title={pageTitle} />
 
       <Box sx={{
         pt: 3, pb: 5,
@@ -216,15 +225,32 @@ export default ({ pageContext, transitionStatus }) => {
       </Box>
 
       <Container>
+        <Box sx={{
+          position: 'relative',
+          mt: 6,
+          paddingBottom: '56.25%',
+          overflow: 'hidden',
+          maxWidth: '100%',
+          height: 0
+        }}>
+          <iframe
+            title="A World of Innovation"
+            width="100%"
+            height="600"
+            src={videoUrl}
+            frameBorder="0"
+            allowFullScreen
+          />
+        </Box>
+
         <Heading sx={{
-          mt: 5,
+          mt: 4,
           mb: 4,
           fontSize: ['24px', '28px'],
           fontWeight: 'bold',
         }}>
           Other areas of research and innovation
         </Heading>
-
         <PillarLinks pageId={id} />
       </Container>
     </Layout>

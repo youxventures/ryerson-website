@@ -507,16 +507,14 @@ export default () => {
                 <Box sx={{
                   position: 'relative',
                   paddingBottom: '56.25%',
-                  // overflow: 'hidden',
-                  // maxWidth: '100%',
                   height: 0
                 }}>
                   <iframe
                     ref={videoRef}
-                    title="ryerson at a glance"
+                    title="Ryerson at a glance"
                     width="560"
                     height="349"
-                    src="https://www.youtube.com/embed/0wNNKU30v3Y?controls=0"
+                    src="https://www.youtube.com/embed/0wNNKU30v3Y"
                     frameBorder="0"
                     allowFullScreen sx={{
                       position: 'absolute',

@@ -22,19 +22,15 @@ const SEO = ({ title }) => {
   const siteTitle = title || site.siteMetadata.title
   const { description, url, image } = site.siteMetadata
 
-  console.log(site.siteMetadata.title)
-
   return (
     <React.Fragment>
       <Helmet>
         {/* General tags */}
-
         <title>{siteTitle}</title>
         <meta name="description" content={description} />
         <meta name="google-site-verification" content="QzUqFUXSVtaGAsLuUARenYCFKFMfIEbEFi6IvUKaKVM" />
 
         {/* OpenGraph tags */}
-
         <meta property="og:title" content={siteTitle} />
         <meta property="og:description" content={description} />
         <meta property="og:url" content={url} />
