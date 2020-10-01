@@ -37,13 +37,13 @@ export default () => {
 					<p>For example, Ryerson researcher Seth Dworkin is working to improve and scale geothermal technologies as a sustainable alternative to fossil fuels. As COVID-19 emerged in Canada, our Creative Technology Lab quickly pivoted to innovate an origami inspired face shield design, reducing production time from hours to 40 seconds. Beyond pandemic response, many of the lab&rsquo;s activities are pushing the limits of how robotics can be used creatively. Professor Anna Triandafyllidou, the Canada Excellence Research Chair (CERC) in Migration and Integration, is studying the impact of migration at both ends of the labour market. The insights could help restart Canada&rsquo;s immigration post-pandemic, protect labour rights and support migrant entrepreneurship. </p>
 					<figure>
 				    <img src="https://media-ryu.youxventures.com/wp-content/uploads/2020/09/PM-Headshot.jpg" className="article-img" alt="Mohamed Lachemi" />
-				    <figcaption><strong>Mohammed Lachemi,</strong> President & Vice-Chancellor, Ryerson University</figcaption>
+				    <figcaption><strong>Mohamed Lachemi,</strong> President & Vice-Chancellor, Ryerson University</figcaption>
 				  </figure>
 					<p>One of our newest initiatives, City Building Ryerson, will pull together all the innovative research being done across the university to facilitate co-operation and advance city building initiatives designed to address critical issues related to urban development, smart cities, social equity, urban sustainability and more. </p>
 					<blockquote>
 				    <div>
 				      <div className="pullquote-text">As a leading university in Canada’s largest and most culturally and economically diverse city, Ryerson has a unique understanding of what’s at stake and a growing role in finding solutions to create a more sustainable way forward.</div>
-				      <div className="pullquote-src"><strong>Mohammed Lachemi,</strong> President & Vice-Chancellor, Ryerson University</div>
+				      <div className="pullquote-src"><strong>Mohamed Lachemi,</strong> President & Vice-Chancellor, Ryerson University</div>
 				    </div>
 				  </blockquote>
 					<p>Critically, we also understand the power of a city&rsquo;s businesses to effect positive change. This is why we champion innovation by supporting entrepreneurship &mdash; a core tenet at Ryerson and one that is too-often overlooked by academia. We do this by taking a Zone Learning approach to sharing knowledge. This new model of experiential learning allows students to apply what they&rsquo;re learning in classrooms and labs to real-world startups creating solutions that will have impact both locally and globally.</p>
