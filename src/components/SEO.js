@@ -32,8 +32,6 @@ const SEO = ({ description, lang, meta, title }) => {
 
         <meta name="google-site-verification" content="QzUqFUXSVtaGAsLuUARenYCFKFMfIEbEFi6IvUKaKVM" />
 
-
-
         {/* OpenGraph tags */}
 
         {/* <meta property="og:url" content={url} /> */}

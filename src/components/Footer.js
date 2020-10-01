@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx, Container, Flex, Text } from 'theme-ui'
-import { useStaticQuery, graphql, Link } from 'gatsby'
+import { useStaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import Arrow from '../images/arrow-white.svg'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'

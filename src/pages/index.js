@@ -9,17 +9,21 @@ import PillarLinks from '../components/PillarLinks'
 import Footer from '../components/Footer'
 import Logo from '../images/logo.svg'
 import lottie from 'lottie-web'
+import MobileHomepage from '../components/MobileHomepage'
+import { isMobile } from 'react-device-detect'
 
 import homeAnimation from '../animations/homepage1_webp.json'
 
 export default () => {
-const {
-    homepage2,
-    homepage3,
-    homepage4,
-    homepage5,
-    homepage6
-  } = useStaticQuery(
+  if (isMobile) return <MobileHomepage />
+
+  const {
+      homepage2,
+      homepage3,
+      homepage4,
+      homepage5,
+      homepage6
+    } = useStaticQuery(
     graphql`
       query {
         homepage2: file(relativePath: { eq: "homepage2.jpg" }) {
@@ -242,7 +246,7 @@ const {
             top: 0,
             left: 0,
             width: ['100%', '100%', '2560px'],
-            height: ['100%', '800px', '1600px'],
+            height: ['100%', '100%', '1600px'],
             maxWidth: '100%',
             maxHeight: '100%',
             zIndex: 8,
@@ -269,7 +273,7 @@ const {
                 top: ['120px', '120px', '210px'],
                 left: 0,
                 ml: ['24px', '24px', '35px'],
-                fontSize: ['1.25rem', '1.25rem', '2.5rem'],
+                fontSize: ['1.15rem', '1.15rem', '2.5rem'],
                 fontFamily: 'serif',
                 fontWeight: 'bold',
                 opacity: 1,
@@ -310,7 +314,7 @@ const {
                 top: ['120px', '120px', '250px'],
                 left: 0,
                 ml: ['36px', '36px', '230px'],
-                fontSize: ['1.25rem', '1.25rem', '2.5rem'],
+                fontSize: ['1.15rem', '1.15rem', '2.5rem'],
                 fontFamily: 'serif',
                 fontWeight: 'bold',
                 opacity: 1,
@@ -350,7 +354,7 @@ const {
                 top: ['140px', '140px', '210px'],
                 left: 0,
                 ml: ['36px', '36px', '225px'],
-                fontSize: ['1.25rem', '1.25rem', '2.5rem'],
+                fontSize: ['1.15rem', '1.15rem', '2.5rem'],
                 fontFamily: 'serif',
                 fontWeight: 'bold',
                 opacity: 1,
@@ -391,7 +395,7 @@ const {
                 top: ['160px', '160px', '210px'],
                 left: 0,
                 ml: ['36px', '36px', '225px'],
-                fontSize: ['1.25rem', '1.25rem', '2.5rem'],
+                fontSize: ['1.15rem', '1.15rem', '2.5rem'],
                 fontFamily: 'serif',
                 fontWeight: 'bold',
                 opacity: 1,
@@ -432,7 +436,7 @@ const {
                 top: ['140px', '140px', '200px'],
                 left: 0,
                 ml: ['36px', '36px', '225px'],
-                fontSize: ['1.25rem', '1.25rem', '2.5rem'],
+                fontSize: ['1.15rem', '1.15rem', '2.5rem'],
                 fontFamily: 'serif',
                 fontWeight: 'bold',
                 opacity: 1,
@@ -472,7 +476,7 @@ const {
                 top: ['140px', '140px', '260px'],
                 left: 0,
                 ml: ['36px', '36px', '225px'],
-                fontSize: ['1.25rem', '1.25rem', '2.5rem'],
+                fontSize: ['1.15rem', '1.15rem', '2.5rem'],
                 fontFamily: 'serif',
                 fontWeight: 'bold',
                 opacity: 1,

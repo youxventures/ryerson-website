@@ -121,6 +121,7 @@ export default ({ pageContext, transitionStatus }) => {
                 display: ['block', 'block', 'none'],
                 position: 'relative',
                 width: '100%',
+                minHeight: '340px',
                 mt: 4
               }} />
 
