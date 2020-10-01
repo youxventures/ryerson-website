@@ -2,7 +2,7 @@
 import { jsx, Container, Flex, Box, Heading, Text } from 'theme-ui'
 import { useEffect, useRef } from 'react'
 import Layout from '../components/Layout'
-// import Seo from '../components/Seo'
+import SEO from '../components/SEO'
 import PillarLinks from '../components/PillarLinks'
 import Arrow from '../images/arrow.svg'
 import lottie from 'lottie-web'
@@ -89,7 +89,7 @@ export default ({ pageContext, transitionStatus }) => {
 
   return (
     <Layout bgColor={color}>
-      {/* <Seo title={title} /> */}
+      <SEO title={title} />
 
       <Box sx={{
         pt: 3, pb: 5,

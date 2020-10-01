@@ -12,10 +12,12 @@ console.log(`This WordPress Endpoint used is: '${process.env.WORDPRESS_URL}'`)
 
 module.exports = {
   siteMetadata: {
-    title: `Ryerson Innovation`,
-    description: `Website description.`,
-    author: `Kevin Ivan @kvzivn`,
-    siteUrl: `https://innovation.ryerson.ca`
+    title: `A World of Innovation - Ryerson University`,
+    description: `From designing cities that are green to shaping societies that are equitable, see how we’re innovating today to build a brighter tomorrow.`,
+    author: `Ryerson University`,
+    url: `https://innovation.ryerson.ca`,
+    siteUrl: `https://innovation.ryerson.ca`,
+    image: "/social.jpg",
   },
   plugins: [
     `gatsby-plugin-theme-ui`,
