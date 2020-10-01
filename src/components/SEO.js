@@ -35,7 +35,7 @@ const SEO = ({ title, slug }) => {
         {/* OpenGraph tags */}
         <meta property="og:title" content={pageTitle} />
         <meta property="og:description" content={description} />
-        <meta property="og:url" content={url} />
+        <meta property="og:url" content={pageUrl} />
         <meta property="og:image" content={image} />
 
         {/* Canonical */}
