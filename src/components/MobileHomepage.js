@@ -176,7 +176,7 @@ const {
             opacity: 0,
             maxWidth: '320px',
           }}>
-            To us, innovation means building a brighter future for us all.
+            To us, innovation means building a brighter future for everyone.
           </Heading>
         </Container>
       </Box>

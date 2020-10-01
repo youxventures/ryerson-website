@@ -284,7 +284,7 @@ export default () => {
                 transition: 'opacity 2.5s ease-in-out',
                 willChange: 'opacity',
               }}>
-                To us, innovation means<br />building a brighter future<br />for us all.
+                To us, innovation means<br />building a brighter future<br />for everyone.
               </Heading>
             </Box>
 
