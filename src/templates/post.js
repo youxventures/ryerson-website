@@ -113,9 +113,6 @@ const Post = ({ pageContext }) => {
                     sx={{
                       display: 'flex',
                       flexDirection: ['column', 'column', 'row'],
-                      flexGrow: '1',
-                      flexShrink: '0',
-                      flexBasis: '0',
                       alignItems: 'center',
                       textAlign: ['center', 'center', 'left'],
                       mt: 4,
@@ -127,7 +124,8 @@ const Post = ({ pageContext }) => {
                           'backgroundColor': article.postSettings.iconHoverColor
                         }
                       }
-                    }}>
+                    }}
+                  >
                     <Box className="article-icon" sx={{
                       position: 'relative',
                       width: '100%',

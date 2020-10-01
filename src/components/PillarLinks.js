@@ -67,7 +67,16 @@ export default ({ pageId }) => {
     migrationRef
   ]
 
-  const pillarRefs = [
+  const animationData = [
+    udiAnim,
+    uhwAnim,
+    govAnim,
+    economicAnim,
+    creativityAnim,
+    migrationAnim
+  ]
+
+  const hoverContainerRefs = [
     udiPillarRef,
     uhwPillarRef,
     govPillarRef,
@@ -76,49 +85,32 @@ export default ({ pageId }) => {
     migrationPillarRef
   ]
 
+  let animationRefs = []
+  let animationDataSorted = []
+  let hoverRefsSorted = []
+
+  pillars.forEach(pillar => {
+    animationRefs.push(refs[pillar.pageSettings.pageId - 1])
+    animationDataSorted.push(animationData[pillar.pageSettings.pageId - 1])
+    hoverRefsSorted.push(hoverContainerRefs[pillar.pageSettings.pageId - 1])
+  })
+
   useEffect(() => {
-    const animRefs = [
-      udiRef,
-      uhwRef,
-      govRef,
-      economicRef,
-      creativityRef,
-      migrationRef
-    ]
-
-    const pillarContainerRefs = [
-      udiPillarRef,
-      uhwPillarRef,
-      govPillarRef,
-      economicPillarRef,
-      creativityPillarRef,
-      migrationPillarRef
-    ]
-
-    const animationData = [
-      udiAnim,
-      uhwAnim,
-      govAnim,
-      economicAnim,
-      creativityAnim,
-      migrationAnim
-    ]
-
     let animations = []
 
-    animRefs.forEach((ref, i) => {
+    animationRefs.forEach((ref, i) => {
       const anim = lottie.loadAnimation({
         container: ref.current,
         renderer: 'canvas',
         loop: false,
         autoplay: false,
-        animationData: animationData[i],
+        animationData: animationDataSorted[i],
       })
 
       animations.push(anim)
     })
 
-    pillarContainerRefs.forEach((pillar, i) => {
+    hoverRefsSorted.forEach((pillar, i) => {
       if (pillar.current) {
         pillar.current.addEventListener('mouseenter', () => {
           animations[i].setDirection(1)
@@ -133,7 +125,7 @@ export default ({ pageId }) => {
     })
 
     return () => {
-      pillarContainerRefs.forEach((pillar, i) => {
+      hoverRefsSorted.forEach((pillar, i) => {
         if (pillar.current) {
           pillar.current.removeEventListener('mouseenter', () => {
             animations[i].setDirection(1)
@@ -153,9 +145,10 @@ export default ({ pageId }) => {
     <Grid
       columns={pageId ? [1, 5] : [1, 2, 3]}
       gap={pageId ? 4 : 6}
-      sx={{ gridRowGap: 5 }}>
+      sx={{ gridRowGap: 5 }}
+    >
       {pillars.map((pillar, i) =>
-        <Box ref={pillarRefs[i]} key={pillar.id} sx={{
+        <Box ref={hoverRefsSorted[i]} key={pillar.id} sx={{
           display: 'flex',
           flexDirection: 'column',
           textDecoration: 'none',
@@ -189,7 +182,7 @@ export default ({ pageId }) => {
             }}
             duration={1.5}
           >
-            <Box ref={pageId ? refs[pillar.pageSettings.pageId - 1] : refs[i]} sx={{
+            <Box ref={animationRefs[i]} sx={{
               width: pageId ? '175.5px' : '200px',
               height: pageId ? '175.5px' : '200px'
             }}/>

@@ -57,8 +57,6 @@ export default ({ pageContext, transitionStatus }) => {
     : pageId === 5 ? 'Creativity & Culture'
     : 'Migration & Integration'
 
-  console.log(pageTitle)
-
   const desktopContainer = useRef()
   const mobileContainer = useRef()
 
@@ -112,7 +110,7 @@ export default ({ pageContext, transitionStatus }) => {
             justifyContent: 'space-between'
           }}>
             <Box sx={{ maxWidth: ['none', 'none', '50%'] }}>
-              <Heading dangerouslySetInnerHTML={{__html: title }} sx={{
+              <Heading as="h1" dangerouslySetInnerHTML={{__html: title }} sx={{
                 m: 0,
                 fontSize: '36px',
                 fontWeight: 'bold',

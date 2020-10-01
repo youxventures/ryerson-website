@@ -13,7 +13,8 @@ import lottie from 'lottie-web'
 import MobileHomepage from '../components/MobileHomepage'
 import { isMobile } from 'react-device-detect'
 
-import homeAnimation from '../animations/homepage1_webp.json'
+import homeAnimationWebp from '../animations/homepage1_webp.json'
+import homeAnimation from '../animations/homepage1.json'
 
 export default () => {
   if (isMobile) return <MobileHomepage />
@@ -81,6 +82,11 @@ export default () => {
   const heading6Ref = useRef()
   const animationRef = useRef()
 
+  const isNotSafari =
+    navigator.userAgent.indexOf('Safari') > -1 &&
+    navigator.userAgent.indexOf('Chrome') > -1
+
+
   useEffect(() => {
     if (typeof window === 'undefined') return
     document.body.style.height = `${window.innerHeight * 6 + 2440}px`
@@ -92,7 +98,9 @@ export default () => {
       renderer: 'canvas',
       loop: false,
       autoplay: false,
-      animationData: homeAnimation,
+      animationData: isNotSafari
+        ? homeAnimationWebp
+        : homeAnimation
     })
 
     anim.addEventListener('DOMLoaded', () => {
