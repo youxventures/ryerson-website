@@ -24,36 +24,36 @@ const {
       query {
         homepage2: file(relativePath: { eq: "homepage2.jpg" }) {
           childImageSharp {
-            fluid(maxWidth: 2560, quality: 75) {
-              ...GatsbyImageSharpFluid_withWebp
+            fluid(maxWidth: 2560, quality: 85) {
+              ...GatsbyImageSharpFluid_withWebp_noBase64
             }
           }
         },
         homepage3: file(relativePath: { eq: "homepage3.jpg" }) {
           childImageSharp {
-            fluid(maxWidth: 2560, quality: 75) {
-              ...GatsbyImageSharpFluid_withWebp
+            fluid(maxWidth: 2560, quality: 85) {
+              ...GatsbyImageSharpFluid_withWebp_noBase64
             }
           }
         },
         homepage4: file(relativePath: { eq: "homepage4.jpg" }) {
           childImageSharp {
-            fluid(maxWidth: 2560, quality: 75) {
-              ...GatsbyImageSharpFluid_withWebp
+            fluid(maxWidth: 2560, quality: 85) {
+              ...GatsbyImageSharpFluid_withWebp_noBase64
             }
           }
         },
         homepage5: file(relativePath: { eq: "homepage5.jpg" }) {
           childImageSharp {
-            fluid(maxWidth: 2560, quality: 75) {
-              ...GatsbyImageSharpFluid_withWebp
+            fluid(maxWidth: 2560, quality: 85) {
+              ...GatsbyImageSharpFluid_withWebp_noBase64
             }
           }
         },
         homepage6: file(relativePath: { eq: "homepage6.jpg" }) {
           childImageSharp {
-            fluid(maxWidth: 2560, quality: 75) {
-              ...GatsbyImageSharpFluid_withWebp
+            fluid(maxWidth: 2560, quality: 85) {
+              ...GatsbyImageSharpFluid_withWebp_noBase64
             }
           }
         }
@@ -188,7 +188,7 @@ const {
       width: '100%',
       height: '100%',
       overflow: 'hidden',
-      background: '#fff',
+      background: '#fff'
     }}>
       <div sx={{
         position: 'absolute',
@@ -197,7 +197,8 @@ const {
         height: '100%',
         width: '100%',
         overflow: 'hidden',
-        zIndex: '1'
+        zIndex: '1',
+        backgroundColor: '#8bd4f7'
       }}>
         <header ref={headerRef} sx={{
           position: 'fixed',
@@ -231,9 +232,11 @@ const {
           left: 0,
           height: '100%',
           width: '100%',
+          backgroundColor: '#8bd4f7',
           transition: 'opacity 1.5s ease-in-out',
           willChange: 'opacity'
         }}>
+
           <Box ref={animationRef} sx={{
             position: 'absolute',
             top: 0,
@@ -242,35 +245,38 @@ const {
             height: ['100%', '800px', '1600px'],
             maxWidth: '100%',
             maxHeight: '100%',
-            border: '2px solid tomato',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'flex-end',
             zIndex: 8,
             backgroundColor: '#8bd4f7',
             opacity: 0,
             overflow: 'hidden',
             transition: 'opacity 1.5s ease-in-out',
-            willChange: 'opacity'
+            willChange: 'opacity',
+            'canvas': {
+              position: 'absolute',
+              top: ['50px', '50px', '25px'],
+              bottom: 0,
+              left: ['-30%', '-30%', 0]
+            }
           }}>
             <Container sx={{
               position: 'relative',
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
-              width: '100%',
-              maxWidth: '100%',
+              width: '100%'
             }}>
               <Heading ref={heading1Ref} sx={{
                 position: 'absolute',
-                top: ['100px', '100px', '210px'],
+                width: '100%',
+                top: ['120px', '120px', '210px'],
                 left: 0,
-                fontSize: ['1.5rem', '5rem', '2.5rem'],
+                ml: ['24px', '24px', '35px'],
+                fontSize: ['1.55rem', '1.55rem', '2.5rem'],
                 fontFamily: 'serif',
                 fontWeight: 'bold',
                 opacity: 1,
                 transition: 'opacity 2.5s ease-in-out',
-                willChange: 'opacity'
+                willChange: 'opacity',
               }}>
                 To us, innovation means<br />building a brighter future<br />for us all.
               </Heading>
@@ -281,8 +287,8 @@ const {
             position: 'absolute',
             top: 0,
             left: 0,
-            width: ['1280px', '1280px', '2560px'],
-            height: ['800px', '800px', '1600px'],
+            width: ['100%', '100%', '2560px'],
+            height: ['100%', '100%', '1600px'],
             maxWidth: '100%',
             maxHeight: '100%',
             zIndex: 7,
@@ -292,41 +298,38 @@ const {
             transition: 'opacity 2.5s ease-in-out',
             willChange: 'opacity'
           }}>
-            <Container sx={{
-              position: 'relative',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              width: '100%',
-            }}>
+
+            <Img fluid={homepage2.childImageSharp.fluid} sx={{
+              position: 'absolute',
+              top: ['130px', '130px', 0],
+              left: ['-330px', '-330px', 0],
+              margin: ['120px', '120px', '40px']
+             }} />
+            <Container>
               <Heading ref={heading2Ref} sx={{
                 position: 'absolute',
-                top: ['-120px', '-120px', '250px'],
-                left: [null, null, '35px'],
-                fontSize: ['24px', '24px', '3.5vh'],
+                width: '100%',
+                top: ['120px', '120px', '250px'],
+                left: 0,
+                ml: ['36px', '36px', '230px'],
+                fontSize: ['1.55rem', '1.55rem', '2.5rem'],
                 fontFamily: 'serif',
                 fontWeight: 'bold',
                 opacity: 1,
-                transition: 'opacity 1.5s ease-in-out',
-                transitionDelay: '1s',
+                transition: 'opacity 2.5s ease-in-out',
                 willChange: 'opacity',
-                zIndex: 10,
               }}>
                 It means building cities<br />and economies that take<br />care of our people and<br />our planet.
               </Heading>
             </Container>
-
-            <Img fluid={homepage2.childImageSharp.fluid} sx={{
-
-             }} />
           </Box>
 
           <Box sx={{
             position: 'absolute',
             top: 0,
             left: 0,
-            width: ['1280px', '1280px', '2560px'],
-            height: ['800px', '800px', '1600px'],
+            width: ['100%', '100%', '2560px'],
+            height: ['100%', '100%', '1600px'],
             maxWidth: '100%',
             maxHeight: '100%',
             zIndex: 6,
@@ -336,24 +339,24 @@ const {
             transition: 'opacity 2.5s ease-in-out',
             willChange: 'opacity'
           }}>
-            <Img fluid={homepage3.childImageSharp.fluid} sx={{ width: '100%' }} />
-            <Container sx={{
-              position: 'relative',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              width: '100%'
-            }}>
+            <Img fluid={homepage3.childImageSharp.fluid} sx={{
+              position: 'absolute',
+              top: ['130px', '130px', '60px'],
+              left: ['-490px', '-490px', 0],
+              margin: ['80px', '80px', 0]
+            }} />
+            <Container>
               <Heading ref={heading3Ref} sx={{
                 position: 'absolute',
-                top: ['-80px', '-80px', '180px'],
-                left: [null, null, 0],
-                fontSize: ['24px', '24px', '36px'],
+                width: '100%',
+                top: ['140px', '140px', '210px'],
+                left: 0,
+                ml: ['36px', '36px', '225px'],
+                fontSize: ['1.55rem', '1.55rem', '2.5rem'],
                 fontFamily: 'serif',
                 fontWeight: 'bold',
                 opacity: 1,
-                transition: 'opacity 1.5s ease-in-out',
-                transitionDelay: '1s',
+                transition: 'opacity 2.5s ease-in-out',
                 willChange: 'opacity',
                 color: 'white'
               }}>
@@ -366,35 +369,35 @@ const {
             position: 'absolute',
             top: 0,
             left: 0,
-            width: ['1280px', '1280px', '2560px'],
-            height: ['800px', '800px', '1600px'],
+            width: ['100%', '100%', '2560px'],
+            height: ['100%', '100%', '1600px'],
             maxWidth: '100%',
             maxHeight: '100%',
             zIndex: 5,
-            backgroundColor: '#8bd4f7',
+            backgroundColor: '#f9f9f9',
             overflow: 'hidden',
             opacity: 0,
             transition: 'opacity 2.5s ease-in-out',
             willChange: 'opacity'
           }}>
-            <Img fluid={homepage4.childImageSharp.fluid} sx={{ width: '100%' }} />
-            <Container sx={{
-              position: 'relative',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              width: '100%'
-            }}>
+            <Img fluid={homepage4.childImageSharp.fluid} sx={{
+              position: 'absolute',
+              top: ['120px', '120px', 0],
+              left: ['-360px', '-360px', 0],
+              margin: ['80px', '80px', 0]
+             }} />
+            <Container>
               <Heading ref={heading4Ref} sx={{
                 position: 'absolute',
-                top: ['-10px', '-10px', '180px'],
-                left: [null, null, 0],
-                fontSize: ['24px', '24px', '36px'],
+                width: '100%',
+                top: ['160px', '160px', '210px'],
+                left: 0,
+                ml: ['36px', '36px', '225px'],
+                fontSize: ['1.55rem', '1.55rem', '2.5rem'],
                 fontFamily: 'serif',
                 fontWeight: 'bold',
                 opacity: 1,
-                transition: 'opacity 1.5s ease-in-out',
-                transitionDelay: '1s',
+                transition: 'opacity 2.5s ease-in-out',
                 willChange: 'opacity'
               }}>
                 Merging creativity with<br />tech to transform our<br />experiences.
@@ -406,35 +409,36 @@ const {
             position: 'absolute',
             top: 0,
             left: 0,
-            width: ['1280px', '1280px', '2560px'],
-            height: ['800px', '800px', '1600px'],
+            width: ['100%', '100%', '2560px'],
+            height: ['100%', '100%', '1600px'],
             maxWidth: '100%',
             maxHeight: '100%',
             zIndex: 4,
-            backgroundColor: '#b8d9ef',
+            backgroundColor: '#8dd4d9',
             overflow: 'hidden',
             opacity: 0,
             transition: 'opacity 2.5s ease-in-out',
             willChange: 'opacity'
           }}>
-            <Img fluid={homepage5.childImageSharp.fluid} sx={{ width: '100%' }} />
-            <Container sx={{
-              position: 'relative',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              width: '100%'
-            }}>
+            <Img fluid={homepage5.childImageSharp.fluid} sx={{
+              position: 'absolute',
+              top: ['130px', '130px', '60px'],
+              left: ['-300px', '-300px', '80px'],
+              margin: ['80px', '80px', 0]
+             }} />
+
+            <Container>
               <Heading ref={heading5Ref} sx={{
                 position: 'absolute',
-                top: ['-100px', '-100px', '180px'],
-                left: [null, null, 0],
-                fontSize: ['24px', '24px', '36px'],
+                width: '100%',
+                top: ['140px', '140px', '200px'],
+                left: 0,
+                ml: ['36px', '36px', '225px'],
+                fontSize: ['1.55rem', '1.55rem', '2.5rem'],
                 fontFamily: 'serif',
                 fontWeight: 'bold',
                 opacity: 1,
-                transition: 'opacity 1.5s ease-in-out',
-                transitionDelay: '1s',
+                transition: 'opacity 2.5s ease-in-out',
                 willChange: 'opacity'
               }}>
                 Advocating for a world<br />free of inequities and<br />inequalities.
@@ -446,37 +450,36 @@ const {
             position: 'absolute',
             top: 0,
             left: 0,
-            width: ['1280px', '1280px', '2560px'],
-            height: ['800px', '800px', '1600px'],
+            width: ['100%', '100%', '2560px'],
+            height: ['100%', '100%', '1600px'],
             maxWidth: '100%',
             maxHeight: '100%',
             zIndex: 3,
-            backgroundColor: '#000',
+            backgroundColor: '#b7d7ee',
             overflow: 'hidden',
             opacity: 0,
             transition: 'opacity 2.5s ease-in-out',
             willChange: 'opacity'
           }}>
-            <Img fluid={homepage6.childImageSharp.fluid} sx={{ width: '100%' }} />
-            <Container sx={{
-              position: 'relative',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              width: '100%'
-            }}>
+            <Img fluid={homepage6.childImageSharp.fluid} sx={{
+              position: 'absolute',
+              top: ['130px', '130px', '60px'],
+              left: ['-490px', '-490px', 0],
+              margin: ['80px', '80px', 0]
+             }} />
+            <Container>
               <Heading ref={heading6Ref} sx={{
                 position: 'absolute',
-                top: ['-100px', '-100px', '180px'],
-                left: [null, null, 0],
-                fontSize: ['24px', '24px', '36px'],
+                width: '100%',
+                top: ['140px', '140px', '260px'],
+                left: 0,
+                ml: ['36px', '36px', '225px'],
+                fontSize: ['1.55rem', '1.55rem', '2.5rem'],
                 fontFamily: 'serif',
                 fontWeight: 'bold',
                 opacity: 1,
-                transition: 'opacity 1.5s ease-in-out',
-                transitionDelay: '1s',
+                transition: 'opacity 2.5s ease-in-out',
                 willChange: 'opacity',
-                color: 'white'
               }}>
                 And ensuring everyone has<br />a place to call home.
               </Heading>
@@ -497,7 +500,7 @@ const {
             transition: 'opacity 2.5s ease-in-out',
             willChange: 'opacity'
           }}>
-            <Container>
+            <Container sx={{ width: '100%' }}>
               <Heading sx={{
                 mt: '100px',
                 mb: '60px',
@@ -508,11 +511,31 @@ const {
                 Watch our vision for the future unfold:
               </Heading>
 
-	        	  <iframe ref={videoRef} title="ryerson at a glance" width="100%" height="640px" src="https://www.youtube.com/embed/0wNNKU30v3Y?controls=0" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen sx={{
-                opacity: 0,
-                transition: 'opacity 2.5s ease-in-out',
-                willChange: 'opacity'
-              }} />
+              <Box sx={{
+                position: 'relative',
+                paddingBottom: '56.25%',
+                // overflow: 'hidden',
+                // maxWidth: '100%',
+                height: 0
+              }}>
+                <iframe
+                  ref={videoRef}
+                  title="ryerson at a glance"
+                  width="560"
+                  height="349"
+                  src="https://www.youtube.com/embed/0wNNKU30v3Y?controls=0"
+                  frameBorder="0"
+                  allowFullScreen sx={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    height: '100%',
+                    opacity: 0,
+                    transition: 'opacity 2.5s ease-in-out',
+                    willChange: 'opacity'
+                  }} />
+              </Box>
 
               <Heading sx={{
                 my: 6,
