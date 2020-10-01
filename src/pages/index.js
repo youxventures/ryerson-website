@@ -4,5 +4,6 @@ import DesktopHomepage from '../components/DesktopHomepage'
 
 export default () => {
   if (typeof window === 'undefined') return
+
   return window.innerWidth > 900 ? <DesktopHomepage /> : <MobileHomepage />
 }
