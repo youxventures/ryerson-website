@@ -154,8 +154,8 @@ const {
       }}>
         <Box ref={animationRef} sx={{
           position: 'absolute',
-          width: '900px',
-          left: '-50%',
+          width: '1100px',
+          left: '-75%',
           mb: '-12px',
           opacity: 0,
           transition: 'opacity 1.5s ease-in-out',
