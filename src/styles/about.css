@@ -37,10 +37,14 @@
   line-height: 1.2em;
   margin: 1rem 10% 1rem 0;
   flex: 0 0 40%;
+  font-feature-settings: "liga" 1;
 }
 
 .about-content .lead p {
   flex: 0 0 50%;  
+  font-feature-settings: lnum;
+  font-variant-numeric: oldstyle-nums;
+  letter-spacing: -0.05px;
 }
 
 .about-content .video {
@@ -63,6 +67,9 @@
   display: flex;
   flex-flow: row wrap;  
   margin: 0 -2rem;
+  font-feature-settings: lnum;
+  font-variant-numeric: oldstyle-nums;
+  letter-spacing: -0.05px;
 }
 
 .about-content .about-links > div {
@@ -82,6 +89,7 @@
   font-family: "replica", arial, sans-serif;
   font-size: 1.8rem;
   line-height: 1.2em;
+  letter-spacing: normal;
 }
 
 .about-content h2 a::after {

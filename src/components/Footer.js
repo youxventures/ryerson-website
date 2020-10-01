@@ -44,10 +44,10 @@ export default () => {
           alignItems: ['flex-end', 'flex-end', 'flex-start'],
           mt: [5, 5, 0]
         }}>
-          <Link to="/home">
+          <a href="https://www.ryerson.ca/">
             <Img fluid={logo.childImageSharp.fluid} sx={{ width: ['120px', '120px', '140px'] }} />
-          </Link>
-          <Text sx={{ mt: [0, 0, 6], fontSize: '15px' }}>© Ryerson University</Text>
+          </a>
+          <Text sx={{ mt: [0, 0, 6], mb: [0, 0, '8px'], fontSize: '14px' }}><a href="https://www.ryerson.ca/terms-conditions/" sx={{ color: 'white' }}>Terms & Conditions</a></Text>
         </Flex>
         <Flex sx={{
           flexDirection: 'column',
@@ -104,7 +104,7 @@ export default () => {
             fontSize: '24px',
             fontWeight: 'bold'
           }}>
-            <a href="https://ryerson.ca" target="_blank" rel="noopener noreferrer" sx={{ color: 'white' }}>ryerson.ca</a>
+            <a href="https://www.ryerson.ca/" sx={{ color: 'white' }}>ryerson.ca</a>
             <img src={Arrow} alt="arrow" sx={{
                 ml: 5,
                 width: '40px',
