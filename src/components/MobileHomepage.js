@@ -21,35 +21,35 @@ const {
   } = useStaticQuery(
     graphql`
       query {
-        homepage2: file(relativePath: { eq: "homepage2.jpg" }) {
+        homepage2: file(relativePath: { eq: "homepage2_mobile.jpg" }) {
           childImageSharp {
             fluid(maxWidth: 600, quality: 90) {
               ...GatsbyImageSharpFluid_withWebp_noBase64
             }
           }
         },
-        homepage3: file(relativePath: { eq: "homepage3.jpg" }) {
+        homepage3: file(relativePath: { eq: "homepage3_mobile.jpg" }) {
           childImageSharp {
             fluid(maxWidth: 600, quality: 90) {
               ...GatsbyImageSharpFluid_withWebp_noBase64
             }
           }
         },
-        homepage4: file(relativePath: { eq: "homepage4.jpg" }) {
+        homepage4: file(relativePath: { eq: "homepage4_mobile.jpg" }) {
           childImageSharp {
             fluid(maxWidth: 600, quality: 90) {
               ...GatsbyImageSharpFluid_withWebp_noBase64
             }
           }
         },
-        homepage5: file(relativePath: { eq: "homepage5.jpg" }) {
+        homepage5: file(relativePath: { eq: "homepage5_mobile.jpg" }) {
           childImageSharp {
             fluid(maxWidth: 600, quality: 90) {
               ...GatsbyImageSharpFluid_withWebp_noBase64
             }
           }
         },
-        homepage6: file(relativePath: { eq: "homepage6.jpg" }) {
+        homepage6: file(relativePath: { eq: "homepage6_mobile.jpg" }) {
           childImageSharp {
             fluid(maxWidth: 600, quality: 90) {
               ...GatsbyImageSharpFluid_withWebp_noBase64
@@ -102,7 +102,7 @@ const {
   useEffect(() => {
     const anim = lottie.loadAnimation({
       container: animationRef.current,
-      renderer: 'canvas',
+      renderer: 'svg',
       loop: false,
       autoplay: false,
       animationData: homeAnimation,
@@ -152,10 +152,11 @@ const {
         backgroundColor: '#8bd4f7'
       }}>
         <Box ref={animationRef} sx={{
-          mb: '-16px',
+          mb: '-12px',
           opacity: 0,
           transition: 'opacity 1.5s ease-in-out',
-          transform: 'scale(2.75)',
+          transitionDelay: '1s',
+          transform: 'scale(2)',
           transformOrigin: 'bottom'
         }}>
         </Box>
@@ -165,20 +166,21 @@ const {
           left: 0
         }}>
           <Heading ref={heading1Ref} sx={{
-            fontSize: ['4.5vh', '2rem', '2.5rem'],
+            fontSize: ['4.75vh', '2rem', '2.5rem'],
             fontFamily: 'serif',
             fontWeight: 'bold',
             transition: 'opacity 1.5s ease-in-out',
             transitionDelay: '1s',
-            opacity: 0
+            opacity: 0,
+            maxWidth: '320px',
           }}>
             To us, innovation means building a brighter future for us all.
           </Heading>
         </Container>
       </Box>
 
-      {images.map(({ image, heading, bgColor, textColor }) => (
-        <Box sx={{
+      {images.map(({ image, heading, bgColor, textColor }, i) => (
+        <Box key={i} sx={{
           position: 'relative',
           height: '100vh',
           display: 'flex',
@@ -188,11 +190,11 @@ const {
           <Img fluid={image.childImageSharp.fluid} sx={{
             display: 'block',
             width: '100%',
-            height: '65%'
+            height: '75%'
           }} />
           <Container sx={{
             position: 'absolute',
-            top: '100px'
+            top: '70px'
           }}>
             <Heading sx={{
               fontSize: ['4vh', '4.75vh', '2.5rem'],
@@ -219,7 +221,7 @@ const {
             mb: '60px',
             fontFamily: 'serif',
             fontWeight: 'bold',
-            fontSize: '48px'
+            fontSize: '42px'
           }}>
             Watch our vision for the future unfold:
           </Heading>
