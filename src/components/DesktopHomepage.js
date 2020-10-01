@@ -10,15 +10,11 @@ import PillarLinks from '../components/PillarLinks'
 import Footer from '../components/Footer'
 import Logo from '../images/logo.svg'
 import lottie from 'lottie-web'
-import MobileHomepage from '../components/MobileHomepage'
-import { isMobile } from 'react-device-detect'
 
 import homeAnimationWebp from '../animations/homepage1_webp.json'
 import homeAnimation from '../animations/homepage1.json'
 
 export default () => {
-  if (isMobile) return <MobileHomepage />
-
   const {
       homepage2,
       homepage3,
