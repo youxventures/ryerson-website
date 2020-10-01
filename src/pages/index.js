@@ -82,7 +82,7 @@ export default () => {
 
   useEffect(() => {
     if (typeof window === 'undefined') return
-    document.body.style.height = `${window.innerHeight * 6 + 2460}px`
+    document.body.style.height = `${window.innerHeight * 6 + 2440}px`
   }, [])
 
   useEffect(() => {
@@ -216,18 +216,19 @@ export default () => {
           transition: 'all .5s ease-in-out',
           opacity: 0
         }}>
-          <Container sx={{
+          <Box sx={{
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
-            width: '100%'
+            width: '100%',
+            px: '10vw'
           }}>
             <Link to="/">
               <img src={Logo} alt="logo" sx={{ width: ['110px', '120px'] }} />
             </Link>
 
             <Menu showMenu={showMenu} setShowMenu={setShowMenu} homePage={true} />
-          </Container>
+          </Box>
         </header>
 
         <div ref={pageContainerRef} sx={{
@@ -260,29 +261,20 @@ export default () => {
               left: ['-30%', '-30%', 0]
             }
           }}>
-            <Container sx={{
-              position: 'relative',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              width: '100%'
+            <Heading ref={heading1Ref} sx={{
+              position: 'absolute',
+              width: '100%',
+              top: '20vh',
+              left: '10vw',
+              fontSize: '4.75vh',
+              fontFamily: 'serif',
+              fontWeight: 'bold',
+              opacity: 1,
+              transition: 'opacity 2.5s ease-in-out',
+              willChange: 'opacity',
             }}>
-              <Heading ref={heading1Ref} sx={{
-                position: 'absolute',
-                width: '100%',
-                top: ['120px', '120px', '210px'],
-                left: 0,
-                ml: ['24px', '24px', '35px'],
-                fontSize: ['1.15rem', '1.15rem', '2.5rem'],
-                fontFamily: 'serif',
-                fontWeight: 'bold',
-                opacity: 1,
-                transition: 'opacity 2.5s ease-in-out',
-                willChange: 'opacity',
-              }}>
-                To us, innovation means<br />building a brighter future<br />for us all.
-              </Heading>
-            </Container>
+              To us, innovation means<br />building a brighter future<br />for us all.
+            </Heading>
           </Box>
 
           <Box sx={{
@@ -300,30 +292,30 @@ export default () => {
             transition: 'opacity 2.5s ease-in-out',
             willChange: 'opacity'
           }}>
-
             <Img fluid={homepage2.childImageSharp.fluid} sx={{
               position: 'absolute',
-              top: ['130px', '130px', 0],
-              left: ['-330px', '-330px', 0],
-              margin: ['120px', '120px', '40px']
-             }} />
-            <Container>
-              <Heading ref={heading2Ref} sx={{
-                position: 'absolute',
-                width: '100%',
-                top: ['120px', '120px', '250px'],
-                left: 0,
-                ml: ['36px', '36px', '230px'],
-                fontSize: ['1.15rem', '1.15rem', '2.5rem'],
-                fontFamily: 'serif',
-                fontWeight: 'bold',
-                opacity: 1,
-                transition: 'opacity 2.5s ease-in-out',
-                willChange: 'opacity',
-              }}>
-                It means building cities<br />and economies that take<br />care of our people and<br />our planet.
-              </Heading>
-            </Container>
+              top: 0,
+              left: 0,
+              margin: '40px'
+              }} />
+
+            <Heading ref={heading2Ref} sx={{
+              position: 'absolute',
+              width: '100%',
+              top: '20vh',
+              left: '10vw',
+              fontSize: '4.75vh',
+              fontFamily: 'serif',
+              fontWeight: 'bold',
+              opacity: 1,
+              transition: 'opacity 2.5s ease-in-out',
+              willChange: 'opacity',
+              maxWidth: '1200px',
+              display: 'block',
+              margin: '0 auto'
+            }}>
+              It means building cities<br />and economies that take<br />care of our people and<br />our planet.
+            </Heading>
           </Box>
 
           <Box sx={{
@@ -351,10 +343,9 @@ export default () => {
               <Heading ref={heading3Ref} sx={{
                 position: 'absolute',
                 width: '100%',
-                top: ['140px', '140px', '210px'],
-                left: 0,
-                ml: ['36px', '36px', '225px'],
-                fontSize: ['1.15rem', '1.15rem', '2.5rem'],
+                top: '20vh',
+                left: '10vw',
+                fontSize: '4.75vh',
                 fontFamily: 'serif',
                 fontWeight: 'bold',
                 opacity: 1,
@@ -392,10 +383,9 @@ export default () => {
               <Heading ref={heading4Ref} sx={{
                 position: 'absolute',
                 width: '100%',
-                top: ['160px', '160px', '210px'],
-                left: 0,
-                ml: ['36px', '36px', '225px'],
-                fontSize: ['1.15rem', '1.15rem', '2.5rem'],
+                top: '20vh',
+                left: '10vw',
+                fontSize: '4.75vh',
                 fontFamily: 'serif',
                 fontWeight: 'bold',
                 opacity: 1,
@@ -433,10 +423,9 @@ export default () => {
               <Heading ref={heading5Ref} sx={{
                 position: 'absolute',
                 width: '100%',
-                top: ['140px', '140px', '200px'],
-                left: 0,
-                ml: ['36px', '36px', '225px'],
-                fontSize: ['1.15rem', '1.15rem', '2.5rem'],
+                top: '20vh',
+                left: '10vw',
+                fontSize: '4.75vh',
                 fontFamily: 'serif',
                 fontWeight: 'bold',
                 opacity: 1,
@@ -473,10 +462,9 @@ export default () => {
               <Heading ref={heading6Ref} sx={{
                 position: 'absolute',
                 width: '100%',
-                top: ['140px', '140px', '260px'],
-                left: 0,
-                ml: ['36px', '36px', '225px'],
-                fontSize: ['1.15rem', '1.15rem', '2.5rem'],
+                top: '20vh',
+                left: '10vw',
+                fontSize: '4.75vh',
                 fontFamily: 'serif',
                 fontWeight: 'bold',
                 opacity: 1,
