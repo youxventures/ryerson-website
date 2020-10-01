@@ -21,6 +21,7 @@ const GET_PAGES = `
                     postId
                     content
                     uri
+                    slug
                     categories {
                       nodes {
                         name

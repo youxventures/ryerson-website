@@ -309,7 +309,7 @@ export default () => {
                 position: 'absolute',
                 top: 0,
                 left: 0,
-                margin: '40px'
+                // margin: '40px'
                 }} />
 
               <Heading ref={heading2Ref} sx={{

@@ -21,6 +21,7 @@ const GET_PAGES = `
                     pageId
                     content
                     uri
+                    slug
                     isFrontPage
                     pageSettings {
                         color

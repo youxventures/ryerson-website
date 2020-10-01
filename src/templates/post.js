@@ -82,9 +82,11 @@ const Post = ({ pageContext }) => {
     return categoryPosts.filter(categoryPost => categoryPost.id !== post.id)
   }
 
+  console.log(post)
+
   return (
     <Layout>
-      <SEO title={post.title} />
+      <SEO title={post.title} slug={post.uri} />
 
       <Container sx={{ px: '1.5rem' }}>
         <h1>{post.title}</h1>
