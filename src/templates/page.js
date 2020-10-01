@@ -243,9 +243,9 @@ export default ({ pageContext, transitionStatus }) => {
           <iframe
             title="A World of Innovation"
             width="100%"
-            height="600"
             src={videoUrl}
             frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
           />
         </Box>

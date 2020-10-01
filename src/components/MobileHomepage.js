@@ -237,11 +237,11 @@ const {
           }}>
             <iframe
               ref={videoRef}
-              title="ryerson at a glance"
+              title="Ryerson at a glance"
               width="100%"
-              height="200"
-              src="https://www.youtube.com/embed/0wNNKU30v3Y?controls=0"
+              src="https://www.youtube.com/embed/0wNNKU30v3Y"
               frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen />
           </Box>
 
