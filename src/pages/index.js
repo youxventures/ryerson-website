@@ -82,10 +82,6 @@ export default () => {
   const heading6Ref = useRef()
   const animationRef = useRef()
 
-  const isNotSafari =
-    navigator.userAgent.indexOf('Safari') > -1 &&
-    navigator.userAgent.indexOf('Chrome') > -1
-
 
   useEffect(() => {
     if (typeof window === 'undefined') return
@@ -93,6 +89,12 @@ export default () => {
   }, [])
 
   useEffect(() => {
+    if (typeof window === 'undefined') return
+
+    const isNotSafari =
+      navigator.userAgent.indexOf('Safari') > -1 &&
+      navigator.userAgent.indexOf('Chrome') > -1
+
     const anim = lottie.loadAnimation({
       container: animationRef.current,
       renderer: 'canvas',
