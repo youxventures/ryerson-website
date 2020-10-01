@@ -19,8 +19,10 @@ const SEO = ({ title }) => {
     `
   )
 
-  const siteTitle = title || site.title
-  const { description, url, image } = site
+  const siteTitle = title || site.siteMetadata.title
+  const { description, url, image } = site.siteMetadata
+
+  console.log(site.siteMetadata.title)
 
   return (
     <React.Fragment>
@@ -34,6 +36,7 @@ const SEO = ({ title }) => {
         {/* OpenGraph tags */}
 
         <meta property="og:title" content={siteTitle} />
+        <meta property="og:description" content={description} />
         <meta property="og:url" content={url} />
         <meta property="og:image" content={image} />
 
