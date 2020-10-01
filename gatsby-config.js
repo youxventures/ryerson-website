@@ -26,6 +26,14 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-plugin-sitemap`,
     {
+        resolve: `gatsby-plugin-s3`,
+        options: {
+            bucketName: "innovation.ryerson.ca",
+            protocol: "https",
+            hostname: "innovation.ryerson.ca",
+        },
+    },
+    {
       resolve: 'gatsby-plugin-transition-link',
       options: {
         injectPageProps: false,
