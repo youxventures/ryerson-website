@@ -71,20 +71,6 @@ export default () => {
 		        	</div>
 	        	</div>
 	        </div>
-
-	      	<h2>Explore our areas of research and innovation</h2>
-        </div>
-        <PillarLinks />
-      </Container>
-    </Layout>
-  )
-}
-
-ecome Canada’s leading comprehensive innovation university.</p>
-		        	</div>
-	        	</div>
-	        </div>
-
 	      	<h2>Explore our areas of research and innovation</h2>
         </div>
         <PillarLinks />
