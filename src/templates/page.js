@@ -46,7 +46,7 @@ export default ({ pageContext, transitionStatus }) => {
       id,
       title,
       content,
-      pageSettings: { articles, color, pageId, videoUrl }
+      pageSettings: { articles, color, pageId }
     }
   } = pageContext
 
@@ -56,6 +56,13 @@ export default ({ pageContext, transitionStatus }) => {
     : pageId === 4 ? 'Economic Development'
     : pageId === 5 ? 'Creativity & Culture'
     : 'Migration & Integration'
+
+  const videoUrl = pageId === 1 ? 'https://www.youtube.com/embed/xPAJ0XCKSsQ'
+    : pageId === 2 ? 'https://www.youtube.com/embed/6l4UbKrXnT4'
+    : pageId === 3 ? 'https://www.youtube.com/embed/YJLppp5R_Ks'
+    : pageId === 4 ? 'https://www.youtube.com/embed/l9bpVIcddUo'
+    : pageId === 5 ? 'https://www.youtube.com/embed/oJ1W5h4OutE'
+    : 'https://www.youtube.com/embed/9w637Ej3JGE'
 
   const desktopContainer = useRef()
   const mobileContainer = useRef()
