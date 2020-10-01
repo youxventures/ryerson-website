@@ -129,6 +129,7 @@ const {
         height: ['96px', '130px', '130px'],
         zIndex: 10,
         backgroundColor: showMenu ? 'white' : 'transparent',
+        transition: 'background-color .5s ease-in-out',
       }}>
         <Container sx={{
           display: 'flex',
@@ -152,12 +153,13 @@ const {
         backgroundColor: '#8bd4f7'
       }}>
         <Box ref={animationRef} sx={{
+          position: 'absolute',
+          width: '900px',
+          left: '-50%',
           mb: '-12px',
           opacity: 0,
           transition: 'opacity 1.5s ease-in-out',
           transitionDelay: '1s',
-          transform: 'scale(2)',
-          transformOrigin: 'bottom'
         }}>
         </Box>
         <Container sx={{
