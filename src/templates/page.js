@@ -46,7 +46,6 @@ export default ({ pageContext, transitionStatus }) => {
       id,
       title,
       content,
-      slug,
       uri,
       pageSettings: { articles, color, pageId }
     }

@@ -259,20 +259,14 @@ export default () => {
               position: 'absolute',
               top: 0,
               left: 0,
-              width: ['100%', '100%', '2560px'],
-              height: ['100%', '100%', '1600px'],
-              maxWidth: '100%',
-              maxHeight: '100%',
+              width: '100%',
+              height: '100%',
               zIndex: 8,
               backgroundColor: '#8bd4f7',
               opacity: 0,
               overflow: 'hidden',
               transition: 'opacity 1.5s ease-in-out',
-              willChange: 'opacity',
-              'canvas': {
-                position: 'absolute',
-                left: ['-30%', '-30%', 0]
-              }
+              willChange: 'opacity'
             }}>
               <Heading ref={heading1Ref} sx={{
                 position: 'absolute',
@@ -303,14 +297,14 @@ export default () => {
               overflow: 'hidden',
               opacity: 0,
               transition: 'opacity 2.5s ease-in-out',
-              willChange: 'opacity'
+              willChange: 'opacity',
+              display: 'flex',
+              alignItems: 'flex-end'
             }}>
               <Img fluid={homepage2.childImageSharp.fluid} sx={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                // margin: '40px'
-                }} />
+                width: '100%',
+                mx: '100px'
+              }} />
 
               <Heading ref={heading2Ref} sx={{
                 position: 'absolute',
@@ -344,70 +338,66 @@ export default () => {
               overflow: 'hidden',
               opacity: 0,
               transition: 'opacity 2.5s ease-in-out',
-              willChange: 'opacity'
+              willChange: 'opacity',
+              display: 'flex',
+              alignItems: 'flex-end'
             }}>
               <Img fluid={homepage3.childImageSharp.fluid} sx={{
-                position: 'absolute',
-                top: ['130px', '130px', '60px'],
-                left: ['-490px', '-490px', 0],
-                margin: ['80px', '80px', 0]
+                width: '100%',
+                mx: '100px'
               }} />
-              <Container>
-                <Heading ref={heading3Ref} sx={{
-                  position: 'absolute',
-                  width: '100%',
-                  top: '20vh',
-                  left: '10vw',
-                  fontSize: '4.75vh',
-                  fontFamily: 'serif',
-                  fontWeight: 'bold',
-                  opacity: 1,
-                  transition: 'opacity 2.5s ease-in-out',
-                  willChange: 'opacity',
-                  color: 'white'
-                }}>
-                  Empowering communities<br />to grow fresh food and<br />produce clean water.
-                </Heading>
-              </Container>
+
+              <Heading ref={heading3Ref} sx={{
+                position: 'absolute',
+                width: '100%',
+                top: '20vh',
+                left: '10vw',
+                fontSize: '4.75vh',
+                fontFamily: 'serif',
+                fontWeight: 'bold',
+                opacity: 1,
+                transition: 'opacity 2.5s ease-in-out',
+                willChange: 'opacity',
+                color: 'white'
+              }}>
+                Empowering communities<br />to grow fresh food and<br />produce clean water.
+              </Heading>
             </Box>
 
             <Box sx={{
               position: 'absolute',
               top: 0,
               left: 0,
-              width: ['100%', '100%', '2560px'],
-              height: ['100%', '100%', '1600px'],
-              maxWidth: '100%',
-              maxHeight: '100%',
+              width: '100%',
+              height: '100%',
               zIndex: 5,
               backgroundColor: '#f9f9f9',
               overflow: 'hidden',
               opacity: 0,
               transition: 'opacity 2.5s ease-in-out',
-              willChange: 'opacity'
+              willChange: 'opacity',
+              display: 'flex',
+              alignItems: 'flex-end',
             }}>
               <Img fluid={homepage4.childImageSharp.fluid} sx={{
-                position: 'absolute',
-                top: ['120px', '120px', 0],
-                left: ['-360px', '-360px', 0],
-                margin: ['80px', '80px', 0]
+                width: '100%',
+                mx: '100px'
               }} />
-              <Container>
-                <Heading ref={heading4Ref} sx={{
-                  position: 'absolute',
-                  width: '100%',
-                  top: '20vh',
-                  left: '10vw',
-                  fontSize: '4.75vh',
-                  fontFamily: 'serif',
-                  fontWeight: 'bold',
-                  opacity: 1,
-                  transition: 'opacity 2.5s ease-in-out',
-                  willChange: 'opacity'
-                }}>
-                  Merging creativity with<br />tech to transform our<br />experiences.
-                </Heading>
-              </Container>
+
+              <Heading ref={heading4Ref} sx={{
+                position: 'absolute',
+                width: '100%',
+                top: '20vh',
+                left: '10vw',
+                fontSize: '4.75vh',
+                fontFamily: 'serif',
+                fontWeight: 'bold',
+                opacity: 1,
+                transition: 'opacity 2.5s ease-in-out',
+                willChange: 'opacity'
+              }}>
+                Merging creativity with<br />tech to transform our<br />experiences.
+              </Heading>
             </Box>
 
             <Box sx={{
@@ -423,31 +413,29 @@ export default () => {
               overflow: 'hidden',
               opacity: 0,
               transition: 'opacity 2.5s ease-in-out',
-              willChange: 'opacity'
+              willChange: 'opacity',
+              display: 'flex',
+              alignItems: 'flex-end'
             }}>
               <Img fluid={homepage5.childImageSharp.fluid} sx={{
-                position: 'absolute',
-                top: ['130px', '130px', '60px'],
-                left: ['-300px', '-300px', '80px'],
-                margin: ['80px', '80px', 0]
+                width: '100%',
+                mx: '100px'
               }} />
 
-              <Container>
-                <Heading ref={heading5Ref} sx={{
-                  position: 'absolute',
-                  width: '100%',
-                  top: '20vh',
-                  left: '10vw',
-                  fontSize: '4.75vh',
-                  fontFamily: 'serif',
-                  fontWeight: 'bold',
-                  opacity: 1,
-                  transition: 'opacity 2.5s ease-in-out',
-                  willChange: 'opacity'
-                }}>
-                  Advocating for a world<br />free of inequities and<br />inequalities.
-                </Heading>
-              </Container>
+              <Heading ref={heading5Ref} sx={{
+                position: 'absolute',
+                width: '100%',
+                top: '20vh',
+                left: '10vw',
+                fontSize: '4.75vh',
+                fontFamily: 'serif',
+                fontWeight: 'bold',
+                opacity: 1,
+                transition: 'opacity 2.5s ease-in-out',
+                willChange: 'opacity'
+              }}>
+                Advocating for a world<br />free of inequities and<br />inequalities.
+              </Heading>
             </Box>
 
             <Box sx={{
@@ -463,30 +451,29 @@ export default () => {
               overflow: 'hidden',
               opacity: 0,
               transition: 'opacity 2.5s ease-in-out',
-              willChange: 'opacity'
+              willChange: 'opacity',
+              display: 'flex',
+              alignItems: 'flex-end'
             }}>
               <Img fluid={homepage6.childImageSharp.fluid} sx={{
-                position: 'absolute',
-                top: ['130px', '130px', '60px'],
-                left: ['-490px', '-490px', 0],
-                margin: ['80px', '80px', 0]
+                width: '100%',
+                mx: '100px'
               }} />
-              <Container>
-                <Heading ref={heading6Ref} sx={{
-                  position: 'absolute',
-                  width: '100%',
-                  top: '20vh',
-                  left: '10vw',
-                  fontSize: '4.75vh',
-                  fontFamily: 'serif',
-                  fontWeight: 'bold',
-                  opacity: 1,
-                  transition: 'opacity 2.5s ease-in-out',
-                  willChange: 'opacity',
-                }}>
-                  And ensuring everyone has<br />a place to call home.
-                </Heading>
-              </Container>
+
+              <Heading ref={heading6Ref} sx={{
+                position: 'absolute',
+                width: '100%',
+                top: '20vh',
+                left: '10vw',
+                fontSize: '4.75vh',
+                fontFamily: 'serif',
+                fontWeight: 'bold',
+                opacity: 1,
+                transition: 'opacity 2.5s ease-in-out',
+                willChange: 'opacity',
+              }}>
+                And ensuring everyone has<br />a place to call home.
+              </Heading>
             </Box>
 
             <Box sx={{
@@ -522,11 +509,11 @@ export default () => {
                   <iframe
                     ref={videoRef}
                     title="Ryerson at a glance"
-                    width="560"
-                    height="349"
                     src="https://www.youtube.com/embed/0wNNKU30v3Y"
                     frameBorder="0"
-                    allowFullScreen sx={{
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    sx={{
                       position: 'absolute',
                       top: 0,
                       left: 0,
