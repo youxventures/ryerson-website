@@ -5,7 +5,7 @@ import Layout from "../components/Layout"
 const NotFoundPage = () => (
   <Layout>
     <Container sx={{ my: 6 }}>
-      <Heading sx={{ fontSize: '38px' }}>Page not found.</Heading>
+      <Heading sx={{ fontSize: '38px' }}>Loading...</Heading>
     </Container>
   </Layout>
 )

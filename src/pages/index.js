@@ -16,10 +16,6 @@ import homeAnimation from '../animations/homepage1.json'
 export default () => {
   const { width: windowWidth } = useWindowSize()
 
-  if (windowWidth > 900) {
-    return <DesktopHomepage />
-  }
-
   const {
     homepage2,
     homepage3,
@@ -108,6 +104,9 @@ export default () => {
   ]
 
   useEffect(() => {
+    if (!animationRef || !animationRef.current)
+      return
+
     const anim = lottie.loadAnimation({
       container: animationRef.current,
       renderer: 'svg',
@@ -117,6 +116,9 @@ export default () => {
     })
 
     anim.addEventListener('DOMLoaded', () => {
+      if (!animationRef || !animationRef.current)
+        return
+
       animationRef.current.style.opacity = 1
       heading1Ref.current.style.opacity = 1
 
@@ -125,6 +127,10 @@ export default () => {
       }, 750)
     })
   }, [])
+
+  if (windowWidth > 900) {
+    return <DesktopHomepage />
+  }
 
   return (
     <Box sx={{ position: 'relative' }}>
