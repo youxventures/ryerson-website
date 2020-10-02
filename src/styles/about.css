@@ -45,6 +45,7 @@
   font-feature-settings: lnum;
   font-variant-numeric: oldstyle-nums;
   letter-spacing: -0.05px;
+  font-feature-settings: "liga" 1;
 }
 
 .about-content .video {
@@ -70,6 +71,7 @@
   font-feature-settings: lnum;
   font-variant-numeric: oldstyle-nums;
   letter-spacing: -0.05px;
+  font-feature-settings: "liga" 1;
 }
 
 .about-content .about-links > div {

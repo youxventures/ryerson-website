@@ -54,6 +54,7 @@ main > div > h1 {
   font-feature-settings: lnum;
   font-variant-numeric: oldstyle-nums;
   letter-spacing: -0.05px;
+  font-feature-settings: "liga" 1;
 }
 
 .article-content > p:first-of-type {
@@ -256,91 +257,6 @@ main > div > h1 {
   margin-left: calc(-100vw / 2 + 50%);
   margin-right: calc(-100vw / 2 + 50%);
 }
-
-/*.related-articles-container {
-  max-width: 1136px;
-  margin: 0 auto;
-  padding: 1rem 2rem;
-  display: flex;
-  flex-flow: row wrap;
-}
-
-.related-articles-container h2 {
-  flex: 1 100%;
-  margin: 2rem 0;
-}
-
-.related-articles {
-  display: flex;
-  flex: 1 0 0;
-  margin-bottom: 2.5rem;
-  align-items: center;
-}
-
-.related-icon {
-  border-radius: 50%;
-  background-color: #fff;
-  width: 150px;
-  height: 150px;
-  margin-right: 1.5rem;
-  flex: 1 0 auto;
-}
-
-.related-icon img {
-  width: 100%;
-}
-
-.related-title {
-  font-family: "replica", arial, sans-serif;
-  margin-right: 2rem;
-}
-
-.related-title h3 {
-  margin-top: 0;
-}
-
-.other-areas {
-  display: flex;
-  flex-flow: row wrap;
-}
-
-.other-areas h2 {
-  flex: 1 100%;
-}
-
-.pillar {
-  display: flex;
-  flex: 1 0 0;
-  flex-direction: column;
-  justify-content: space-between;
-  margin: 1rem 2rem 1rem 0;
-  font-family: "replica", arial, sans-serif;
-}
-
-.pillar-icon {
-  border-radius: 50%;
-  background-color: #888;
-  width: 100px;
-  height: 100px;
-}
-
-.pillar h3 {
-  margin: 1rem 0;
-}
-
-.pillar-description img {
-  width: 40px;
-  margin-top: 1rem;
-  display: block;
-}*/
-
-/* responsive */
-
-/*@media (max-width: 1199px) {
-  .article-content blockquote .pullquote-number.small {
-    font-size: 5.5rem;
-  }
-}*/
 
 @media (max-width: 800px) {
   /*main {
