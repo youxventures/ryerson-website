@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx, Container, Box, Heading } from 'theme-ui'
+import { jsx, Container, Box, Heading, Text } from 'theme-ui'
 import { useStaticQuery, graphql, Link } from 'gatsby'
 import { useEffect, useRef, useState } from 'react'
 import useWindowSize from '../hooks/useWindowSize'
@@ -266,6 +266,14 @@ export default () => {
               }}
             />
           </Box>
+
+          <Text sx={{
+            mt: '1.25rem',
+            fontSize: '1rem',
+            'span': {
+              fontWeight: 'bold'
+            }
+          }}>Narrated by Ryerson Honorary Doctorate <span>Eric McCormack</span></Text>
 
           <Heading sx={{
             my: 6,

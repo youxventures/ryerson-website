@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx, Container, Box, Heading } from 'theme-ui'
+import { jsx, Container, Box, Heading, Text } from 'theme-ui'
 import { useStaticQuery, graphql, Link } from 'gatsby'
 import React, { useEffect, useRef, useState } from 'react'
 import Img from 'gatsby-image'
@@ -80,7 +80,7 @@ export default () => {
 
   useEffect(() => {
     if (typeof window === 'undefined') return
-    document.body.style.height = `${window.innerHeight * 6 + 2440}px`
+    document.body.style.height = `${window.innerHeight * 6 + 2460}px`
   }, [])
 
   useEffect(() => {
@@ -133,27 +133,6 @@ export default () => {
         nextPage.style.top = 0
         nextPage.style.opacity = 1
       }
-
-      if (totalScroll > windowHeight - windowHeight * .5 && totalScroll < windowHeight * 2) {
-        heading2Ref.current.style.opacity = 1
-      }
-
-      if (totalScroll > windowHeight * 1.5 && totalScroll < windowHeight * 3) {
-        heading3Ref.current.style.opacity = 1
-      }
-
-      if (totalScroll > windowHeight * 2.5 && totalScroll < windowHeight * 4) {
-        heading4Ref.current.style.opacity = 1
-      }
-
-      if (totalScroll > windowHeight * 3.5 && totalScroll < windowHeight * 5) {
-        heading5Ref.current.style.opacity = 1
-      }
-
-      if (totalScroll > windowHeight * 4.5 && totalScroll < windowHeight * 6) {
-        heading6Ref.current.style.opacity = 1
-      }
-
 
       videoRef.current.style.opacity = totalScroll > windowHeight * 5.5 ? 1 : 0
       headerRef.current.style.opacity = totalScroll > windowHeight * 5.75 ? 0 : 1
@@ -246,10 +225,8 @@ export default () => {
             height: '100%',
             width: '100%',
             backgroundColor: '#8bd4f7',
-            transition: 'opacity 1.5s ease-in-out',
-            willChange: 'opacity'
+            transition: 'opacity 1.5s ease-in-out'
           }}>
-
             <Box ref={animationRef} sx={{
               position: 'absolute',
               top: 0,
@@ -271,9 +248,7 @@ export default () => {
                 fontSize: '4.75vh',
                 fontFamily: 'serif',
                 fontWeight: 'bold',
-                opacity: 0,
-                transition: 'opacity 2.5s ease-in-out',
-                willChange: 'opacity',
+                transition: 'opacity 2.5s ease-in-out'
               }}>
                 To us, innovation means<br />building a brighter future<br />for everyone.
               </Heading>
@@ -309,9 +284,6 @@ export default () => {
                 fontSize: '4.75vh',
                 fontFamily: 'serif',
                 fontWeight: 'bold',
-                opacity: 0,
-                transition: 'opacity 2.5s ease-in-out',
-                willChange: 'opacity',
                 maxWidth: '1200px',
                 display: 'block',
                 margin: '0 auto'
@@ -333,7 +305,6 @@ export default () => {
               overflow: 'hidden',
               opacity: 0,
               transition: 'opacity 2.5s ease-in-out',
-              willChange: 'opacity',
               display: 'flex',
               alignItems: 'flex-end'
             }}>
@@ -350,9 +321,6 @@ export default () => {
                 fontSize: '4.75vh',
                 fontFamily: 'serif',
                 fontWeight: 'bold',
-                opacity: 0,
-                transition: 'opacity 2.5s ease-in-out',
-                willChange: 'opacity',
                 color: 'white'
               }}>
                 Empowering communities<br />to grow fresh food and<br />produce clean water.
@@ -370,7 +338,6 @@ export default () => {
               overflow: 'hidden',
               opacity: 0,
               transition: 'opacity 2.5s ease-in-out',
-              willChange: 'opacity',
               display: 'flex',
               alignItems: 'flex-end',
             }}>
@@ -386,10 +353,7 @@ export default () => {
                 left: '10vw',
                 fontSize: '4.75vh',
                 fontFamily: 'serif',
-                fontWeight: 'bold',
-                opacity: 0,
-                transition: 'opacity 2.5s ease-in-out',
-                willChange: 'opacity'
+                fontWeight: 'bold'
               }}>
                 Merging creativity with<br />tech to transform our<br />experiences.
               </Heading>
@@ -408,7 +372,6 @@ export default () => {
               overflow: 'hidden',
               opacity: 0,
               transition: 'opacity 2.5s ease-in-out',
-              willChange: 'opacity',
               display: 'flex',
               alignItems: 'flex-end'
             }}>
@@ -424,10 +387,7 @@ export default () => {
                 left: '10vw',
                 fontSize: '4.75vh',
                 fontFamily: 'serif',
-                fontWeight: 'bold',
-                opacity: 0,
-                transition: 'opacity 2.5s ease-in-out',
-                willChange: 'opacity'
+                fontWeight: 'bold'
               }}>
                 Advocating for a world<br />free of inequities and<br />inequalities.
               </Heading>
@@ -446,7 +406,6 @@ export default () => {
               overflow: 'hidden',
               opacity: 0,
               transition: 'opacity 2.5s ease-in-out',
-              willChange: 'opacity',
               display: 'flex',
               alignItems: 'flex-end'
             }}>
@@ -462,10 +421,7 @@ export default () => {
                 left: '10vw',
                 fontSize: '4.75vh',
                 fontFamily: 'serif',
-                fontWeight: 'bold',
-                opacity: 0,
-                transition: 'opacity 2.5s ease-in-out',
-                willChange: 'opacity',
+                fontWeight: 'bold'
               }}>
                 And ensuring everyone has<br />a place to call home.
               </Heading>
@@ -482,8 +438,7 @@ export default () => {
               backgroundColor: '#fff',
               overflow: 'hidden',
               opacity: 0,
-              transition: 'opacity 2.5s ease-in-out',
-              willChange: 'opacity'
+              transition: 'opacity 2.5s ease-in-out'
             }}>
               <Container sx={{ width: '100%' }}>
                 <Heading sx={{
@@ -519,6 +474,13 @@ export default () => {
                       willChange: 'opacity'
                     }} />
                 </Box>
+
+                <Text sx={{
+                  mt: '1.5rem',
+                  'span': {
+                    fontWeight: 'bold'
+                  }
+                }}>Narrated by Ryerson Honorary Doctorate <span>Eric McCormack</span></Text>
 
                 <Heading sx={{
                   my: 6,
