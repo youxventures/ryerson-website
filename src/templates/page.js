@@ -8,19 +8,19 @@ import Arrow from '../images/arrow.svg'
 import lottie from 'lottie-web'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
-import udiAnimation from '../animations/udi.json'
+import udiAnimation from '../animations/udi_updated.json'
 import uhwAnimation from '../animations/uhw.json'
 import govAnimation from '../animations/gov.json'
 import economicAnimation from '../animations/economic.json'
-import creativityAnimation from '../animations/creativity.json'
-import migrationAnimation from '../animations/migration.json'
+import creativityAnimation from '../animations/creativity_updated.json'
+import migrationAnimation from '../animations/migration_updated.json'
 
-import udiAnimationWebp from '../animations/udi_webp.json'
+import udiAnimationWebp from '../animations/udi_updated_webp.json'
 import uhwAnimationWebp from '../animations/uhw_webp.json'
 import govAnimationWebp from '../animations/gov_webp.json'
 import economicAnimationWebp from '../animations/economic_webp.json'
-import creativityAnimationWebp from '../animations/creativity_webp.json'
-import migrationAnimationWebp from '../animations/migration_webp.json'
+import creativityAnimationWebp from '../animations/creativity_updated_webp.json'
+import migrationAnimationWebp from '../animations/migration_updated_webp.json'
 
 const ANIMATIONS = {
   1: udiAnimation,
@@ -151,6 +151,9 @@ export default ({ pageContext, transitionStatus }) => {
                       color: 'black',
                       textDecoration: 'none',
                       '&:hover': {
+                        'h2': {
+                          textDecoration: 'none'
+                        },
                         '.article-icon': {
                           'backgroundColor': article.postSettings.iconHoverColor
                         }

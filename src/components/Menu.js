@@ -7,7 +7,7 @@ import Arrow from '../images/arrow.svg'
 import Burger from './Burger'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
-export default ({ showMenu, setShowMenu, homePage }) => {
+export default ({ showMenu, setShowMenu, homePage, absoluteHeader }) => {
   const menuRef = useRef(null)
   const {
     wpgraphql,
@@ -101,7 +101,7 @@ export default ({ showMenu, setShowMenu, homePage }) => {
   }, [showMenu, homePage])
 
   return (
-    <div>
+    <div sx={{ zIndex: 11 }}>
       <Burger showMenu={showMenu} setShowMenu={setShowMenu} />
 
       <Grid
@@ -121,7 +121,17 @@ export default ({ showMenu, setShowMenu, homePage }) => {
           background: 'white',
           opacity: 0,
           visibility: 'hidden',
-          transition: 'visibility .5s ease-in-out, opacity .5s ease-in-out'
+          transition: 'visibility .5s ease-in-out, opacity .5s ease-in-out',
+          '::before': !absoluteHeader ? null : {
+            content: '""',
+            position: 'absolute',
+            top: '-130px',
+            width: '100%',
+            height: '130px',
+            backgroundColor: 'white',
+            pointerEvents: 'none',
+            zIndex: 10
+          }
         }}
       >
         {menuItems.map(({ id, slug, title, pageSettings: { color } }, i) => (

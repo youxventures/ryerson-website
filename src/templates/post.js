@@ -83,10 +83,10 @@ const Post = ({ pageContext }) => {
   }
 
   return (
-    <Layout>
+    <Layout absoluteHeader>
       <SEO title={post.title} slug={post.uri} />
 
-      <Container sx={{ px: '1.5rem' }}>
+      <Container sx={{ px: '1.5rem', marginTop: '-130px' }}>
         <h1>{post.title}</h1>
         <div dangerouslySetInnerHTML={{__html: post.content}} />
       </Container>

@@ -5,7 +5,7 @@ import { Link } from 'gatsby'
 import Menu from './Menu'
 import Logo from '../images/logo.svg'
 
-export default ({ bgColor }) => {
+export default ({ bgColor, absoluteHeader }) => {
   const [showMenu, setShowMenu] = useState(false)
 
   return (
@@ -20,11 +20,15 @@ export default ({ bgColor }) => {
           justifyContent: 'space-between',
           height: ['96px', '130px', '130px']
         }}>
-          <Link to="/">
+          <Link to="/" sx={{ zIndex: 100 }}>
             <img src={Logo} alt="logo" sx={{ width: ['110px', '120px'] }} />
           </Link>
 
-          <Menu showMenu={showMenu} setShowMenu={setShowMenu} />
+          <Menu
+            showMenu={showMenu}
+            setShowMenu={setShowMenu}
+            absoluteHeader={absoluteHeader}
+          />
         </header>
       </Container>
     </Box>

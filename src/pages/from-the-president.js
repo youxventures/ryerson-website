@@ -9,8 +9,8 @@ export default () => {
   }, [])
 
   return (
-    <Layout>
-      <Container>
+    <Layout absoluteHeader>
+      <Container sx={{ mt: '-130px' }}>
         <div className="article-banner">
 					<picture>
 						<source media="(max-width: 800px)" srcSet="https://media-ryu.youxventures.com/wp-content/uploads/2020/09/PM-Header-Mobile-r1.jpg" />
