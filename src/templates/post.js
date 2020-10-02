@@ -148,6 +148,7 @@ const Post = ({ pageContext }) => {
                         fontFamily: 'serif',
                         fontWeight: 'bold',
                         textDecoration: 'underline',
+                        fontFeatureSettings: '"liga" 1'
                       }}>
                         {article.title}
                       </Heading>

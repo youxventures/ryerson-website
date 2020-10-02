@@ -202,7 +202,8 @@ export default ({ pageId }) => {
               fontFamily: 'serif',
               fontWeight: 'bold',
               textDecoration: 'underline',
-              transition: 'text-decoration .2s ease-in-out'
+              transition: 'text-decoration .2s ease-in-out',
+              fontFeatureSettings: '"liga" 1'
             }} />
           </AniLink>
 

@@ -122,14 +122,16 @@ export default ({ pageContext, transitionStatus }) => {
                 m: 0,
                 fontSize: '36px',
                 fontWeight: 'bold',
-                lineHeight: '1.1em'
+                lineHeight: '1.1em',
               }}/>
 
               <Text dangerouslySetInnerHTML={{__html: content}} sx={{
-                maxWidth: '500px',
+                maxWidth: ['100%', '100%', '500px'],
                 fontFamily: 'serif',
                 letterSpacing: '-0.05px',
-                lineHeight: '1.4em'
+                lineHeight: '1.4em',
+                fontSize: ['20px', '20px', '18px'],
+                fontFeatureSettings: '"liga" 1'
               }}/>
 
               <Box ref={mobileContainer} sx={{
@@ -194,12 +196,13 @@ export default ({ pageContext, transitionStatus }) => {
                           fontFamily: 'serif',
                           fontWeight: 'bold',
                           textDecoration: 'underline',
+                          fontFeatureSettings: '"liga" 1'
                         }}>
                           {article.title}
                         </Heading>
 
                         <Box dangerouslySetInnerHTML={{__html: article.excerpt}} sx={{
-                          fontSize: ['18px', '16px'],
+                          fontSize: ['18px', '18px', '16px'],
                           'p': {
                             mt: [3, 2],
                             mb: 3
@@ -209,9 +212,10 @@ export default ({ pageContext, transitionStatus }) => {
 
                       <Box sx={{
                         display: ['block', 'block', 'none'],
-                        width: '35px'
+                        width: '35px',
                       }}>
                         <img src={Arrow} alt="arrow" />
+
                       </Box>
                     </Box>
                   </AniLink>
@@ -259,9 +263,9 @@ export default ({ pageContext, transitionStatus }) => {
         </Box>
 
         <Heading sx={{
-          mt: 4,
+          mt: 5,
           mb: 4,
-          fontSize: ['24px', '28px'],
+          fontSize: '28px',
           fontWeight: 'bold',
         }}>
           Other areas of research and innovation
