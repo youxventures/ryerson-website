@@ -171,6 +171,22 @@ export default () => {
   return (
     <React.Fragment>
       <SEO />
+
+      <h1 sx={{
+        fontSize: '0px',
+        width: '1px',
+        height: '1px',
+        display: 'inline-block',
+        overflow: 'hidden',
+        position: 'absolute !important',
+        border: '0 !important',
+        padding: '0 !important',
+        margin: '0 !important',
+        clip: 'rect(1px,1px,1px,1px)',
+      }}>
+        A World of Innovation - Ryerson University
+      </h1>
+
       <div sx={{
         position: 'fixed',
         minWidth: '1024px',
