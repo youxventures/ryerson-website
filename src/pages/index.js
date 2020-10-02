@@ -11,7 +11,7 @@ import DesktopHomepage from '../components/DesktopHomepage'
 import Logo from '../images/logo.svg'
 import lottie from 'lottie-web'
 
-import homeAnimation from '../animations/homepage1_webp.json'
+import homeAnimation from '../animations/homepage1.json'
 
 export default () => {
   const { width: windowWidth } = useWindowSize()
