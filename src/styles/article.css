@@ -109,7 +109,8 @@ main > div > h1 {
 
 .article-content#udi-a blockquote .pullquote-text,
 .article-content#udi-b blockquote .pullquote-text,
-.article-content#udi-c blockquote .pullquote-text {
+.article-content#udi-c blockquote .pullquote-text,
+.article-content#udi-d blockquote .pullquote-text {
   color: #0077c8;
 }
 
@@ -197,7 +198,8 @@ main > div > h1 {
 
 .article-content#udi-a .article-icon, .article-content#udi-a .article-icon-mobile,
 .article-content#udi-b .article-icon, .article-content#udi-b .article-icon-mobile,
-.article-content#udi-c .article-icon, .article-content#udi-c .article-icon-mobile {
+.article-content#udi-c .article-icon, .article-content#udi-c .article-icon-mobile,
+.article-content#udi-c .article-icon, .article-content#udi-d .article-icon-mobile  {
   background-color: #0077c8;
 }
 
