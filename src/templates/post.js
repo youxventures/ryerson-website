@@ -120,6 +120,9 @@ const Post = ({ pageContext }) => {
                       textDecoration: 'none',
                       cursor: 'pointer',
                       '&:hover': {
+                        'h2': {
+                          textDecoration: 'none'
+                        },
                         '.article-icon': {
                           'backgroundColor': article.postSettings.iconHoverColor
                         }
