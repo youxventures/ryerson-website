@@ -26,7 +26,7 @@ const SEO = ({ title, slug }) => {
 
   return (
     <React.Fragment>
-      <Helmet>
+      <Helmet titleTemplate="%s - Ryerson University">
         {/* General tags */}
         <title>{pageTitle}</title>
         <meta name="description" content={description} />

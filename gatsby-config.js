@@ -12,7 +12,7 @@ console.log(`This WordPress Endpoint used is: '${process.env.WORDPRESS_URL}'`)
 
 module.exports = {
   siteMetadata: {
-    title: `A World of Innovation - Ryerson University`,
+    title: `A World of Innovation`,
     description: `From designing cities that are green to shaping societies that are equitable, see how we’re innovating today to build a brighter tomorrow.`,
     author: `Ryerson University`,
     url: `https://innovation.ryerson.ca`,
@@ -48,8 +48,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter WordPress Advanced`,
-        short_name: `gatsby-starter-wordpress-advanced`,
+        name: `A World of Innovation - Ryerson University`,
+        short_name: `A World of Innovation - Ryerson University`,
         start_url: `/`,
         background_color: `#fff`,
         display: `standalone`,
