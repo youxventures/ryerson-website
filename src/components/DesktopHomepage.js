@@ -475,7 +475,7 @@ export default () => {
                   <iframe
                     ref={videoRef}
                     title="Ryerson at a glance"
-                    src="https://www.youtube.com/embed/0wNNKU30v3Y"
+                    src="https://www.youtube.com/embed/0wNNKU30v3Y?enablejsapi=1"
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen

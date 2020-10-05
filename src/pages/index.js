@@ -246,7 +246,7 @@ export default () => {
         transition: 'opacity 2.5s ease-in-out',
         willChange: 'opacity'
       }}>
-        <Container sx={{ width: '100%' }}>
+        <Container id="homepage_video" sx={{ width: '100%' }}>
           <Heading sx={{
             mt: '100px',
             mb: '60px',
@@ -268,7 +268,7 @@ export default () => {
               ref={videoRef}
               title="Ryerson at a glance"
               width="100%"
-              src="https://www.youtube.com/embed/0wNNKU30v3Y"
+              src="https://www.youtube.com/embed/0wNNKU30v3Y?enablejsapi=1"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
