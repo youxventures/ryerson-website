@@ -44,7 +44,11 @@ export default () => {
           alignItems: ['flex-end', 'flex-end', 'flex-start'],
           mt: [5, 5, 0]
         }}>
-          <a href="https://www.ryerson.ca/">
+          <a href="https://www.ryerson.ca/" sx={{
+            '&:hover': {
+              textDecoration: 'none'
+            }
+          }}>
             <Img fluid={logo.childImageSharp.fluid} sx={{ width: ['120px', '120px', '140px'] }} />
           </a>
           <Text sx={{ mt: [0, 0, 6], mb: [0, 0, '8px'], fontSize: '14px' }}><a href="https://www.ryerson.ca/terms-conditions/" sx={{ color: 'white' }}>Terms & Conditions</a></Text>
@@ -66,7 +70,12 @@ export default () => {
               paintDrip to={`/from-the-president`}
               hex="#fff"
               duration={1.5}
-              sx={{ color: 'white' }}
+              sx={{
+                color: 'white',
+                '&:hover': {
+                  textDecoration: 'none'
+                }
+              }}
             >
               From the President
             </AniLink>
@@ -87,7 +96,12 @@ export default () => {
               paintDrip to={`/about`}
               hex="#fff"
               duration={1.5}
-              sx={{ color: 'white' }}
+              sx={{
+                color: 'white',
+                '&:hover': {
+                  textDecoration: 'none'
+                }
+              }}
             >
               About Ryerson
             </AniLink>
@@ -104,7 +118,14 @@ export default () => {
             fontSize: '24px',
             fontWeight: 'bold'
           }}>
-            <a href="https://www.ryerson.ca/" sx={{ color: 'white' }}>ryerson.ca</a>
+            <a href="https://www.ryerson.ca/" sx={{
+              color: 'white',
+              '&:hover': {
+                textDecoration: 'none'
+              }
+            }}>
+              ryerson.ca
+            </a>
             <img src={Arrow} alt="arrow" sx={{
                 ml: 5,
                 width: '40px',
