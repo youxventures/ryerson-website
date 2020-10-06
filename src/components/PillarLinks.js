@@ -143,7 +143,7 @@ export default ({ pageId }) => {
 
   return (
     <Grid
-      columns={pageId ? [1, 5] : [1, 2, 3]}
+      columns={pageId ? [1, 1, 5] : [1, 2, 3]}
       gap={pageId ? 4 : 6}
       sx={{ gridRowGap: 5 }}
     >
@@ -153,8 +153,8 @@ export default ({ pageId }) => {
           flexDirection: 'column',
           textDecoration: 'none',
           color: 'primary',
-          textAlign: ['center', 'left'],
-          alignItems: ['center', 'flex-start'],
+          textAlign: ['center', 'center', 'left'],
+          alignItems: ['center', 'center', 'flex-start'],
           'svg g path': {
             transition: 'fill .35s ease-in-out'
           },
@@ -198,7 +198,7 @@ export default ({ pageId }) => {
               maxWidth: pageId ? ['none', 'none', '200px'] : '260px',
               mt: 3,
               marginBottom: pageId ? 0 : 3,
-              fontSize: pageId ? '22px' : '30px',
+              fontSize: pageId ? ['20px', '20px', '18px', '22px'] : '30px',
               fontFamily: 'serif',
               fontWeight: 'bold',
               textDecoration: 'underline',
@@ -214,9 +214,10 @@ export default ({ pageId }) => {
             duration={1.5}
           >
             <Text sx={{
+              maxWidth: '400px',
               mt: pageId ? 3 : 0,
               mb: 3,
-              fontSize: pageId ? ['18px', '16px'] : '20px'
+              fontSize: pageId ? ['17px', '17px', '16px'] : '20px'
             }}>
               {pillar.pageSettings.linkText}
             </Text>
