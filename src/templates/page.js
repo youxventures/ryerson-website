@@ -107,8 +107,19 @@ export default ({ pageContext, transitionStatus }) => {
       <SEO title={pageTitle} slug={uri} />
 
       <Box sx={{
-        pt: 3, pb: 5,
-        backgroundColor: color
+        position: 'relative',
+        pt: 3,
+        pb: 5,
+        mb: [-6, 0, 0, 0],
+        backgroundColor: color,
+        '&:after': {
+          content: '""',
+          position: 'absolute',
+          top: '100%',
+          height: ['88px', '260px', '330px', '390px'],
+          width: '100%',
+          backgroundColor: color
+        }
       }}>
         <Container>
           <Flex sx={{
