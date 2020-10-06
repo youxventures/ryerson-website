@@ -134,6 +134,13 @@ export default () => {
         nextPage.style.opacity = 1
       }
 
+      heading1Ref.current.style.opacity = totalScroll > windowHeight - windowHeight * .95 ? 0 : 1
+      heading2Ref.current.style.opacity = totalScroll > windowHeight + windowHeight * .05 ? 0 : 1
+      heading3Ref.current.style.opacity = totalScroll > windowHeight * 2 + windowHeight * .05 ? 0 : 1
+      heading4Ref.current.style.opacity = totalScroll > windowHeight * 3 + windowHeight * .05 ? 0 : 1
+      heading5Ref.current.style.opacity = totalScroll > windowHeight * 4 + windowHeight * .05 ? 0 : 1
+      heading6Ref.current.style.opacity = totalScroll > windowHeight * 5 + windowHeight * .05 ? 0 : 1
+
       videoRef.current.style.opacity = totalScroll > windowHeight * 5.5 ? 1 : 0
       headerRef.current.style.opacity = totalScroll > windowHeight * 5.75 ? 0 : 1
 
@@ -264,7 +271,7 @@ export default () => {
                 fontSize: '4.75vh',
                 fontFamily: 'serif',
                 fontWeight: 'bold',
-                transition: 'opacity 2.5s ease-in-out'
+                transition: 'opacity .5s ease-in-out'
               }}>
                 To us, innovation means<br />building a brighter future<br />for everyone.
               </Heading>
@@ -302,7 +309,8 @@ export default () => {
                 fontWeight: 'bold',
                 maxWidth: '1200px',
                 display: 'block',
-                margin: '0 auto'
+                margin: '0 auto',
+                transition: 'opacity .5s ease-in-out'
               }}>
                 It means building cities<br />and economies that take<br />care of our people and<br />our planet.
               </Heading>
@@ -337,7 +345,8 @@ export default () => {
                 fontSize: '4.75vh',
                 fontFamily: 'serif',
                 fontWeight: 'bold',
-                color: 'white'
+                color: 'white',
+                transition: 'opacity .5s ease-in-out'
               }}>
                 Empowering communities<br />to grow fresh food and<br />produce clean water.
               </Heading>
@@ -369,7 +378,8 @@ export default () => {
                 left: '10vw',
                 fontSize: '4.75vh',
                 fontFamily: 'serif',
-                fontWeight: 'bold'
+                fontWeight: 'bold',
+                transition: 'opacity .5s ease-in-out'
               }}>
                 Merging creativity with<br />tech to transform our<br />experiences.
               </Heading>
@@ -403,7 +413,8 @@ export default () => {
                 left: '10vw',
                 fontSize: '4.75vh',
                 fontFamily: 'serif',
-                fontWeight: 'bold'
+                fontWeight: 'bold',
+                transition: 'opacity .5s ease-in-out'
               }}>
                 Advocating for a world<br />free of inequities and<br />inequalities.
               </Heading>
@@ -437,7 +448,8 @@ export default () => {
                 left: '10vw',
                 fontSize: '4.75vh',
                 fontFamily: 'serif',
-                fontWeight: 'bold'
+                fontWeight: 'bold',
+                transition: 'opacity .5s ease-in-out'
               }}>
                 And ensuring everyone has<br />a place to call home.
               </Heading>
