@@ -29,6 +29,7 @@ export default ({ showMenu, setShowMenu, homePage, absoluteHeader }) => {
               pageSettings {
                 color
                 order
+                pageId
               }
             }
           }
@@ -134,50 +135,65 @@ export default ({ showMenu, setShowMenu, homePage, absoluteHeader }) => {
           }
         }}
       >
-        {menuItems.map(({ id, slug, title, pageSettings: { color } }, i) => (
-          <AniLink
-            paintDrip to={`/${slug}`}
-            hex={color}
-            duration={1.5}
-            key={id}
-            sx={{
-              color: 'black',
-              textDecoration: 'none'
-            }}
-          >
-            <Box
+        {menuItems.map(({ id, slug, title, pageSettings: { color, pageId } }, i) => {
+          const hoverColor = pageId === 1 ? '#74cbf6'
+            : pageId === 2 ? '#bfbe00'
+            : pageId === 3 ? '#f799c7'
+            : pageId === 4 ? '#ffba07'
+            : pageId === 5 ? '#8989ca'
+            : '#00a3ad'
+
+          return (
+            <AniLink
+              paintDrip to={`/${slug}`}
+              hex={color}
+              duration={1.5}
+              key={id}
               sx={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                height: '100%',
-                px: ['32px', '36px', '40px'],
-                backgroundColor: color,
                 color: 'black',
-                textDecoration: 'none'
+                textDecoration: 'none',
+                '&:hover': {
+                  '> div': {
+                    backgroundColor: hoverColor
+                  }
+                }
               }}
             >
-              <Img fluid={menuItemIcons[i].childImageSharp.fluid} sx={{
-                width: ['17.5vw', '17.5vw', '10vw'],
-                height: ['17.5vw', '17.5vw', '10vw'],
-                mr: 0
-              }} />
+              <Box
+                sx={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  height: '100%',
+                  px: ['32px', '36px', '40px'],
+                  backgroundColor: color,
+                  transition: 'background-color .15s ease-in-out',
+                  color: 'black',
+                  textDecoration: 'none'
+                }}
+              >
+                <Img fluid={menuItemIcons[i].childImageSharp.fluid} sx={{
+                  width: ['17.5vw', '17.5vw', '10vw'],
+                  height: ['17.5vw', '17.5vw', '10vw'],
+                  mr: 0
+                }} />
 
-              <Heading dangerouslySetInnerHTML={{__html: title}} sx={{
-                width: ['56%', '50%', '56%'],
-                fontSize: ['6vw', '5vw', '3.15vw'],
-                lineHeight: 1.05,
-                fontFamily: 'serif',
-                fontWeight: 'bold'
-              }} />
+                <Heading dangerouslySetInnerHTML={{__html: title}} sx={{
+                  width: ['56%', '50%', '56%'],
+                  fontSize: ['6vw', '5vw', '3.15vw'],
+                  lineHeight: 1.05,
+                  fontFamily: 'serif',
+                  fontWeight: 'bold'
+                }} />
 
-              <img src={Arrow} alt="arrow" sx={{
-                width: ['6vw', '6vw', '4vw'],
-                pointerEvents: 'none'
-              }}/>
-            </Box>
-          </AniLink>
-        ))}
+                <img src={Arrow} alt="arrow" sx={{
+                  width: ['6vw', '6vw', '4vw'],
+                  pointerEvents: 'none'
+                }}/>
+              </Box>
+            </AniLink>
+          )
+        })}
       </Grid>
     </div>
   )
