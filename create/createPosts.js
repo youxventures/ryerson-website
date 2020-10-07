@@ -33,9 +33,12 @@ const GET_PAGES = `
     }
 `
 
+// the maximum post count is set in WordPress and
+// in the post.js GraphQL query
+
 const allPosts = []
 let postNumber = 0
-const itemsPerPost = 20
+const itemsPerPost = 30
 
 /**
  * This is the export which Gatbsy will use to process.

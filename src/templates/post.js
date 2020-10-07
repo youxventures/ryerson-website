@@ -22,7 +22,7 @@ const Post = ({ pageContext }) => {
               }
             }
           }
-          posts(first: 18) {
+          posts(first: 30) {
             nodes {
               id
               title
@@ -79,6 +79,7 @@ const Post = ({ pageContext }) => {
     const categoryPosts = posts
       .filter(post => post.categories.nodes[0].name.includes(postCategory))
       .filter(categoryPost => categoryPost.id !== post.id)
+      .slice(0, 2)
 
     return categoryPosts
   }
@@ -99,7 +100,7 @@ const Post = ({ pageContext }) => {
     if (blockQuotes) {
       blockQuotes.forEach(quote => {
         quote.style.opacity = 0
-        quote.style.transition = 'opacity 1.75s ease-in-out .5s'
+        quote.style.transition = 'opacity 1.75s ease-in-out .25s'
       })
 
       const handleScroll = () => {
@@ -135,13 +136,14 @@ const Post = ({ pageContext }) => {
             </Heading>
 
             <Flex sx={{ mb: 5, justifyContent: 'space-between', flexDirection: ['column', 'row', 'row'] }}>
-              {relatedArticles().map((article, i) => {
-                return i === 2 ? null : (
+              {relatedArticles().map(article => {
+                return (
                   <AniLink
                     key={article.id}
                     paintDrip to={article.uri}
                     hex="#fff"
                     sx={{
+                      flex: 1,
                       display: 'flex',
                       flexDirection: ['column', 'column', 'row'],
                       alignItems: 'center',
@@ -177,6 +179,7 @@ const Post = ({ pageContext }) => {
 
                     <Box sx={{ mt: [3, 3, 0], mr: [0, 3, '24px'], ml: [0, 3, 0] }}>
                       <Heading sx={{
+                        maxWidth: '760px',
                         m: 0,
                         fontSize: '22px',
                         fontFamily: 'serif',
