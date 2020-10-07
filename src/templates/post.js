@@ -1,5 +1,6 @@
 /** @jsx jsx */
 import { jsx, Container, Flex, Box, Heading } from 'theme-ui'
+import { useEffect } from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import SEO from '../components/SEO'
@@ -75,19 +76,49 @@ const Post = ({ pageContext }) => {
 
   const relatedArticles = () => {
     const posts = wpgraphql.posts.nodes
-    const categoryPosts = posts.filter(post =>
-      post.categories.nodes[0].name.includes(postCategory)
-    )
+    const categoryPosts = posts
+      .filter(post => post.categories.nodes[0].name.includes(postCategory))
+      .filter(categoryPost => categoryPost.id !== post.id)
 
-    return categoryPosts.filter(categoryPost => categoryPost.id !== post.id)
+    return categoryPosts
   }
+
+  const isInViewport = element => {
+    const bounding = element.getBoundingClientRect()
+
+    return (
+      bounding.top >= 0 &&
+      bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight)
+    )
+  }
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return
+    const blockQuotes = document.querySelectorAll('blockquote')
+
+    if (blockQuotes) {
+      blockQuotes.forEach(quote => {
+        quote.style.opacity = 0
+        quote.style.transition = 'opacity 1.75s ease-in-out .5s'
+      })
+
+      const handleScroll = () => {
+        blockQuotes.forEach(quote => {
+          if (isInViewport(quote)) quote.style.opacity = 1
+        })
+      }
+
+      window.addEventListener('scroll', handleScroll, { passive: true })
+
+      return () => window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
 
   return (
     <Layout absoluteHeader>
       <SEO title={post.title} slug={post.uri} />
 
       <Container sx={{ px: '1.5rem', marginTop: '-130px' }}>
-        <h1>{post.title}</h1>
         <div dangerouslySetInnerHTML={{__html: post.content}} />
       </Container>
 

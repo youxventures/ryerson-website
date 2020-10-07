@@ -2,10 +2,6 @@
   margin-top: -150px;
 }*/
 
-main > div > h1 {
-  display: none;
-}
-
 .article-banner {
   margin-left: calc(-100vw / 2 + 50%);
   margin-right: calc(-100vw / 2 + 50%);
