@@ -1,13 +1,3 @@
-/*h1.about-heading {
-  display: block;
-  font-family: "lyon", times new roman, serif;
-  font-weight: bold;
-  font-size: 3rem;
-  line-height: 1.2em;
-  margin: 1rem 10% 1rem 0;
-  flex-basis: 40%;
-}*/
-
 .about-banner {
   margin-left: calc(-100vw / 2 + 50%);
   margin-right: calc(-100vw / 2 + 50%);
@@ -119,13 +109,24 @@
 }
 
 @media (max-width: 800px) {
+  
   .about-content .lead {
     flex-flow: column;
   }
+
   .about-content .lead h1 {
     margin-right: 0;
+    font-size: 2.4rem;
+    margin-top: 0.5rem;
   }
+
+  .about-content p {
+  	font-size: 20px;
+    line-height: 1.4em;
+  }
+
   .about-content .about-links > div {
     flex: 0 0 100%;
   }
+
 }
