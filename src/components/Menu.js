@@ -109,7 +109,7 @@ export default ({ showMenu, setShowMenu, homePage, absoluteHeader }) => {
         as="nav"
         role="navigation"
         ref={menuRef}
-        columns={[1, 1, 2]}
+        columns={[1, 2, 2]}
         gap={0}
         sx={{
           position: 'absolute',
@@ -173,14 +173,14 @@ export default ({ showMenu, setShowMenu, homePage, absoluteHeader }) => {
                 }}
               >
                 <Img fluid={menuItemIcons[i].childImageSharp.fluid} sx={{
-                  width: ['17.5vw', '17.5vw', '10vw'],
-                  height: ['17.5vw', '17.5vw', '10vw'],
+                  width: ['17.5vw', '10vw', '10vw'],
+                  height: ['17.5vw', '10vw', '10vw'],
                   mr: 0
                 }} />
 
                 <Heading dangerouslySetInnerHTML={{__html: title}} sx={{
                   width: ['56%', '50%', '56%'],
-                  fontSize: ['6vw', '5vw', '3.15vw'],
+                  fontSize: ['6vw', '3vw', '3.15vw'],
                   lineHeight: 1.05,
                   fontFamily: 'serif',
                   fontWeight: 'bold'
