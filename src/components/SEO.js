@@ -30,7 +30,9 @@ const SEO = ({ title, slug, isBlogPost }) => {
         {/* General tags */}
         <title>{pageTitle}</title>
         <meta name="description" content={description} />
+        <meta name="image" content={image} />
         <meta name="google-site-verification" content="QzUqFUXSVtaGAsLuUARenYCFKFMfIEbEFi6IvUKaKVM" />
+        <link rel="canonical" href={pageUrl} />
 
         {/* OpenGraph tags */}
         <meta property="og:title" content={pageTitle} />
@@ -39,8 +41,12 @@ const SEO = ({ title, slug, isBlogPost }) => {
         <meta property="og:url" content={pageUrl} />
         <meta property="og:image" content={image} />
 
-        {/* Canonical */}
-        <link rel="canonical" href={pageUrl} />
+        {/* Twitter Card tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:creator" content="@RyersonU" />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={description} />
+        <meta name="twitter:image" content={image} />
       </Helmet>
     </React.Fragment>
   )
