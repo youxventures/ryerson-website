@@ -24,6 +24,8 @@ const SEO = ({ title, slug }) => {
   const pageTitle = title || site.siteMetadata.title
   const pageUrl = slug ? `${url}${slug}` : url
 
+  const socialImage = 'https://media-ryu.youxventures.com/wp-content/uploads/2020/10/social.jpg'
+
   return (
     <React.Fragment>
       <Helmet titleTemplate="%s - Ryerson University">
@@ -36,7 +38,7 @@ const SEO = ({ title, slug }) => {
         <meta property="og:title" content={pageTitle} />
         <meta property="og:description" content={description} />
         <meta property="og:url" content={pageUrl} />
-        <meta property="og:image" content={image} />
+        <meta property="og:image" content={socialImage} />
 
         {/* Canonical */}
         <link rel="canonical" href={pageUrl} />
