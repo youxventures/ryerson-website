@@ -44,7 +44,7 @@ const SEO = ({ title, slug, isBlogPost }) => {
         {/* Twitter Card tags */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:creator" content="@RyersonU" />
-        <meta name="twitter:title" content={title} />
+        <meta name="twitter:title" content={pageTitle} />
         <meta name="twitter:description" content={description} />
         <meta name="twitter:image" content={image} />
       </Helmet>
