@@ -1,6 +1,21 @@
-import React from 'react'
+const React = require('react')
+const { Helmet } = require('react-helmet')
 
-export const onRenderBody = ({ setPostBodyComponents }) => {
+exports.onRenderBody = (
+  { setHeadComponents, setHtmlAttributes, setBodyAttributes, setPostBodyComponents },
+  pluginOptions
+) => {
+  const helmet = Helmet.renderStatic()
+  setHtmlAttributes(helmet.htmlAttributes.toComponent())
+  setBodyAttributes(helmet.bodyAttributes.toComponent())
+  setHeadComponents([
+    helmet.title.toComponent(),
+    helmet.link.toComponent(),
+    helmet.meta.toComponent(),
+    helmet.noscript.toComponent(),
+    helmet.script.toComponent(),
+    helmet.style.toComponent(),
+  ])
   setPostBodyComponents([
     <script
       key="https://www.youtube.com/iframe_api"
@@ -9,14 +24,16 @@ export const onRenderBody = ({ setPostBodyComponents }) => {
   ])
 }
 
-export const onPreRenderHTML = ({ getHeadComponents, replaceHeadComponents }) => {
+exports.onPreRenderHTML = ({ getHeadComponents, replaceHeadComponents }) => {
   const headComponents = getHeadComponents()
 
-  headComponents.sort((a, b) => {
-    if (a.props && a.props["data-react-helmet"]) {
-      return 0
-    }
+  headComponents.sort((x, y) => {
+    if (x.props && x.props["data-react-helmet"]) {
+      return -1
+    } else if (y.props && y.props["data-react-helmet"]) {
       return 1
+    }
+    return 0
   })
 
   replaceHeadComponents(headComponents)
