@@ -2,7 +2,7 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
 
-const SEO = ({ title, slug }) => {
+const SEO = ({ title, slug, isBlogPost }) => {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -24,8 +24,6 @@ const SEO = ({ title, slug }) => {
   const pageTitle = title || site.siteMetadata.title
   const pageUrl = slug ? `${url}${slug}` : url
 
-  const socialImage = 'https://media-ryu.youxventures.com/wp-content/uploads/2020/10/social.jpg'
-
   return (
     <React.Fragment>
       <Helmet titleTemplate="%s - Ryerson University">
@@ -36,9 +34,10 @@ const SEO = ({ title, slug }) => {
 
         {/* OpenGraph tags */}
         <meta property="og:title" content={pageTitle} />
+        {isBlogPost ? <meta property="og:type" content="article" /> : null}
         <meta property="og:description" content={description} />
         <meta property="og:url" content={pageUrl} />
-        <meta property="og:image" content={socialImage} />
+        <meta property="og:image" content={image} />
 
         {/* Canonical */}
         <link rel="canonical" href={pageUrl} />

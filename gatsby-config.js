@@ -17,7 +17,7 @@ module.exports = {
     author: `Ryerson University`,
     url: `https://innovation.ryerson.ca`,
     siteUrl: `https://innovation.ryerson.ca`,
-    image: "/social.jpg",
+    image: "https://media-ryu.youxventures.com/wp-content/uploads/2020/10/social.jpg",
   },
   plugins: [
     `gatsby-plugin-theme-ui`,
