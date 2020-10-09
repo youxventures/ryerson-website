@@ -1,11 +1,9 @@
-const React = require('react')
-const { Helmet } = require('react-helmet')
+import React from 'react'
+import { Helmet } from 'react-helmet'
 
-exports.onRenderBody = (
-  { setHeadComponents, setHtmlAttributes, setBodyAttributes, setPostBodyComponents },
-  pluginOptions
-) => {
+export const onRenderBody = ({ setHeadComponents, setHtmlAttributes, setBodyAttributes, setPostBodyComponents }, pluginOptions) => {
   const helmet = Helmet.renderStatic()
+
   setHtmlAttributes(helmet.htmlAttributes.toComponent())
   setBodyAttributes(helmet.bodyAttributes.toComponent())
   setHeadComponents([
@@ -24,7 +22,7 @@ exports.onRenderBody = (
   ])
 }
 
-exports.onPreRenderHTML = ({ getHeadComponents, replaceHeadComponents }) => {
+export const onPreRenderHTML = ({ getHeadComponents, replaceHeadComponents }) => {
   const headComponents = getHeadComponents()
 
   headComponents.sort((x, y) => {
