@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { Container } from 'theme-ui'
 import Layout from '../components/Layout'
+import SEO from '../components/SEO'
 import '../styles/article.css'
 
 export default () => {
@@ -10,6 +11,8 @@ export default () => {
 
   return (
     <Layout absoluteHeader>
+			<SEO title="From the President" slug="/from-the-president" />
+
       <Container sx={{ mt: '-130px' }}>
         <div className="article-banner">
 					<picture>

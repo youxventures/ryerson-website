@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { Container } from 'theme-ui'
 import Layout from '../components/Layout'
+import SEO from '../components/SEO'
 import PillarLinks from '../components/PillarLinks'
 import '../styles/about.css'
 
@@ -11,6 +12,8 @@ export default () => {
 
   return (
     <Layout absoluteHeader>
+			<SEO title="About" slug="/about" />
+
       <Container sx={{ mt: '-130px' }}>
 	      <div className="about-banner">
 					<picture>
