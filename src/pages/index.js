@@ -1,8 +1,10 @@
 /** @jsx jsx */
+import React from 'react'
 import { jsx, Container, Box, Heading, Text } from 'theme-ui'
 import { useStaticQuery, graphql, Link } from 'gatsby'
 import { useEffect, useRef, useState } from 'react'
 import useWindowSize from '../hooks/useWindowSize'
+import SEO from '../components/SEO'
 import Img from 'gatsby-image'
 import Menu from '../components/Menu'
 import PillarLinks from '../components/PillarLinks'
@@ -175,178 +177,182 @@ export default () => {
   }
 
   return (
-    <Box sx={{ position: 'relative' }}>
-      <h1 sx={{
-        fontSize: '0px',
-        width: '1px',
-        height: '1px',
-        display: 'inline-block',
-        overflow: 'hidden',
-        position: 'absolute !important',
-        border: '0 !important',
-        padding: '0 !important',
-        margin: '0 !important',
-        clip: 'rect(1px,1px,1px,1px)',
-      }}>
-        A World of Innovation - Ryerson University
-      </h1>
+    <React.Fragment>
+      <SEO />
 
-      <header sx={{
-        position: 'fixed',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        width: '100%',
-        height: ['96px', '130px', '130px'],
-        zIndex: 10,
-        backgroundColor: showMenu ? 'white' : 'transparent',
-        transition: 'background-color .5s ease-in-out',
-      }}>
-        <Container sx={{
+      <Box sx={{ position: 'relative' }}>
+        <h1 sx={{
+          fontSize: '0px',
+          width: '1px',
+          height: '1px',
+          display: 'inline-block',
+          overflow: 'hidden',
+          position: 'absolute !important',
+          border: '0 !important',
+          padding: '0 !important',
+          margin: '0 !important',
+          clip: 'rect(1px,1px,1px,1px)',
+        }}>
+          A World of Innovation - Ryerson University
+        </h1>
+
+        <header sx={{
+          position: 'fixed',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          width: '100%'
+          width: '100%',
+          height: ['96px', '130px', '130px'],
+          zIndex: 10,
+          backgroundColor: showMenu ? 'white' : 'transparent',
+          transition: 'background-color .5s ease-in-out',
         }}>
-          <Link to="/">
-            <img src={Logo} alt="logo" sx={{ width: ['110px', '120px'] }} />
-          </Link>
-
-          <Menu showMenu={showMenu} setShowMenu={setShowMenu} homePage={true} />
-        </Container>
-      </header>
-
-      <Box sx={{
-        position: 'relative',
-        height: '100vh',
-        display: 'flex',
-        alignItems: 'flex-end',
-        backgroundColor: '#8bd4f7'
-      }}>
-        <Box ref={animationRef} sx={{
-          position: 'absolute',
-          width: isLandscape ? '600px' : '900px',
-          left: isLandscape ? '50%' : '-60%',
-          transform: isLandscape ? 'translateX(-50%)' : null,
-          mb: '-12px',
-          opacity: 0,
-          transition: 'opacity 1.5s ease-in-out',
-          transitionDelay: '1s',
-        }}>
-        </Box>
-        <Container sx={{
-          position: 'absolute',
-          top: '120px',
-          left: 0
-        }}>
-          <Heading ref={heading1Ref} sx={{
-            fontSize: ['4vh', '1.5rem', '2.5rem'],
-            fontFamily: 'serif',
-            fontWeight: 'bold',
-            transition: 'opacity 1.5s ease-in-out',
-            transitionDelay: '1s',
-            opacity: 0,
-            maxWidth: isLandscape ? '320px' : '300px',
+          <Container sx={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            width: '100%'
           }}>
-            To us, innovation means building a brighter future for everyone.
-          </Heading>
-        </Container>
-      </Box>
+            <Link to="/">
+              <img src={Logo} alt="logo" sx={{ width: ['110px', '120px'] }} />
+            </Link>
 
-      {images.map(({ image, heading, bgColor, textColor }, i) => (
-        <Box key={i} sx={{
+            <Menu showMenu={showMenu} setShowMenu={setShowMenu} homePage={true} />
+          </Container>
+        </header>
+
+        <Box sx={{
           position: 'relative',
           height: '100vh',
           display: 'flex',
           alignItems: 'flex-end',
-          backgroundColor: bgColor
+          backgroundColor: '#8bd4f7'
         }}>
-          <Img fluid={image.childImageSharp.fluid} sx={{
-            display: 'block',
-            width: '100%',
-            margin: isLandscape ? '5% 5% 0' : null,
-            height: isLandscape ? '100%' :'75%'
-          }} />
+          <Box ref={animationRef} sx={{
+            position: 'absolute',
+            width: isLandscape ? '600px' : '900px',
+            left: isLandscape ? '50%' : '-60%',
+            transform: isLandscape ? 'translateX(-50%)' : null,
+            mb: '-12px',
+            opacity: 0,
+            transition: 'opacity 1.5s ease-in-out',
+            transitionDelay: '1s',
+          }}>
+          </Box>
           <Container sx={{
             position: 'absolute',
-            top: isLandscape ? '50px' : '70px'
+            top: '120px',
+            left: 0
           }}>
-            <Heading sx={{
+            <Heading ref={heading1Ref} sx={{
               fontSize: ['4vh', '1.5rem', '2.5rem'],
               fontFamily: 'serif',
               fontWeight: 'bold',
-              transition: 'opacity 2.5s ease-in-out',
-              willChange: 'opacity',
-              color: textColor,
-              maxWidth: isLandscape ? '290px' : null
+              transition: 'opacity 1.5s ease-in-out',
+              transitionDelay: '1s',
+              opacity: 0,
+              maxWidth: isLandscape ? '320px' : '300px',
             }}>
-              {heading}
+              To us, innovation means building a brighter future for everyone.
             </Heading>
           </Container>
         </Box>
-      ))}
 
-      <Box sx={{
-        backgroundColor: '#fff',
-        transition: 'opacity 2.5s ease-in-out',
-        willChange: 'opacity'
-      }}>
-        <Container id="homepage_video" sx={{ width: '100%' }}>
-          <Heading sx={{
-            mt: '100px',
-            mb: '60px',
-            fontFamily: 'serif',
-            fontWeight: 'bold',
-            fontSize: isLandscape ? '28px' : '30px'
-          }}>
-            Watch our vision for the future unfold:
-          </Heading>
-
-          <Box sx={{
+        {images.map(({ image, heading, bgColor, textColor }, i) => (
+          <Box key={i} sx={{
             position: 'relative',
-            paddingBottom: '56.25%',
-            overflow: 'hidden',
-            maxWidth: '100%',
-            height: 0
+            height: '100vh',
+            display: 'flex',
+            alignItems: 'flex-end',
+            backgroundColor: bgColor
           }}>
-            <iframe
-              ref={videoRef}
-              title="Ryerson at a glance"
-              width="100%"
-              src="https://www.youtube.com/embed/0wNNKU30v3Y?enablejsapi=1"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              sx={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                width: '100%',
-                height: '100%'
-              }}
-            />
+            <Img fluid={image.childImageSharp.fluid} sx={{
+              display: 'block',
+              width: '100%',
+              margin: isLandscape ? '5% 5% 0' : null,
+              height: isLandscape ? '100%' :'75%'
+            }} />
+            <Container sx={{
+              position: 'absolute',
+              top: isLandscape ? '50px' : '70px'
+            }}>
+              <Heading sx={{
+                fontSize: ['4vh', '1.5rem', '2.5rem'],
+                fontFamily: 'serif',
+                fontWeight: 'bold',
+                transition: 'opacity 2.5s ease-in-out',
+                willChange: 'opacity',
+                color: textColor,
+                maxWidth: isLandscape ? '290px' : null
+              }}>
+                {heading}
+              </Heading>
+            </Container>
           </Box>
+        ))}
 
-          <Text sx={{
-            mt: '1.25rem',
-            fontSize: '1rem',
-            'span': {
+        <Box sx={{
+          backgroundColor: '#fff',
+          transition: 'opacity 2.5s ease-in-out',
+          willChange: 'opacity'
+        }}>
+          <Container id="homepage_video" sx={{ width: '100%' }}>
+            <Heading sx={{
+              mt: '100px',
+              mb: '60px',
+              fontFamily: 'serif',
+              fontWeight: 'bold',
+              fontSize: isLandscape ? '28px' : '30px'
+            }}>
+              Watch our vision for the future unfold:
+            </Heading>
+
+            <Box sx={{
+              position: 'relative',
+              paddingBottom: '56.25%',
+              overflow: 'hidden',
+              maxWidth: '100%',
+              height: 0
+            }}>
+              <iframe
+                ref={videoRef}
+                title="Ryerson at a glance"
+                width="100%"
+                src="https://www.youtube.com/embed/0wNNKU30v3Y?enablejsapi=1"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                sx={{
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  width: '100%',
+                  height: '100%'
+                }}
+              />
+            </Box>
+
+            <Text sx={{
+              mt: '1.25rem',
+              fontSize: '1rem',
+              'span': {
+                fontWeight: 'bold'
+              }
+            }}>Narrated by Ryerson Honorary Doctorate <span>Eric McCormack</span></Text>
+
+            <Heading sx={{
+              my: 6,
+              fontSize: ['30px', '32px', '36px'],
               fontWeight: 'bold'
-            }
-          }}>Narrated by Ryerson Honorary Doctorate <span>Eric McCormack</span></Text>
+            }}>
+              Our research and innovation is focused on key areas with the potential to improve life for people here and around the globe.
+            </Heading>
 
-          <Heading sx={{
-            my: 6,
-            fontSize: ['30px', '32px', '36px'],
-            fontWeight: 'bold'
-          }}>
-            Our research and innovation is focused on key areas with the potential to improve life for people here and around the globe.
-          </Heading>
-
-          <PillarLinks />
-        </Container>
-        <Footer />
+            <PillarLinks />
+          </Container>
+          <Footer />
+        </Box>
       </Box>
-    </Box>
+    </React.Fragment>
   )
 }
