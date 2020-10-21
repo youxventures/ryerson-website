@@ -47,7 +47,8 @@ export default ({ pageContext, transitionStatus }) => {
       title,
       content,
       uri,
-      pageSettings: { articles, color, pageId }
+      featuredImage,
+      pageSettings: { articles, color, pageId, linkText }
     }
   } = pageContext
 
@@ -104,7 +105,12 @@ export default ({ pageContext, transitionStatus }) => {
 
   return (
     <Layout bgColor={color}>
-      <SEO title={pageTitle} slug={uri} />
+      <SEO
+        title={pageTitle}
+        slug={uri}
+        description={linkText}
+        image={featuredImage && featuredImage.sourceUrl}
+      />
 
       <Box sx={{
         position: 'relative',

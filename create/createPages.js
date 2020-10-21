@@ -23,6 +23,9 @@ const GET_PAGES = `
                     uri
                     slug
                     isFrontPage
+                    featuredImage {
+                      sourceUrl
+                    }
                     pageSettings {
                         color
                         order

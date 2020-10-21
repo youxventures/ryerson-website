@@ -35,6 +35,10 @@ const Post = ({ pageContext }) => {
               postSettings {
                 iconBackgroundColor
                 iconHoverColor
+                linkText
+                linkImage {
+                  sourceUrl
+                }
               }
               categories {
                 nodes {
@@ -117,7 +121,13 @@ const Post = ({ pageContext }) => {
 
   return (
     <Layout absoluteHeader>
-      <SEO title={post.title} slug={post.uri} isBlogPost />
+      <SEO
+        title={post.title}
+        slug={post.uri}
+        description={post.postSettings.linkText}
+        image={post.postSettings.linkImage && post.postSettings.linkImage.sourceUrl}
+        isBlogPost
+      />
 
       <Container sx={{ px: '1.5rem', marginTop: '-130px' }}>
         <div dangerouslySetInnerHTML={{__html: post.content}} />

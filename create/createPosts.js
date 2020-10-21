@@ -22,6 +22,13 @@ const GET_PAGES = `
                     content
                     uri
                     slug
+                    excerpt
+                    postSettings {
+                      linkText
+                      linkImage {
+                        sourceUrl
+                      }
+                    }
                     categories {
                       nodes {
                         name
